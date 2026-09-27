@@ -4,131 +4,1026 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>National Lock Supply | NLS</title>
+<title>National Lock Supply | Locks, Hardware & Access Control</title>
 
-<meta
-name="description"
-content="National Lock Supply — professional locks, door hardware, access control and installation."
->
+<style>
+:root{
+--orange:#ff5a00;
+--orange2:#ff7a00;
+--black:#080d11;
+--dark:#121a21;
+--gray:#f4f5f6;
+--line:#dfe3e7;
+--text:#111820;
+--muted:#68737d;
+--green:#16883d;
+}
 
-<link rel="stylesheet" href="styles.css">
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+color:var(--text);
+background:#fff;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+button,
+input,
+select{
+font:inherit;
+}
+
+.container{
+width:min(1240px,94%);
+margin:auto;
+}
+
+/* TOP BAR */
+
+.topbar{
+background:var(--orange);
+color:white;
+text-align:center;
+font-size:13px;
+font-weight:800;
+padding:9px 10px;
+}
+
+/* HEADER */
+
+header{
+background:var(--black);
+color:white;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.header{
+min-height:82px;
+display:flex;
+align-items:center;
+gap:22px;
+}
+
+.logo{
+font-size:34px;
+font-weight:1000;
+letter-spacing:-3px;
+line-height:.8;
+}
+
+.logo span{
+color:var(--orange);
+}
+
+.logo small{
+display:block;
+color:#ff7a32;
+font-size:8px;
+letter-spacing:2px;
+margin-top:9px;
+font-weight:900;
+}
+
+.search{
+flex:1;
+display:flex;
+height:48px;
+}
+
+.search input{
+flex:1;
+border:0;
+outline:0;
+padding:0 18px;
+border-radius:8px 0 0 8px;
+font-size:15px;
+}
+
+.search button{
+width:60px;
+border:0;
+background:var(--orange);
+color:white;
+font-size:23px;
+border-radius:0 8px 8px 0;
+cursor:pointer;
+}
+
+.account{
+font-size:13px;
+font-weight:900;
+white-space:nowrap;
+}
+
+.account small{
+display:block;
+color:#ff8a4d;
+margin-top:4px;
+}
+
+.cart-button{
+background:#151e25;
+color:white;
+border:1px solid #35434d;
+border-radius:8px;
+padding:12px 15px;
+font-weight:900;
+cursor:pointer;
+}
+
+.cart-count{
+background:var(--orange);
+border-radius:50%;
+padding:3px 7px;
+}
+
+/* NAVIGATION */
+
+.navigation{
+background:#172129;
+color:white;
+}
+
+.navigation .container{
+display:flex;
+overflow:auto;
+}
+
+.navigation a{
+padding:14px 16px;
+white-space:nowrap;
+font-size:13px;
+font-weight:900;
+}
+
+.navigation a:hover{
+background:var(--orange);
+}
+
+/* HERO */
+
+.hero{
+background:#080e13;
+color:white;
+}
+
+.hero-inner{
+min-height:520px;
+display:grid;
+grid-template-columns:1fr 1fr;
+}
+
+.hero-content{
+padding:75px 0;
+}
+
+.eyebrow{
+color:var(--orange);
+font-size:12px;
+letter-spacing:4px;
+font-weight:1000;
+}
+
+.hero h1{
+font-size:clamp(44px,6vw,72px);
+line-height:.92;
+letter-spacing:-4px;
+margin:18px 0;
+}
+
+.hero h1 span{
+color:var(--orange);
+}
+
+.hero p{
+color:#d5dce0;
+font-size:19px;
+line-height:1.55;
+max-width:600px;
+}
+
+.hero-buttons{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:28px;
+}
+
+.button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:15px 21px;
+border-radius:8px;
+border:0;
+font-weight:1000;
+cursor:pointer;
+}
+
+.orange-button{
+background:var(--orange);
+color:white;
+}
+
+.dark-button{
+background:#151f27;
+color:white;
+border:1px solid #5b6872;
+}
+
+.checks{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+margin-top:22px;
+font-size:13px;
+font-weight:800;
+}
+
+.hero-image{
+background:
+linear-gradient(90deg,#080e13 0%,rgba(8,14,19,.2)),
+url("https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=1200&q=85")
+center/cover;
+}
+
+/* FEATURES */
+
+.features{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+border-bottom:1px solid var(--line);
+box-shadow:0 3px 12px #00000010;
+}
+
+.feature{
+text-align:center;
+padding:18px 8px;
+border-right:1px solid var(--line);
+font-size:13px;
+font-weight:900;
+}
+
+.feature-icon{
+display:block;
+color:var(--orange);
+font-size:25px;
+margin-bottom:5px;
+}
+
+.feature span{
+display:block;
+color:var(--muted);
+font-size:11px;
+margin-top:4px;
+font-weight:600;
+}
+
+/* SECTIONS */
+
+.section{
+padding:58px 0;
+}
+
+.section-heading{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:20px;
+}
+
+.section h2{
+font-size:34px;
+margin-top:8px;
+}
+
+.view-all{
+color:var(--orange);
+font-weight:900;
+}
+
+/* CATEGORIES */
+
+.categories{
+display:grid;
+grid-template-columns:repeat(8,1fr);
+gap:12px;
+margin-top:25px;
+}
+
+.category{
+background:white;
+border:1px solid var(--line);
+border-radius:10px;
+padding:14px 8px;
+text-align:center;
+cursor:pointer;
+transition:.2s;
+}
+
+.category:hover{
+transform:translateY(-3px);
+border-color:var(--orange);
+box-shadow:0 8px 20px #00000012;
+}
+
+.category-icon{
+height:80px;
+display:grid;
+place-items:center;
+font-size:42px;
+}
+
+.category strong{
+font-size:12px;
+}
+
+.category small{
+display:block;
+color:var(--orange);
+font-weight:900;
+margin-top:6px;
+}
+
+/* PRODUCTS */
+
+.shop{
+background:var(--gray);
+}
+
+.filters{
+display:flex;
+gap:10px;
+}
+
+.filters select{
+border:1px solid var(--line);
+background:white;
+border-radius:8px;
+padding:11px 13px;
+font-weight:700;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
+margin-top:25px;
+}
+
+.product-card{
+background:white;
+border:1px solid var(--line);
+border-radius:10px;
+overflow:hidden;
+}
+
+.product-image{
+height:230px;
+background:#f8f8f8;
+display:grid;
+place-items:center;
+position:relative;
+}
+
+.product-tag{
+position:absolute;
+top:10px;
+left:10px;
+background:var(--orange);
+color:white;
+border-radius:4px;
+padding:5px 8px;
+font-size:10px;
+font-weight:1000;
+}
+
+.product-icon{
+font-size:100px;
+filter:drop-shadow(0 12px 10px #0002);
+}
+
+.product-info{
+padding:16px;
+}
+
+.product-category{
+font-size:11px;
+color:#78838c;
+font-weight:900;
+}
+
+.product-info h3{
+font-size:16px;
+line-height:1.25;
+margin:6px 0 8px;
+}
+
+.stars{
+color:#ff9d00;
+}
+
+.price{
+font-size:24px;
+font-weight:1000;
+margin:9px 0;
+}
+
+.stock{
+color:var(--green);
+font-size:12px;
+font-weight:900;
+}
+
+.add-cart{
+width:100%;
+margin-top:11px;
+padding:12px;
+border:0;
+border-radius:7px;
+background:var(--orange);
+color:white;
+font-weight:1000;
+cursor:pointer;
+}
+
+.add-cart:hover{
+background:#e84d00;
+}
+
+/* INSTALLATION */
+
+.installation{
+background:linear-gradient(
+110deg,
+var(--orange) 0%,
+#ff7800 55%,
+#111820 55%
+);
+color:white;
+}
+
+.installation-inner{
+min-height:270px;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+}
+
+.installation h2{
+font-size:40px;
+margin:10px 0;
+}
+
+.installation p{
+max-width:560px;
+line-height:1.5;
+}
+
+.service-cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.service{
+background:#111a21dd;
+border:1px solid #ffffff25;
+border-radius:10px;
+padding:18px;
+}
+
+.service-icon{
+font-size:30px;
+}
+
+.service strong{
+display:block;
+margin-top:8px;
+}
+
+.service span{
+display:block;
+color:#ccd4da;
+font-size:12px;
+margin-top:4px;
+}
+
+/* FOOTER */
+
+footer{
+background:#080d11;
+color:#b5c0c8;
+padding:45px 0;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:35px;
+}
+
+.footer-grid h3{
+color:white;
+margin-bottom:15px;
+}
+
+.footer-grid a{
+display:block;
+margin:10px 0;
+font-size:13px;
+}
+
+.copyright{
+border-top:1px solid #26313a;
+margin-top:30px;
+padding-top:20px;
+font-size:12px;
+}
+
+/* CART DRAWER */
+
+.cart-overlay{
+display:none;
+position:fixed;
+inset:0;
+background:#0008;
+z-index:500;
+}
+
+.cart-overlay.open{
+display:block;
+}
+
+.cart-panel{
+position:absolute;
+right:0;
+top:0;
+width:min(430px,94%);
+height:100%;
+background:white;
+padding:22px;
+overflow:auto;
+}
+
+.cart-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.close-cart{
+border:0;
+background:#eee;
+padding:9px;
+border-radius:7px;
+cursor:pointer;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+gap:12px;
+border-bottom:1px solid var(--line);
+padding:15px 0;
+}
+
+.remove{
+border:0;
+background:none;
+color:#d33;
+cursor:pointer;
+}
+
+.checkout{
+width:100%;
+background:var(--orange);
+color:white;
+border:0;
+padding:14px;
+border-radius:8px;
+font-weight:1000;
+cursor:pointer;
+}
+
+.empty-cart{
+text-align:center;
+color:var(--muted);
+padding:50px 0;
+}
+
+/* MOBILE BAR */
+
+.mobile-bar{
+display:none;
+}
+
+/* TABLET */
+
+@media(max-width:1000px){
+
+.categories{
+grid-template-columns:repeat(4,1fr);
+}
+
+.products{
+grid-template-columns:repeat(3,1fr);
+}
+
+.features{
+grid-template-columns:repeat(3,1fr);
+}
+
+.feature:nth-child(n+4){
+display:none;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+body{
+padding-bottom:62px;
+}
+
+.topbar{
+font-size:11px;
+}
+
+.header{
+display:grid;
+grid-template-columns:auto 1fr auto;
+gap:10px;
+padding:12px 0;
+}
+
+.logo{
+font-size:25px;
+}
+
+.account{
+display:none;
+}
+
+.search{
+grid-column:1/-1;
+grid-row:2;
+}
+
+.navigation{
+display:none;
+}
+
+.hero-inner{
+display:block;
+min-height:0;
+}
+
+.hero-content{
+padding:48px 0 38px;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.hero-image{
+display:none;
+}
+
+.features{
+grid-template-columns:repeat(3,1fr);
+}
+
+.feature{
+padding:13px 4px;
+font-size:10px;
+}
+
+.feature:nth-child(n+4){
+display:none;
+}
+
+.feature-icon{
+font-size:20px;
+}
+
+.section{
+padding:42px 0;
+}
+
+.section h2{
+font-size:29px;
+}
+
+.section-heading{
+align-items:center;
+}
+
+.categories{
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+}
+
+.category{
+padding:8px 4px;
+}
+
+.category-icon{
+height:54px;
+font-size:27px;
+}
+
+.category strong{
+font-size:9px;
+}
+
+.category small{
+font-size:9px;
+}
+
+.products{
+grid-template-columns:repeat(2,1fr);
+gap:9px;
+}
+
+.product-image{
+height:155px;
+}
+
+.product-icon{
+font-size:68px;
+}
+
+.product-info{
+padding:11px;
+}
+
+.product-info h3{
+font-size:14px;
+}
+
+.price{
+font-size:20px;
+}
+
+.installation{
+background:var(--orange);
+}
+
+.installation-inner{
+display:block;
+padding:42px 0;
+}
+
+.installation h2{
+font-size:32px;
+}
+
+.service-cards{
+grid-template-columns:1fr;
+margin-top:25px;
+}
+
+.footer-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.mobile-bar{
+display:flex;
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:white;
+border-top:1px solid var(--line);
+z-index:400;
+box-shadow:0 -5px 20px #0002;
+}
+
+.mobile-bar a{
+flex:1;
+text-align:center;
+padding:9px 4px;
+font-size:10px;
+font-weight:900;
+}
+
+.mobile-bar b{
+display:block;
+color:var(--orange);
+font-size:19px;
+margin-bottom:2px;
+}
+
+}
+
+/* SMALL PHONE */
+
+@media(max-width:430px){
+
+.categories{
+grid-template-columns:repeat(4,1fr);
+}
+
+.category strong{
+font-size:8px;
+}
+
+.products{
+grid-template-columns:repeat(2,1fr);
+}
+
+.search input{
+font-size:12px;
+}
+
+}
+</style>
 </head>
 
 <body>
 
-<header class="topbar">
-<div class="container topbar-inner">
-<div class="brand">NLS<span>®</span></div>
+<!-- TOP BAR -->
 
-<div class="top-message">
-Professional Lock & Door Hardware Supply
+<div class="topbar">
+🚚 FREE SHIPPING ON ORDERS OVER $99
+&nbsp; | &nbsp;
+🔧 PROFESSIONAL INSTALLATION AVAILABLE
 </div>
 
-<a href="tel:+18005550199">
-☎ 1-800-555-0199
-</a>
-</div>
-</header>
+<!-- HEADER -->
 
+<header>
 
-<nav class="navbar">
-
-<div class="container nav-inner">
+<div class="container header">
 
 <a href="#home" class="logo">
-NATIONAL
-<strong>LOCK SUPPLY</strong>
+N<span>L</span>S
+<small>NATIONAL LOCK SUPPLY</small>
 </a>
 
-<div class="nav-links">
-<a href="#shop">Shop</a>
-<a href="#categories">Categories</a>
-<a href="#installation">Installation</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+<div class="search">
+<input
+id="searchInput"
+type="text"
+placeholder="Search locks, deadbolts, access control..."
+>
+<button onclick="searchProducts()">⌕</button>
 </div>
 
-<button class="cart-button" id="cartButton">
+<div class="account">
+👤 Account
+<small>Sign In</small>
+</div>
+
+<button class="cart-button" onclick="openCart()">
 🛒 Cart
-<span id="cartCount">0</span>
+<span class="cart-count" id="cartCount">0</span>
 </button>
+
+</div>
+
+</header>
+
+<!-- NAV -->
+
+<nav class="navigation">
+
+<div class="container">
+
+<a href="#shop">🏠 Shop All</a>
+<a href="#categories">🔑 Door Knobs</a>
+<a href="#categories">🔒 Deadbolts</a>
+<a href="#categories">◉ Mortise Cylinders</a>
+<a href="#categories">⚡ Electric Strikes</a>
+<a href="#categories">▣ Access Control</a>
+<a href="#categories">↔ Push Bars</a>
+<a href="#categories">🔔 Intercoms</a>
+<a href="#categories">📱 Smart Locks</a>
 
 </div>
 
 </nav>
 
-
 <main id="home">
+
+<!-- HERO -->
 
 <section class="hero">
 
-<div class="container hero-grid">
+<div class="container hero-inner">
 
 <div class="hero-content">
 
 <div class="eyebrow">
-LOCKS • HARDWARE • ACCESS CONTROL
+PROFESSIONAL HARDWARE SUPPLY
 </div>
 
 <h1>
-Built for the door.
-<span>Ready for the job.</span>
+LOCKS.
+<span>HARDWARE.</span><br>
+<span>ACCESS CONTROL.</span>
 </h1>
 
 <p>
-Shop professional-grade locks and door hardware,
-then add professional installation when you need it.
+Professional-grade locks, door hardware and access-control products
+for residential and commercial applications.
 </p>
 
 <div class="hero-buttons">
 
-<a href="#shop" class="button primary">
-Shop Hardware
+<a href="#shop" class="button orange-button">
+🔒 SHOP HARDWARE →
 </a>
 
-<a href="#installation" class="button secondary">
-Book Installation
+<a href="#installation" class="button dark-button">
+🛠 BOOK INSTALLATION
 </a>
 
 </div>
 
-<div class="trust">
-
+<div class="checks">
 <span>✓ Residential</span>
 <span>✓ Commercial</span>
 <span>✓ Professional Installation</span>
-
+<span>✓ Top Brands</span>
 </div>
 
 </div>
 
-
-<div class="hero-card">
-
-<div class="lock-icon">
-🔐
-</div>
-
-<h2>
-NLS Hardware Center
-</h2>
-
-<p>
-Deadbolts, knobs, cylinders, electric strikes,
-access control and more.
-</p>
-
-</div>
+<div class="hero-image"></div>
 
 </div>
 
 </section>
 
+<!-- FEATURES -->
 
+<section class="features">
 
-<section id="categories" class="section">
+<div class="feature">
+<span class="feature-icon">🏷</span>
+Top Brands
+<span>Schlage, Kwikset & more</span>
+</div>
+
+<div class="feature">
+<span class="feature-icon">🚚</span>
+Fast Shipping
+<span>Orders over $99</span>
+</div>
+
+<div class="feature">
+<span class="feature-icon">🔧</span>
+Installation
+<span>Residential & commercial</span>
+</div>
+
+<div class="feature">
+<span class="feature-icon">🛡</span>
+Secure Checkout
+<span>Safe payments</span>
+</div>
+
+<div class="feature">
+<span class="feature-icon">☎</span>
+Expert Support
+<span>Hardware assistance</span>
+</div>
+
+</section>
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
 
 <div class="container">
+
+<div class="section-heading">
+
+<div>
 
 <div class="eyebrow">
 SHOP BY CATEGORY
@@ -138,63 +1033,63 @@ SHOP BY CATEGORY
 Find the right hardware
 </h2>
 
+</div>
 
-<div class="category-grid">
+<a href="#shop" class="view-all">
+View All →
+</a>
 
-<a href="#shop" class="category" data-category="Door Knobs">
-<div>◉</div>
+</div>
+
+<div class="categories">
+
+<div class="category" data-category="Door Knobs">
+<div class="category-icon">⚫</div>
 <strong>Door Knobs</strong>
-<small>Residential & commercial</small>
-</a>
+<small>Shop Now →</small>
+</div>
 
-
-<a href="#shop" class="category" data-category="Deadbolts">
-<div>🔒</div>
+<div class="category" data-category="Deadbolts">
+<div class="category-icon">🔘</div>
 <strong>Deadbolts</strong>
-<small>Single & double cylinder</small>
-</a>
+<small>Shop Now →</small>
+</div>
 
-
-<a href="#shop" class="category" data-category="Mortise Cylinders">
-<div>◌</div>
+<div class="category" data-category="Mortise Cylinders">
+<div class="category-icon">🟡</div>
 <strong>Mortise Cylinders</strong>
-<small>Commercial replacements</small>
-</a>
+<small>Shop Now →</small>
+</div>
 
-
-<a href="#shop" class="category" data-category="Electric Strikes">
-<div>⚡</div>
+<div class="category" data-category="Electric Strikes">
+<div class="category-icon">⚡</div>
 <strong>Electric Strikes</strong>
-<small>Access control hardware</small>
-</a>
+<small>Shop Now →</small>
+</div>
 
-
-<a href="#shop" class="category" data-category="Access Control">
-<div>▣</div>
+<div class="category" data-category="Access Control">
+<div class="category-icon">▣</div>
 <strong>Access Control</strong>
-<small>Readers & credentials</small>
-</a>
+<small>Shop Now →</small>
+</div>
 
-
-<a href="#shop" class="category" data-category="Push Bars">
-<div>↔</div>
+<div class="category" data-category="Push Bars">
+<div class="category-icon">↔</div>
 <strong>Push Bars</strong>
-<small>Exit devices</small>
-</a>
+<small>Shop Now →</small>
+</div>
 
-
-<a href="#shop" class="category" data-category="Intercoms">
-<div>🔔</div>
+<div class="category" data-category="Intercoms">
+<div class="category-icon">🔔</div>
 <strong>Intercoms</strong>
-<small>Entry & buzzer systems</small>
-</a>
+<small>Shop Now →</small>
+</div>
 
-
-<a href="#shop" class="category" data-category="Smart Locks">
-<div>📱</div>
+<div class="category" data-category="Smart Locks">
+<div class="category-icon">📱</div>
 <strong>Smart Locks</strong>
-<small>Connected security</small>
-</a>
+<small>Shop Now →</small>
+</div>
 
 </div>
 
@@ -202,13 +1097,13 @@ Find the right hardware
 
 </section>
 
+<!-- PRODUCTS -->
 
-
-<section id="shop" class="section shop">
+<section class="section shop" id="shop">
 
 <div class="container">
 
-<div class="shop-header">
+<div class="section-heading">
 
 <div>
 
@@ -222,108 +1117,81 @@ Featured Hardware
 
 </div>
 
+<div class="filters">
 
-<select id="categoryFilter">
+<select id="categoryFilter" onchange="renderProducts()">
 
-<option value="All Products">
-All Products
-</option>
-
-<option value="Door Knobs">
-Door Knobs
-</option>
-
-<option value="Deadbolts">
-Deadbolts
-</option>
-
-<option value="Mortise Cylinders">
-Mortise Cylinders
-</option>
-
-<option value="Electric Strikes">
-Electric Strikes
-</option>
-
-<option value="Access Control">
-Access Control
-</option>
-
-<option value="Push Bars">
-Push Bars
-</option>
-
-<option value="Intercoms">
-Intercoms
-</option>
-
-<option value="Smart Locks">
-Smart Locks
-</option>
+<option>All Products</option>
+<option>Door Knobs</option>
+<option>Deadbolts</option>
+<option>Mortise Cylinders</option>
+<option>Electric Strikes</option>
+<option>Access Control</option>
+<option>Push Bars</option>
+<option>Intercoms</option>
+<option>Smart Locks</option>
 
 </select>
 
 </div>
 
+</div>
 
-<div id="productGrid" class="product-grid"></div>
+<div class="products" id="products"></div>
 
 </div>
 
 </section>
 
+<!-- INSTALLATION -->
 
+<section class="installation" id="installation">
 
-<section id="installation" class="installation">
-
-<div class="container installation-grid">
+<div class="container installation-inner">
 
 <div>
 
-<div class="eyebrow">
-HARDWARE + SERVICE
+<div class="eyebrow" style="color:white">
+NLS INSTALLATION SERVICES
 </div>
 
 <h2>
-Need it installed?
+NEED IT INSTALLED?
 </h2>
 
 <p>
-Order your hardware and request professional installation.
-NLS can help with residential doors, commercial openings,
-access control and replacement hardware.
+Order your hardware from NLS and request professional installation
+for residential doors, commercial openings and access-control systems.
 </p>
 
-<a
-href="mailto:service@nationallocksupply.com?subject=Installation Request"
-class="button primary"
->
-Request Installation
+<br>
+
+<a href="#contact"
+class="button"
+style="background:#111;color:white;">
+Schedule Installation →
 </a>
 
 </div>
 
+<div class="service-cards">
 
-<div class="steps">
-
-<div>
-<b>01</b>
-<strong>Choose your hardware</strong>
-<span>Browse NLS products.</span>
+<div class="service">
+<div class="service-icon">🏠</div>
+<strong>Residential</strong>
+<span>Homes, rentals & properties</span>
 </div>
 
-
-<div>
-<b>02</b>
-<strong>Tell us about the door</strong>
-<span>Send measurements or photos.</span>
+<div class="service">
+<div class="service-icon">🏢</div>
+<strong>Commercial</strong>
+<span>Businesses & offices</span>
 </div>
 
-
-<div>
-<b>03</b>
-<strong>Schedule service</strong>
-<span>We'll coordinate installation.</span>
+<div class="service">
+<div class="service-icon">⚙️</div>
+<strong>Access Control</strong>
+<span>Complete systems</span>
 </div>
 
 </div>
@@ -332,39 +1200,563 @@ Request Installation
 
 </section>
 
+<!-- CONTACT -->
 
+<section class="section" id="contact">
 
-<section id="about" class="section">
+<div class="container">
 
-<div class="container about-grid">
+<div class="section-heading">
 
 <div>
 
 <div class="eyebrow">
-ABOUT NLS
+NATIONAL LOCK SUPPLY
 </div>
 
 <h2>
-Professional hardware
-without the guesswork.
+Ready to secure the opening?
 </h2>
+
+<p style="color:var(--muted);margin-top:8px;">
+Shop hardware online or request professional installation.
+</p>
 
 </div>
 
+<a href="#shop" class="button orange-button">
+SHOP HARDWARE →
+</a>
 
-<p>
-National Lock Supply is a one-stop source for locks,
-door hardware and access-control components.
-The NLS store is designed for homeowners,
-property managers, contractors and businesses.
-</p>
+</div>
 
 </div>
 
 </section>
 
+</main>
 
+<!-- FOOTER -->
 
-<section id="contact" class="contact">
+<footer>
 
+<div class="container footer-grid">
 
+<div>
+
+<div class="logo">
+N<span>L</span>S
+<small>NATIONAL LOCK SUPPLY</small>
+</div>
+
+<p style="margin-top:15px;">
+Locks • Hardware • Access Control
+</p>
+
+</div>
+
+<div>
+
+<h3>Shop</h3>
+
+<a href="#categories">Door Knobs</a>
+<a href="#categories">Deadbolts</a>
+<a href="#categories">Electric Strikes</a>
+<a href="#categories">Smart Locks</a>
+
+</div>
+
+<div>
+
+<h3>Services</h3>
+
+<a href="#installation">Installation</a>
+<a href="#installation">Residential</a>
+<a href="#installation">Commercial</a>
+<a href="#installation">Access Control</a>
+
+</div>
+
+<div>
+
+<h3>Help</h3>
+
+<a href="#contact">Contact NLS</a>
+<a href="#shop">Shipping</a>
+<a href="#shop">Returns</a>
+
+</div>
+
+</div>
+
+<div class="container copyright">
+
+© 2026 National Lock Supply. All rights reserved.
+
+</div>
+
+</footer>
+
+<!-- CART -->
+
+<div class="cart-overlay" id="cartOverlay">
+
+<div class="cart-panel">
+
+<div class="cart-header">
+
+<h2>Your Cart</h2>
+
+<button
+class="close-cart"
+onclick="closeCart()">
+✕
+</button>
+
+</div>
+
+<div id="cartItems"></div>
+
+<div id="cartTotal"></div>
+
+</div>
+
+</div>
+
+<!-- MOBILE NAV -->
+
+<div class="mobile-bar">
+
+<a href="#home">
+<b>⌂</b>
+Home
+</a>
+
+<a href="#categories">
+<b>☰</b>
+Categories
+</a>
+
+<a href="#shop">
+<b>🛍</b>
+Shop
+</a>
+
+<a href="#installation">
+<b>🔧</b>
+Install
+</a>
+
+<a href="javascript:openCart()">
+<b>🛒</b>
+Cart
+</a>
+
+</div>
+
+<script>
+
+const products = [
+
+{
+name:"Schlage B60 Single Cylinder Deadbolt",
+category:"Deadbolts",
+price:39.99,
+icon:"🔘",
+tag:"BEST SELLER"
+},
+
+{
+name:"Kwikset Tylo Entry Door Knob",
+category:"Door Knobs",
+price:24.99,
+icon:"⚫",
+tag:"SALE"
+},
+
+{
+name:"Schlage Commercial Mortise Cylinder",
+category:"Mortise Cylinders",
+price:29.99,
+icon:"🟡",
+tag:"NEW"
+},
+
+{
+name:"HES 9600 Electric Strike",
+category:"Electric Strikes",
+price:129.99,
+icon:"⚡",
+tag:"PRO"
+},
+
+{
+name:"HID Prox Card Reader",
+category:"Access Control",
+price:149.99,
+icon:"▣",
+tag:"PRO"
+},
+
+{
+name:"Von Duprin Exit Device",
+category:"Push Bars",
+price:189.99,
+icon:"↔",
+tag:"BEST SELLER"
+},
+
+{
+name:"Apartment Intercom Entry Unit",
+category:"Intercoms",
+price:249.99,
+icon:"🔔",
+tag:"NEW"
+},
+
+{
+name:"Smart Keypad Door Lock",
+category:"Smart Locks",
+price:179.99,
+icon:"📱",
+tag:"NEW"
+}
+
+];
+
+let cart=[];
+
+function renderProducts(){
+
+const filter=document.getElementById("categoryFilter").value;
+
+const list=products.filter(product =>
+
+filter==="All Products" ||
+product.category===filter
+
+);
+
+document.getElementById("products").innerHTML=list.map((product,index)=>`
+
+<div class="product-card">
+
+<div class="product-image">
+
+<div class="product-tag">
+${product.tag}
+</div>
+
+<div class="product-icon">
+${product.icon}
+</div>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+${product.category.toUpperCase()}
+</div>
+
+<h3>
+${product.name}
+</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="price">
+$${product.price.toFixed(2)}
+</div>
+
+<div class="stock">
+✓ In Stock
+</div>
+
+<button
+class="add-cart"
+onclick="addToCart(${products.indexOf(product)})">
+
+🛒 ADD TO CART
+
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+function addToCart(index){
+
+cart.push(products[index]);
+
+updateCart();
+
+openCart();
+
+}
+
+function removeFromCart(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+function updateCart(){
+
+document.getElementById("cartCount").textContent=cart.length;
+
+if(cart.length===0){
+
+document.getElementById("cartItems").innerHTML=`
+
+<div class="empty-cart">
+
+Your cart is empty.
+
+<br><br>
+
+Start shopping above.
+
+</div>
+
+`;
+
+document.getElementById("cartTotal").innerHTML="";
+
+return;
+
+}
+
+document.getElementById("cartItems").innerHTML=
+
+cart.map((product,index)=>`
+
+<div class="cart-item">
+
+<div>
+
+<strong>
+${product.name}
+</strong>
+
+<br>
+
+<small>
+${product.category}
+</small>
+
+</div>
+
+<div>
+
+<strong>
+$${product.price.toFixed(2)}
+</strong>
+
+<br>
+
+<button
+class="remove"
+onclick="removeFromCart(${index})">
+
+Remove
+
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+const total=cart.reduce(
+(sum,product)=>sum+product.price,
+0
+);
+
+document.getElementById("cartTotal").innerHTML=`
+
+<h3 style="margin-top:20px;">
+Total: $${total.toFixed(2)}
+</h3>
+
+<button
+class="checkout"
+onclick="checkout()">
+
+CONTINUE TO CHECKOUT
+
+</button>
+
+`;
+
+}
+
+function openCart(){
+
+document
+.getElementById("cartOverlay")
+.classList.add("open");
+
+}
+
+function closeCart(){
+
+document
+.getElementById("cartOverlay")
+.classList.remove("open");
+
+}
+
+function checkout(){
+
+alert(
+"Checkout will be connected to your payment processor next."
+);
+
+}
+
+function searchProducts(){
+
+const search=
+document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+if(!search){
+
+renderProducts();
+
+return;
+
+}
+
+const results=products.filter(product=>
+(
+product.name+
+" "+
+product.category
+)
+.toLowerCase()
+.includes(search)
+);
+
+document.getElementById("products").innerHTML=
+
+results.length
+
+?
+
+results.map(product=>`
+
+<div class="product-card">
+
+<div class="product-image">
+
+<div class="product-tag">
+${product.tag}
+</div>
+
+<div class="product-icon">
+${product.icon}
+</div>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+${product.category.toUpperCase()}
+</div>
+
+<h3>
+${product.name}
+</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="price">
+$${product.price.toFixed(2)}
+</div>
+
+<div class="stock">
+✓ In Stock
+</div>
+
+<button
+class="add-cart"
+onclick="addToCart(${products.indexOf(product)})">
+
+🛒 ADD TO CART
+
+</button>
+
+</div>
+
+</div>
+
+`).join("")
+
+:
+
+"<p>No products found. Try another search.</p>";
+
+document
+.getElementById("shop")
+.scrollIntoView();
+
+}
+
+document
+.getElementById("searchInput")
+.addEventListener("keydown",function(event){
+
+if(event.key==="Enter"){
+
+searchProducts();
+
+}
+
+});
+
+document
+.querySelectorAll(".category")
+.forEach(category=>{
+
+category.addEventListener("click",function(){
+
+document
+.getElementById("categoryFilter")
+.value=
+this.dataset.category;
+
+renderProducts();
+
+document
+.getElementById("shop")
+.scrollIntoView();
+
+});
+
+});
+
+renderProducts();
+
+updateCart();
+
+</script>
+
+</body>
+</html>
