@@ -1,3 +1,12 @@
+
+1 of 93,262
+(no subject)
+Inbox
+
+larry locksmith <citywidekeystop@gmail.com>
+7:03 PM (2 minutes ago)
+to me
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +18,7 @@
 <meta name="description" content="National Lock Supply — locks, door hardware, access control, smart locks and professional installation for residential and commercial applications.">
 
 <style>
+
 :root{
 --orange:#ff4f00;
 --orange-dark:#e94700;
@@ -36,6 +46,7 @@ body{
 font-family:Arial,Helvetica,sans-serif;
 color:var(--text);
 background:#fff;
+overflow-x:hidden;
 }
 
 a{
@@ -207,6 +218,7 @@ display:flex;
 align-items:stretch;
 padding-left:2.5%;
 overflow-x:auto;
+overflow-y:hidden;
 }
 
 .nav::-webkit-scrollbar{
@@ -224,6 +236,7 @@ border-right:1px solid #2a333a;
 font-size:14px;
 font-weight:900;
 transition:.2s;
+flex:0 0 auto;
 }
 
 .nav-item:hover{
@@ -249,26 +262,16 @@ border:0;
 HERO
 ========================= */
 
-/*
-hero.jpg is the cropped showroom image you uploaded.
-It already contains the exact visual hero artwork.
-*/
-
 .hero{
 width:100%;
 aspect-ratio:1464 / 461;
-min-height:430px;
 background-image:url("hero.jpg");
-background-position:center;
-background-size:cover;
+background-position:center center;
+background-size:100% 100%;
 background-repeat:no-repeat;
 position:relative;
+overflow:hidden;
 }
-
-/*
-Invisible clickable areas sit over the buttons
-already visible in hero.jpg.
-*/
 
 .hero-shop-link{
 position:absolute;
@@ -306,6 +309,7 @@ align-items:center;
 gap:14px;
 padding:12px 22px;
 border-right:1px solid #ededed;
+min-width:0;
 }
 
 .feature:last-child{
@@ -345,6 +349,7 @@ display:flex;
 justify-content:space-between;
 align-items:flex-end;
 margin-bottom:17px;
+gap:20px;
 }
 
 .kicker{
@@ -368,6 +373,7 @@ padding:13px 21px;
 border-radius:7px;
 font-size:14px;
 font-weight:900;
+white-space:nowrap;
 }
 
 .category-grid{
@@ -389,6 +395,7 @@ text-align:center;
 cursor:pointer;
 transition:.2s;
 padding:10px;
+min-width:0;
 }
 
 .category-card:hover{
@@ -454,6 +461,7 @@ border:1px solid #dedede;
 border-radius:8px;
 padding:17px;
 position:relative;
+min-width:0;
 }
 
 .sale{
@@ -537,6 +545,7 @@ display:flex;
 flex-direction:column;
 justify-content:flex-end;
 background:linear-gradient(135deg,#121a20,#303a42);
+min-width:0;
 }
 
 .smart-card:nth-child(2){
@@ -678,7 +687,7 @@ font-size:12px;
 }
 
 /* =========================
-CART DRAWER
+CART
 ========================= */
 
 .cart-drawer{
@@ -793,24 +802,53 @@ display:none;
 .smart-grid{
 grid-template-columns:repeat(2,1fr);
 }
+
 }
 
 /* =========================
-MOBILE
+MOBILE — FIXED
 ========================= */
 
 @media(max-width:800px){
 
-.topbar{
-min-height:38px;
-font-size:9px;
-gap:9px;
-padding:8px;
+html,
+body{
+width:100%;
+max-width:100%;
+overflow-x:hidden;
 }
 
+/* TOP BAR */
+
+.topbar{
+width:100%;
+min-height:38px;
+display:grid;
+grid-template-columns:1fr auto 1fr auto 1fr;
+align-items:center;
+gap:5px;
+padding:8px 6px;
+font-size:9px;
+line-height:1.25;
+}
+
+.topbar > div{
+min-width:0;
+}
+
+.topbar-divider{
+display:block;
+}
+
+/* HEADER */
+
 .header{
-padding:12px 15px;
-flex-wrap:wrap;
+width:100%;
+min-height:0;
+padding:15px;
+display:grid;
+grid-template-columns:auto 1fr auto;
+align-items:center;
 gap:12px;
 }
 
@@ -830,7 +868,10 @@ margin-top:7px;
 }
 
 .header-right{
-gap:12px;
+margin-left:0;
+display:flex;
+align-items:center;
+gap:10px;
 }
 
 .account-text{
@@ -854,25 +895,48 @@ display:none;
 font-size:28px;
 }
 
+.cart-count{
+right:-4px;
+top:-8px;
+width:23px;
+height:23px;
+}
+
+/* SEARCH */
+
 .search{
-order:3;
+grid-column:1 / -1;
+grid-row:2;
 width:100%;
 max-width:none;
 height:48px;
+}
+
+.search input{
+font-size:14px;
+padding:0 14px;
 }
 
 .search button{
 width:55px;
 }
 
+/* NAV */
+
 .nav{
+width:100%;
 height:55px;
 padding-left:0;
+overflow-x:auto;
+overflow-y:hidden;
+-webkit-overflow-scrolling:touch;
 }
 
 .nav-item{
-padding:0 13px;
-font-size:11px;
+height:55px;
+flex:0 0 auto;
+padding:0 17px;
+font-size:12px;
 }
 
 .nav-icon{
@@ -881,130 +945,233 @@ font-size:18px;
 
 .nav-clearance{
 margin:5px 8px;
+height:45px;
 }
 
-/*
-Keep the uploaded hero artwork intact on mobile.
-*/
+/* HERO */
 
 .hero{
-aspect-ratio:auto;
-min-height:245px;
-height:245px;
-background-size:auto 100%;
-background-position:58% center;
+width:100%;
+height:auto;
+min-height:0;
+aspect-ratio:1464 / 461;
+background-size:100% 100%;
+background-position:center center;
 background-repeat:no-repeat;
-/*
-The original artwork has the buttons inside the image.
-Make the clickable areas responsive.
-*/
+overflow:hidden;
+}
 
-..hero-shop-link{
-left:4%;
-top:68%;
-width:42%;
-height:20%;
+/* HERO CLICK AREAS */
+
+.hero-shop-link{
+left:4.7%;
+top:70%;
+width:20%;
+height:17%;
 }
 
 .hero-install-link{
-left:50%;
-top:68%;
-width:44%;
-height:20%;
+left:25%;
+top:70%;
+width:20%;
+height:17%;
 }
 
+/* FEATURE BAR */
+
 .features{
-grid-template-columns:repeat(2,1fr);
+width:100%;
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
 }
 
 .feature{
-min-height:70px;
-padding:10px;
+width:100%;
+min-width:0;
+min-height:95px;
+padding:12px 10px;
+gap:8px;
+overflow:hidden;
+border-right:1px solid #ededed;
+border-bottom:1px solid #ededed;
+}
+
+.feature-icon{
+font-size:27px;
+min-width:32px;
+flex:0 0 32px;
+}
+
+.feature > div:last-child{
+min-width:0;
+}
+
+.feature strong{
+font-size:13px;
+line-height:1.15;
+display:block;
+overflow-wrap:anywhere;
+}
+
+.feature small{
+font-size:10px;
+line-height:1.25;
+display:block;
+margin-top:5px;
+overflow-wrap:anywhere;
 }
 
 .feature:nth-child(n+5){
 display:none;
 }
 
-.feature-icon{
-font-size:27px;
-min-width:32px;
-}
-
-.feature strong{
-font-size:11px;
-}
-
-.feature small{
-font-size:9px;
-}
+/* SECTIONS */
 
 .categories,
 .deals,
 .smart,
 .services{
+width:100%;
 padding-left:15px;
 padding-right:15px;
 }
 
+.categories{
+padding-top:30px;
+}
+
+/* CATEGORY HEADER */
+
 .section-head{
-gap:10px;
-align-items:flex-start;
+width:100%;
+display:block;
+margin-bottom:20px;
 }
 
 .section-head h2{
-font-size:27px;
+font-size:32px;
+line-height:1.05;
+max-width:100%;
 }
 
-.view-all{
-font-size:10px;
-padding:9px;
+.section-head .view-all{
+display:inline-block;
+margin-top:15px;
+font-size:12px;
+padding:11px 15px;
 }
+
+/* CATEGORY GRID */
 
 .category-grid{
-grid-template-columns:repeat(2,1fr);
+width:100%;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:10px;
 }
 
 .category-card{
+width:100%;
+min-width:0;
 min-height:150px;
+padding:10px 5px;
+}
+
+.category-image{
+height:75px;
+font-size:55px;
+}
+
+.category-card h3{
+font-size:13px;
+}
+
+/* DEALS */
+
+.deals{
+padding-top:35px;
+padding-bottom:35px;
+}
+
+.center-title h2{
+font-size:30px;
 }
 
 .products{
-grid-template-columns:repeat(2,1fr);
+width:100%;
+grid-template-columns:repeat(2,minmax(0,1fr));
 gap:10px;
 }
 
 .product{
-padding:11px;
+width:100%;
+min-width:0;
+padding:10px;
 }
 
 .product-image{
-height:115px;
-font-size:65px;
+height:105px;
+font-size:60px;
 }
 
 .product h3{
 font-size:13px;
+line-height:1.25;
+min-height:45px;
 }
 
 .price{
-font-size:21px;
+font-size:20px;
+}
+
+.add-cart{
+height:40px;
+font-size:11px;
+}
+
+/* SMART */
+
+.smart{
+padding-top:35px;
+padding-bottom:35px;
 }
 
 .smart-grid{
+width:100%;
 grid-template-columns:1fr;
+gap:12px;
 }
+
+.smart-card{
+width:100%;
+min-width:0;
+min-height:210px;
+padding:22px;
+}
+
+/* SERVICES */
 
 .service-grid{
+width:100%;
 grid-template-columns:1fr;
+gap:12px;
 }
 
+.service{
+width:100%;
+min-height:190px;
+padding:23px;
+}
+
+/* FOOTER */
+
 .footer-grid{
+width:100%;
 grid-template-columns:1fr 1fr;
+gap:25px;
 }
 
 .footer-brand{
-grid-column:1/-1;
+grid-column:1 / -1;
 }
 
 .footer-bottom{
@@ -1012,11 +1179,14 @@ flex-direction:column;
 gap:9px;
 }
 
+/* MOBILE BOTTOM NAV */
+
 .mobile-nav{
 position:fixed;
 bottom:0;
 left:0;
 right:0;
+width:100%;
 height:62px;
 background:#080b0e;
 z-index:9998;
@@ -1025,7 +1195,8 @@ border-top:1px solid #333;
 }
 
 .mobile-nav a{
-flex:1;
+min-width:0;
+flex:1 1 20%;
 color:#fff;
 display:flex;
 align-items:center;
@@ -1043,12 +1214,98 @@ color:var(--orange);
 body{
 padding-bottom:62px;
 }
+
 }
+
+/* =========================
+SMALL PHONE
+========================= */
 
 @media(max-width:480px){
 
+.topbar{
+font-size:8px;
+gap:3px;
+padding:7px 4px;
+}
+
+.header{
+padding:13px 12px;
+grid-template-columns:auto 1fr auto;
+gap:8px;
+}
+
+.logo{
+width:125px;
+min-width:125px;
+}
+
+.logo-main{
+font-size:37px;
+}
+
+.logo-sub{
+font-size:6px;
+letter-spacing:1.2px;
+}
+
+.account-icon,
+.cart-icon{
+font-size:25px;
+}
+
+.search{
+height:46px;
+}
+
+.search button{
+width:52px;
+}
+
+.nav-item{
+padding:0 15px;
+font-size:11px;
+}
+
 .hero{
-min-height:245px;
+min-height:0;
+aspect-ratio:1464 / 461;
+}
+
+.features{
+grid-template-columns:1fr 1fr;
+}
+
+.feature{
+min-height:92px;
+padding:10px 8px;
+}
+
+.feature-icon{
+font-size:25px;
+min-width:28px;
+flex-basis:28px;
+}
+
+.feature strong{
+font-size:12px;
+}
+
+.feature small{
+font-size:9px;
+}
+
+.section-head h2{
+font-size:29px;
+}
+
+.kicker{
+font-size:11px;
+letter-spacing:4px;
+}
+
+.view-all{
+font-size:11px;
 }
 
 .category-grid{
@@ -1059,10 +1316,57 @@ grid-template-columns:1fr 1fr;
 grid-template-columns:1fr 1fr;
 }
 
+.product-image{
+height:90px;
+font-size:50px;
+}
+
+.product h3{
+font-size:12px;
+}
+
+.price{
+font-size:19px;
+}
+
 .footer-grid{
 grid-template-columns:1fr;
 }
+
 }
+
+/* =========================
+CART MOBILE
+========================= */
+
+@media(max-width:600px){
+
+.cart-drawer{
+width:100%;
+max-width:100%;
+right:-100%;
+padding:20px;
+}
+
+.cart-drawer.open{
+right:0;
+}
+
+}
+
+/* =========================
+DESKTOP HERO SAFETY
+========================= */
+
+@media(min-width:801px){
+
+.hero{
+background-size:cover;
+background-position:center center;
+}
+
+}
+
 </style>
 </head>
 
@@ -1208,12 +1512,9 @@ Smart Locks
 </nav>
 
 
-<!-- HERO IMAGE -->
+<!-- HERO -->
 
 <section class="hero">
-
-<!-- These are invisible clickable areas over the buttons
-already present in hero.jpg -->
 
 <a
 href="#categories"
@@ -2055,7 +2356,6 @@ onclick="openCart();return false;"
 
 let cart = [];
 
-
 /* =========================
 CART
 ========================= */
@@ -2070,6 +2370,7 @@ price:price
 updateCart();
 
 openCart();
+
 }
 
 
@@ -2078,6 +2379,7 @@ function removeItem(index){
 cart.splice(index,1);
 
 updateCart();
+
 }
 
 
@@ -2104,146 +2406,5 @@ total.textContent =
 "$0.00";
 
 return;
-}
-
-
-let html = "";
-let sum = 0;
-
-
-cart.forEach((item,index)=>{
-
-sum += item.price;
-
-html += `
-<div style="
-display:flex;
-justify-content:space-between;
-gap:12px;
-padding:14px 0;
-border-bottom:1px solid #eee;
-">
-
-<div>
-
-<strong>
-${item.name}
-</strong>
-
-<div style="
-color:#ff4f00;
-font-weight:900;
-margin-top:5px;
-">
-$${item.price.toFixed(2)}
-</div>
-
-</div>
-
-<button
-onclick="removeItem(${index})"
-style="
-border:0;
-background:none;
-color:#999;
-cursor:pointer;
-font-size:21px;
-"
->
-×
-</button>
-
-</div>
-`;
-});
-
-
-items.innerHTML = html;
-
-total.textContent =
-"$" + sum.toFixed(2);
-}
-
-
-function openCart(){
-
-document
-.getElementById("cartDrawer")
-.classList.add("open");
-}
-
-
-function closeCart(){
-
-document
-.getElementById("cartDrawer")
-.classList.remove("open");
-}
-
-
-function checkout(){
-
-if(cart.length === 0){
-
-alert("Your cart is empty.");
-
-return;
-}
-
-alert(
-"NLS checkout will be connected to your payment system next."
-);
-}
-
-
-/* =========================
-SEARCH
-========================= */
-
-function searchProducts(){
-
-const input =
-document.getElementById("searchInput");
-
-const value =
-input.value.trim();
-
-
-if(!value){
-
-alert("Enter a product to search.");
-
-input.focus();
-
-return;
-}
-
-
-document
-.getElementById("deals")
-.scrollIntoView({
-behavior:"smooth"
-});
-}
-
-
-/* =========================
-ENTER KEY SEARCH
-========================= */
-
-document
-.getElementById("searchInput")
-.addEventListener("keydown",function(event){
-
-if(event.key === "Enter"){
-
-searchProducts();
 
 }
-
-});
-
-</script>
-
-</body>
-</html>
