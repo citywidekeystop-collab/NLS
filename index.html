@@ -176,6 +176,9 @@ margin-top:4px;
 .cart-button{
 position:relative;
 font-size:28px;
+background:none;
+border:0;
+color:#fff;
 }
 
 .cart-count{
@@ -529,6 +532,13 @@ border-radius:10px;
 overflow:hidden;
 padding-bottom:18px;
 position:relative;
+cursor:pointer;
+transition:.2s;
+}
+
+.product:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 28px rgba(0,0,0,.12);
 }
 
 .product-image{
@@ -594,6 +604,211 @@ font-weight:900;
 
 .add-cart:hover{
 background:#e94d00;
+}
+
+/* =========================
+PRODUCT DETAIL
+========================= */
+
+.product-detail{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.72);
+z-index:10000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.product-detail.open{
+display:flex;
+}
+
+.product-detail-box{
+width:min(1050px,100%);
+max-height:92vh;
+overflow:auto;
+background:#fff;
+border-radius:14px;
+box-shadow:0 20px 70px rgba(0,0,0,.4);
+position:relative;
+}
+
+.product-detail-close{
+position:absolute;
+right:18px;
+top:15px;
+width:44px;
+height:44px;
+border:0;
+border-radius:50%;
+background:#111820;
+color:#fff;
+font-size:28px;
+z-index:3;
+}
+
+.product-detail-content{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:35px;
+padding:35px;
+}
+
+.detail-image{
+min-height:420px;
+border-radius:12px;
+background:linear-gradient(135deg,#f7f7f7,#e4e8eb);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:170px;
+position:relative;
+}
+
+.detail-sale{
+position:absolute;
+top:18px;
+left:18px;
+background:var(--red);
+color:#fff;
+padding:9px 13px;
+border-radius:6px;
+font-size:12px;
+font-weight:900;
+}
+
+.detail-info{
+padding:10px 5px;
+}
+
+.detail-kicker{
+color:var(--orange);
+font-size:13px;
+font-weight:900;
+letter-spacing:3px;
+margin-bottom:10px;
+}
+
+.detail-info h2{
+font-size:38px;
+line-height:1.05;
+margin-bottom:12px;
+}
+
+.detail-stars{
+color:#f6a500;
+letter-spacing:2px;
+margin-bottom:20px;
+}
+
+.detail-old{
+color:#888;
+text-decoration:line-through;
+font-size:17px;
+}
+
+.detail-price{
+color:var(--red);
+font-size:38px;
+font-weight:900;
+margin:4px 0;
+}
+
+.detail-save{
+display:inline-block;
+background:#e8f7ed;
+color:var(--green);
+padding:7px 10px;
+border-radius:5px;
+font-size:13px;
+font-weight:900;
+margin-bottom:20px;
+}
+
+.detail-description{
+color:#59636b;
+line-height:1.6;
+margin-bottom:20px;
+}
+
+.detail-features{
+border-top:1px solid var(--line);
+border-bottom:1px solid var(--line);
+padding:16px 0;
+margin-bottom:22px;
+}
+
+.detail-features div{
+margin:9px 0;
+font-size:14px;
+font-weight:700;
+}
+
+.detail-features div::before{
+content:"✓";
+color:var(--green);
+font-weight:900;
+margin-right:9px;
+}
+
+.quantity-row{
+display:flex;
+gap:10px;
+margin-bottom:12px;
+}
+
+.quantity-control{
+display:flex;
+border:1px solid #ccc;
+border-radius:6px;
+overflow:hidden;
+}
+
+.quantity-control button{
+width:42px;
+border:0;
+background:#eee;
+font-size:20px;
+}
+
+.quantity-control input{
+width:50px;
+text-align:center;
+border:0;
+outline:0;
+font-weight:900;
+}
+
+.detail-add{
+flex:1;
+min-height:48px;
+border:0;
+border-radius:6px;
+background:var(--orange);
+color:#fff;
+font-weight:900;
+}
+
+.detail-buy{
+width:100%;
+min-height:50px;
+border:0;
+border-radius:6px;
+background:#111820;
+color:#fff;
+font-weight:900;
+margin-top:8px;
+}
+
+.detail-shipping{
+margin-top:15px;
+padding:13px;
+background:#f5f6f7;
+border-radius:7px;
+font-size:13px;
+font-weight:800;
 }
 
 /* =========================
@@ -810,7 +1025,7 @@ right:0;
 }
 
 .cart-head{
-background:var(--black);
+background:var(--orange);
 color:#fff;
 padding:20px;
 display:flex;
@@ -1039,8 +1254,6 @@ margin:5px;
 min-height:50px;
 }
 
-/* HERO */
-
 .hero{
 width:100%;
 }
@@ -1057,16 +1270,9 @@ object-position:center;
 display:none;
 }
 
-/*
-The uploaded hero artwork already contains its own
-wording and buttons. Hide duplicate HTML text on mobile.
-*/
-
 .hero-content{
 display:none;
 }
-
-/* FEATURES */
 
 .features{
 grid-template-columns:1fr 1fr;
@@ -1101,8 +1307,6 @@ border-right:0;
 border-top:1px solid var(--line);
 }
 
-/* SECTIONS */
-
 .section{
 padding:38px 0;
 }
@@ -1122,8 +1326,6 @@ width:100%;
 text-align:center;
 }
 
-/* CATEGORY */
-
 .category-grid{
 grid-template-columns:repeat(2,1fr);
 gap:10px;
@@ -1137,8 +1339,6 @@ padding:18px 8px;
 height:65px;
 font-size:42px;
 }
-
-/* DEALS */
 
 .deal-banner{
 padding:24px 20px;
@@ -1191,8 +1391,6 @@ font-size:9px;
 padding:5px 7px;
 }
 
-/* SMART */
-
 .smart-grid{
 grid-template-columns:1fr 1fr;
 gap:10px;
@@ -1218,8 +1416,6 @@ font-size:48px;
 right:12px;
 }
 
-/* SERVICES */
-
 .service-grid{
 grid-template-columns:1fr;
 }
@@ -1227,8 +1423,6 @@ grid-template-columns:1fr;
 .service{
 min-height:160px;
 }
-
-/* CTA */
 
 .cta-box{
 padding:28px 20px;
@@ -1239,8 +1433,6 @@ align-items:flex-start;
 .cta-box h2{
 font-size:28px;
 }
-
-/* FOOTER */
 
 .footer-grid{
 grid-template-columns:1fr 1fr;
@@ -1254,8 +1446,6 @@ grid-column:1 / -1;
 .footer-bottom{
 flex-direction:column;
 }
-
-/* MOBILE NAV */
 
 .mobile-nav{
 position:fixed;
@@ -1288,9 +1478,39 @@ font-size:20px;
 .mobile-nav a:first-child{
 color:var(--orange);
 }
+
+/* PRODUCT DETAIL MOBILE */
+
+.product-detail{
+padding:8px;
+align-items:flex-end;
 }
 
-/* SMALL PHONES */
+.product-detail-box{
+max-height:96vh;
+border-radius:14px 14px 0 0;
+}
+
+.product-detail-content{
+grid-template-columns:1fr;
+gap:18px;
+padding:18px;
+}
+
+.detail-image{
+min-height:260px;
+font-size:110px;
+}
+
+.detail-info h2{
+font-size:29px;
+}
+
+.detail-price{
+font-size:32px;
+}
+
+}
 
 @media(max-width:390px){
 
@@ -1336,6 +1556,7 @@ font-size:52px;
 .smart-card{
 min-height:205px;
 }
+
 }
 </style>
 </head>
@@ -1488,15 +1709,20 @@ products for residential and commercial applications.
 
 <!-- CATEGORIES -->
 <section class="section" id="categories">
+
 <div class="container">
 
 <div class="section-heading">
+
 <div>
 <div class="kicker">SHOP BY CATEGORY</div>
 <h2 class="section-title">Find the right hardware</h2>
 </div>
 
-<a href="#deals" class="view-all">View All Products →</a>
+<a href="#deals" class="view-all">
+View All Products →
+</a>
+
 </div>
 
 <div class="category-grid">
@@ -1552,6 +1778,7 @@ products for residential and commercial applications.
 </div>
 
 </div>
+
 </section>
 
 <!-- DEALS -->
@@ -1560,124 +1787,261 @@ products for residential and commercial applications.
 <div class="container">
 
 <div class="deal-banner">
+
 <div>
 <div class="kicker">NLS DEALS</div>
 <h2>LOCKS. HARDWARE. BIG SAVINGS.</h2>
-<p>Shop featured hardware deals and limited-time savings.</p>
+<p>
+Shop featured hardware deals and limited-time savings.
+</p>
 </div>
 
-<div class="deal-tag">🔥 DEALS OF THE WEEK</div>
+<div class="deal-tag">
+🔥 DEALS OF THE WEEK
+</div>
+
 </div>
 
 <div class="product-grid">
 
-<!-- 1 -->
-<article class="product">
+<!-- PRODUCT 1 -->
+<article
+class="product"
+data-product="Single Cylinder Deadbolt"
+>
+
 <div class="sale">SALE</div>
-<div class="product-image">🔒</div>
+
+<div class="product-image">
+🔒
+</div>
+
 <h3>Single Cylinder Deadbolt</h3>
+
 <div class="stars">★★★★★</div>
+
 <div class="old-price">$59.99</div>
+
 <div class="price">$39.99</div>
-<button class="add-cart" onclick="addToCart('Single Cylinder Deadbolt',39.99)">
+
+<button
+class="add-cart"
+onclick="event.stopPropagation();addToCart('Single Cylinder Deadbolt',39.99)"
+>
 ADD TO CART
 </button>
+
 </article>
 
-<!-- 2 -->
-<article class="product">
+<!-- PRODUCT 2 -->
+<article
+class="product"
+data-product="Entry Door Knob"
+>
+
 <div class="sale">SALE</div>
-<div class="product-image">⚿</div>
+
+<div class="product-image">
+⚿
+</div>
+
 <h3>Entry Door Knob</h3>
+
 <div class="stars">★★★★★</div>
+
 <div class="old-price">$44.99</div>
+
 <div class="price">$29.99</div>
-<button class="add-cart" onclick="addToCart('Entry Door Knob',29.99)">
+
+<button
+class="add-cart"
+onclick="event.stopPropagation();addToCart('Entry Door Knob',29.99)"
+>
 ADD TO CART
 </button>
+
 </article>
 
-<!-- 3 -->
-<article class="product">
+<!-- PRODUCT 3 -->
+<article
+class="product"
+data-product="Commercial Mortise Cylinder"
+>
+
 <div class="sale">SALE</div>
-<div class="product-image">◉</div>
+
+<div class="product-image">
+◉
+</div>
+
 <h3>Commercial Mortise Cylinder</h3>
+
 <div class="stars">★★★★★</div>
+
 <div class="old-price">$49.99</div>
+
 <div class="price">$34.99</div>
-<button class="add-cart" onclick="addToCart('Commercial Mortise Cylinder',34.99)">
+
+<button
+class="add-cart"
+onclick="event.stopPropagation();addToCart('Commercial Mortise Cylinder',34.99)"
+>
 ADD TO CART
 </button>
+
 </article>
 
-<!-- 4 -->
-<article class="product">
+<!-- PRODUCT 4 -->
+<article
+class="product"
+data-product="Electric Strike"
+>
+
 <div class="sale">SALE</div>
-<div class="product-image">ϟ</div>
+
+<div class="product-image">
+ϟ
+</div>
+
 <h3>Electric Strike</h3>
+
 <div class="stars">★★★★★</div>
+
 <div class="old-price">$169.99</div>
+
 <div class="price">$129.99</div>
-<button class="add-cart" onclick="addToCart('Electric Strike',129.99)">
+
+<button
+class="add-cart"
+onclick="event.stopPropagation();addToCart('Electric Strike',129.99)"
+>
 ADD TO CART
 </button>
+
 </article>
 
-<!-- 5 -->
-<article class="product">
+<!-- PRODUCT 5 -->
+<article
+class="product"
+data-product="Wi-Fi Smart Keypad Lock"
+>
+
 <div class="sale">SMART DEAL</div>
-<div class="product-image">📱</div>
+
+<div class="product-image">
+📱
+</div>
+
 <h3>Wi-Fi Smart Keypad Lock</h3>
+
 <div class="stars">★★★★★</div>
+
 <div class="old-price">$159.99</div>
+
 <div class="price">$129.99</div>
-<button class="add-cart" onclick="addToCart('Wi-Fi Smart Keypad Lock',129.99)">
+
+<button
+class="add-cart"
+onclick="event.stopPropagation();addToCart('Wi-Fi Smart Keypad Lock',129.99)"
+>
 ADD TO CART
 </button>
+
 </article>
 
-<!-- 6 -->
-<article class="product">
+<!-- PRODUCT 6 -->
+<article
+class="product"
+data-product="Bluetooth Smart Lock"
+>
+
 <div class="sale">SMART DEAL</div>
-<div class="product-image">📲</div>
+
+<div class="product-image">
+📲
+</div>
+
 <h3>Bluetooth Smart Lock</h3>
+
 <div class="stars">★★★★★</div>
+
 <div class="old-price">$139.99</div>
+
 <div class="price">$114.99</div>
-<button class="add-cart" onclick="addToCart('Bluetooth Smart Lock',114.99)">
+
+<button
+class="add-cart"
+onclick="event.stopPropagation();addToCart('Bluetooth Smart Lock',114.99)"
+>
 ADD TO CART
 </button>
+
 </article>
 
-<!-- 7 -->
-<article class="product">
+<!-- PRODUCT 7 -->
+<article
+class="product"
+data-product="Keypad Lock - No Wi-Fi / No Bluetooth"
+>
+
 <div class="sale">NO APP</div>
-<div class="product-image">🔢</div>
-<h3>Keypad Lock — No Wi-Fi / No Bluetooth</h3>
+
+<div class="product-image">
+🔢
+</div>
+
+<h3>
+Keypad Lock — No Wi-Fi / No Bluetooth
+</h3>
+
 <div class="stars">★★★★★</div>
+
 <div class="old-price">$109.99</div>
+
 <div class="price">$79.99</div>
-<button class="add-cart" onclick="addToCart('Keypad Lock - No Wi-Fi / No Bluetooth',79.99)">
+
+<button
+class="add-cart"
+onclick="event.stopPropagation();addToCart('Keypad Lock - No Wi-Fi / No Bluetooth',79.99)"
+>
 ADD TO CART
 </button>
+
 </article>
 
-<!-- 8 -->
-<article class="product">
+<!-- PRODUCT 8 -->
+<article
+class="product"
+data-product="Basic Keypad Entry Lock"
+>
+
 <div class="sale">DEAL</div>
-<div class="product-image">🔐</div>
+
+<div class="product-image">
+🔐
+</div>
+
 <h3>Basic Keypad Entry Lock</h3>
+
 <div class="stars">★★★★★</div>
+
 <div class="old-price">$89.99</div>
+
 <div class="price">$64.99</div>
-<button class="add-cart" onclick="addToCart('Basic Keypad Entry Lock',64.99)">
+
+<button
+class="add-cart"
+onclick="event.stopPropagation();addToCart('Basic Keypad Entry Lock',64.99)"
+>
 ADD TO CART
 </button>
+
 </article>
 
 </div>
 
 </div>
+
 </section>
 
 <!-- SMART LOCKS -->
@@ -1686,53 +2050,90 @@ ADD TO CART
 <div class="container">
 
 <div class="section-heading">
+
 <div>
 <div class="kicker">SMART &amp; KEYPAD LOCKS</div>
-<h2 class="section-title">Choose the access you need</h2>
+<h2 class="section-title">
+Choose the access you need
+</h2>
 </div>
+
 </div>
 
 <div class="smart-grid">
 
 <div class="smart-card">
+
 <div class="smart-symbol">📶</div>
+
 <h3>Wi-Fi Smart Locks</h3>
+
 <p>
-App control, remote access and connected smart-home features.
+App control, remote access and connected
+smart-home features.
 </p>
-<span class="smart-badge">WI-FI</span>
+
+<span class="smart-badge">
+WI-FI
+</span>
+
 </div>
 
 <div class="smart-card">
+
 <div class="smart-symbol">📱</div>
+
 <h3>Bluetooth Smart Locks</h3>
+
 <p>
-Phone access with Bluetooth connectivity and keypad options.
+Phone access with Bluetooth connectivity
+and keypad options.
 </p>
-<span class="smart-badge">BLUETOOTH</span>
+
+<span class="smart-badge">
+BLUETOOTH
+</span>
+
 </div>
 
 <div class="smart-card">
+
 <div class="smart-symbol">🔢</div>
+
 <h3>Keypad Locks</h3>
+
 <p>
-Simple code-based entry without Wi-Fi, Bluetooth or an app.
+Simple code-based entry without Wi-Fi,
+Bluetooth or an app.
 </p>
-<span class="smart-badge green">NO WI-FI • NO BLUETOOTH • NO APP</span>
+
+<span class="smart-badge green">
+NO WI-FI • NO BLUETOOTH • NO APP
+</span>
+
 </div>
 
 <div class="smart-card">
+
 <div class="smart-symbol">🔐</div>
+
 <h3>Basic Keypad Locks</h3>
+
 <p>
-Straightforward keypad entry for customers who want simple access.
+Straightforward keypad entry for customers
+who want simple access.
 </p>
-<span class="smart-badge">SIMPLE ENTRY</span>
-</div>
+
+<span class="smart-badge">
+SIMPLE ENTRY
+</span>
 
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 <!-- SERVICES -->
@@ -1741,330 +2142,21 @@ Straightforward keypad entry for customers who want simple access.
 <div class="container">
 
 <div class="section-heading">
+
 <div>
 <div class="kicker">NLS SERVICES</div>
-<h2 class="section-title">Hardware &amp; installation</h2>
+<h2 class="section-title">
+Hardware &amp; installation
+</h2>
 </div>
+
 </div>
 
 <div class="service-grid">
 
 <div class="service">
-<div class="service-icon">🚚</div>
-<h3>Fast Shipping</h3>
-<p>
-Free shipping on orders over $100.
-</p>
-</div>
 
-<div class="service">
-<div class="service-icon">🔧</div>
-<h3>Mobile Locksmith</h3>
-<p>
-Professional residential and commercial hardware service.
-</p>
-</div>
+<div class="servic
+...
 
-<div class="service">
-<div class="service-icon">🛠️</div>
-<h3>Professional Installation</h3>
-<p>
-Book installation for locks, access control and door hardware.
-</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-
-<div class="container">
-
-<div class="cta-box">
-
-<div>
-<h2>Need help choosing hardware?</h2>
-<p>
-Get help finding the right lock, door hardware or access-control product.
-</p>
-</div>
-
-<a href="tel:+10000000000" class="btn btn-orange">
-📞 CONTACT NLS
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-
-<div class="container">
-
-<div class="footer-grid">
-
-<div>
-<div class="logo">
-<div class="logo-main">NLS</div>
-<div class="logo-sub">NATIONAL LOCK SUPPLY</div>
-</div>
-
-<p style="margin-top:18px;max-width:400px;">
-Professional locks, door hardware and access-control products
-for residential and commercial applications.
-</p>
-</div>
-
-<div>
-<h3>Shop</h3>
-<a href="#deals">Deals</a><br>
-<a href="#categories">Door Knobs</a><br>
-<a href="#categories">Deadbolts</a><br>
-<a href="#smart">Smart Locks</a>
-</div>
-
-<div>
-<h3>Hardware</h3>
-<a href="#categories">Mortise Cylinders</a><br>
-<a href="#categories">Electric Strikes</a><br>
-<a href="#categories">Access Control</a><br>
-<a href="#categories">Push Bars</a>
-</div>
-
-<div>
-<h3>Services</h3>
-<a href="#installation">Installation</a><br>
-<a href="#installation">Mobile Locksmith</a><br>
-<a href="#installation">Support</a>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-<span>© 2026 National Lock Supply. All rights reserved.</span>
-<span>Locks • Hardware • Access Control</span>
-</div>
-
-</div>
-
-</footer>
-
-<!-- CART DRAWER -->
-<div class="cart-drawer" id="cartDrawer">
-
-<div class="cart-head">
-<h2>Your Cart</h2>
-<button class="close-cart" onclick="closeCart()">×</button>
-</div>
-
-<div class="cart-items" id="cartItems">
-<div class="empty-cart">
-Your cart is empty.
-</div>
-</div>
-
-<div class="cart-footer">
-
-<div class="cart-total">
-<span>Total</span>
-<span id="cartTotal">$0.00</span>
-</div>
-
-<button class="checkout" onclick="checkout()">
-CHECKOUT
-</button>
-
-</div>
-
-</div>
-
-<!-- MOBILE BOTTOM NAV -->
-<nav class="mobile-nav">
-
-<a href="#">
-<span class="mobile-icon">🏠</span>
-Home
-</a>
-
-<a href="#deals">
-<span class="mobile-icon">🛒</span>
-Shop
-</a>
-
-<a href="#smart">
-<span class="mobile-icon">🔐</span>
-Smart
-</a>
-
-<a href="#installation">
-<span class="mobile-icon">🔧</span>
-Install
-</a>
-
-<a href="#" onclick="openCart();return false;">
-<span class="mobile-icon">🛍️</span>
-Cart
-</a>
-
-</nav>
-
-<script>
-
-let cart = [];
-
-function addToCart(name,price){
-
-cart.push({
-name:name,
-price:price
-});
-
-updateCart();
-
-openCart();
-}
-
-function updateCart(){
-
-const count = document.getElementById("cartCount");
-const items = document.getElementById("cartItems");
-const total = document.getElementById("cartTotal");
-
-count.textContent = cart.length;
-
-if(cart.length === 0){
-
-items.innerHTML = `
-<div class="empty-cart">
-Your cart is empty.
-</div>
-`;
-
-total.textContent = "$0.00";
-return;
-}
-
-let sum = 0;
-
-items.innerHTML = cart.map((item,index)=>{
-
-sum += item.price;
-
-return `
-<div class="cart-item">
-
-<div>
-<div class="cart-item-name">${item.name}</div>
-<button
-onclick="removeItem(${index})"
-style="border:0;background:none;color:#777;margin-top:5px;"
->
-Remove
-</button>
-</div>
-
-<div class="cart-item-price">
-$${item.price.toFixed(2)}
-</div>
-
-</div>
-`;
-
-}).join("");
-
-total.textContent = "$" + sum.toFixed(2);
-}
-
-function removeItem(index){
-
-cart.splice(index,1);
-
-updateCart();
-}
-
-function openCart(){
-
-document
-.getElementById("cartDrawer")
-.classList.add("open");
-}
-
-function closeCart(){
-
-document
-.getElementById("cartDrawer")
-.classList.remove("open");
-}
-
-function checkout(){
-
-if(cart.length === 0){
-
-alert("Your cart is empty.");
-return;
-}
-
-alert(
-"NLS checkout will be connected to your payment system next."
-);
-}
-
-function searchProducts(){
-
-const value =
-document
-.getElementById("searchInput")
-.value
-.trim()
-.toLowerCase();
-
-if(!value){
-return;
-}
-
-const products =
-document.querySelectorAll(".product");
-
-let found = false;
-
-products.forEach(product=>{
-
-const text =
-product.textContent.toLowerCase();
-
-if(text.includes(value)){
-
-product.style.outline =
-"4px solid #ff5a00";
-
-product.scrollIntoView({
-behavior:"smooth",
-block:"center"
-});
-
-found = true;
-
-setTimeout(()=>{
-product.style.outline="";
-},2500);
-}
-});
-
-if(!found){
-
-alert(
-"No matching product found in the featured products."
-);
-}
-}
-
-</script>
-
-</body>
-</html>
+[Message clipped]  View entire message
