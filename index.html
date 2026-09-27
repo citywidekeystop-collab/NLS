@@ -6,17 +6,20 @@
 
 <title>National Lock Supply | Locks, Hardware & Access Control</title>
 
+<meta name="description" content="National Lock Supply — locks, door hardware, access control, smart locks and professional installation for residential and commercial applications.">
+
 <style>
 :root{
---orange:#ff5a00;
---orange2:#ff7a00;
---black:#080d11;
---dark:#121a21;
---gray:#f4f5f6;
---line:#dfe3e7;
---text:#111820;
---muted:#68737d;
---green:#16883d;
+--orange:#ff4f00;
+--orange-dark:#e94700;
+--red:#f51c2d;
+--black:#050607;
+--nav:#101820;
+--white:#ffffff;
+--light:#f7f7f7;
+--line:#e4e4e4;
+--text:#111111;
+--muted:#777777;
 }
 
 *{
@@ -36,996 +39,1282 @@ background:#fff;
 }
 
 a{
-text-decoration:none;
 color:inherit;
+text-decoration:none;
 }
 
 button,
-input,
-select{
+input{
 font:inherit;
 }
 
-.container{
-width:min(1240px,94%);
-margin:auto;
-}
-
-/* TOP BAR */
+/* =========================
+TOP BAR
+========================= */
 
 .topbar{
-background:var(--orange);
-color:white;
-text-align:center;
-font-size:13px;
-font-weight:800;
-padding:9px 10px;
-}
-
-/* HEADER */
-
-header{
-background:var(--black);
-color:white;
-position:sticky;
-top:0;
-z-index:100;
-}
-
-.header{
-min-height:82px;
+min-height:43px;
+background:linear-gradient(90deg,#ff4b00,#ff6200,#ff4b00);
+color:#fff;
 display:flex;
 align-items:center;
-gap:22px;
+justify-content:center;
+gap:25px;
+padding:8px 15px;
+font-size:13px;
+font-weight:900;
+text-align:center;
+}
+
+.topbar-divider{
+opacity:.8;
+}
+
+/* =========================
+MAIN HEADER
+========================= */
+
+.header{
+min-height:101px;
+background:#050607;
+color:#fff;
+display:flex;
+align-items:center;
+gap:42px;
+padding:12px 5.5%;
 }
 
 .logo{
-font-size:34px;
+width:285px;
+min-width:285px;
+}
+
+.logo-main{
+font-size:67px;
+line-height:.78;
 font-weight:1000;
-letter-spacing:-3px;
-line-height:.8;
+letter-spacing:-6px;
 }
 
-.logo span{
-color:var(--orange);
-}
-
-.logo small{
-display:block;
-color:#ff7a32;
-font-size:8px;
-letter-spacing:2px;
-margin-top:9px;
+.logo-sub{
+margin-top:12px;
+font-size:12px;
 font-weight:900;
+letter-spacing:2.5px;
 }
 
 .search{
+height:56px;
 flex:1;
+max-width:690px;
+background:#fff;
+border-radius:7px;
+overflow:hidden;
 display:flex;
-height:48px;
 }
 
 .search input{
 flex:1;
+min-width:0;
 border:0;
 outline:0;
-padding:0 18px;
-border-radius:8px 0 0 8px;
+padding:0 21px;
 font-size:15px;
+color:#333;
 }
 
 .search button{
-width:60px;
+width:68px;
 border:0;
 background:var(--orange);
-color:white;
-font-size:23px;
-border-radius:0 8px 8px 0;
+color:#fff;
+font-size:31px;
 cursor:pointer;
+}
+
+.header-right{
+margin-left:auto;
+display:flex;
+align-items:center;
+gap:26px;
 }
 
 .account{
-font-size:13px;
-font-weight:900;
-white-space:nowrap;
+display:flex;
+align-items:center;
+gap:10px;
 }
 
-.account small{
+.account-icon{
+font-size:36px;
+}
+
+.account-text{
+font-size:15px;
+font-weight:900;
+}
+
+.account-text small{
 display:block;
-color:#ff8a4d;
-margin-top:4px;
+color:var(--orange);
+margin-top:5px;
+font-size:13px;
 }
 
-.cart-button{
-background:#151e25;
-color:white;
-border:1px solid #35434d;
-border-radius:8px;
-padding:12px 15px;
-font-weight:900;
+.cart{
+border-left:1px solid #3c4145;
+padding-left:23px;
+display:flex;
+align-items:center;
+gap:10px;
+position:relative;
 cursor:pointer;
+}
+
+.cart-icon{
+font-size:31px;
+}
+
+.cart-text{
+font-size:15px;
+font-weight:900;
 }
 
 .cart-count{
-background:var(--orange);
+position:absolute;
+top:-10px;
+right:21px;
+width:25px;
+height:25px;
 border-radius:50%;
-padding:3px 7px;
-}
-
-/* NAVIGATION */
-
-.navigation{
-background:#172129;
-color:white;
-}
-
-.navigation .container{
-display:flex;
-overflow:auto;
-}
-
-.navigation a{
-padding:14px 16px;
-white-space:nowrap;
-font-size:13px;
-font-weight:900;
-}
-
-.navigation a:hover{
 background:var(--orange);
-}
-
-/* HERO */
-
-.hero{
-background:#080e13;
-color:white;
-}
-
-.hero-inner{
-min-height:520px;
-display:grid;
-grid-template-columns:1fr 1fr;
-}
-
-.hero-content{
-padding:75px 0;
-}
-
-.eyebrow{
-color:var(--orange);
-font-size:12px;
-letter-spacing:4px;
-font-weight:1000;
-}
-
-.hero h1{
-font-size:clamp(44px,6vw,72px);
-line-height:.92;
-letter-spacing:-4px;
-margin:18px 0;
-}
-
-.hero h1 span{
-color:var(--orange);
-}
-
-.hero p{
-color:#d5dce0;
-font-size:19px;
-line-height:1.55;
-max-width:600px;
-}
-
-.hero-buttons{
 display:flex;
-flex-wrap:wrap;
-gap:12px;
-margin-top:28px;
-}
-
-.button{
-display:inline-flex;
 align-items:center;
 justify-content:center;
-padding:15px 21px;
-border-radius:8px;
-border:0;
+font-size:12px;
 font-weight:1000;
-cursor:pointer;
 }
 
-.orange-button{
-background:var(--orange);
-color:white;
-}
+/* =========================
+NAV
+========================= */
 
-.dark-button{
-background:#151f27;
-color:white;
-border:1px solid #5b6872;
-}
-
-.checks{
+.nav{
+height:65px;
+background:var(--nav);
+color:#fff;
 display:flex;
-gap:18px;
-flex-wrap:wrap;
-margin-top:22px;
-font-size:13px;
-font-weight:800;
+align-items:stretch;
+padding-left:2.5%;
+overflow-x:auto;
 }
 
-.hero-image{
-background:
-linear-gradient(90deg,#080e13 0%,rgba(8,14,19,.2)),
-url("https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=1200&q=85")
-center/cover;
+.nav::-webkit-scrollbar{
+display:none;
 }
 
-/* FEATURES */
+.nav-item{
+padding:0 19px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:9px;
+white-space:nowrap;
+border-right:1px solid #2a333a;
+font-size:14px;
+font-weight:900;
+transition:.2s;
+}
+
+.nav-item:hover{
+background:#222b32;
+}
+
+.nav-item.active{
+background:var(--orange);
+}
+
+.nav-icon{
+font-size:23px;
+}
+
+.nav-clearance{
+background:var(--red);
+margin:7px 15px 7px auto;
+border-radius:7px;
+border:0;
+}
+
+/* =========================
+HERO
+========================= */
+
+/*
+hero.jpg is the cropped showroom image you uploaded.
+It already contains the exact visual hero artwork.
+*/
+
+.hero{
+width:100%;
+aspect-ratio:1464 / 461;
+min-height:430px;
+background-image:url("hero.jpg");
+background-position:center;
+background-size:cover;
+background-repeat:no-repeat;
+position:relative;
+}
+
+/*
+Invisible clickable areas sit over the buttons
+already visible in hero.jpg.
+*/
+
+.hero-shop-link{
+position:absolute;
+left:4.7%;
+top:72%;
+width:20%;
+height:14%;
+z-index:5;
+}
+
+.hero-install-link{
+position:absolute;
+left:25%;
+top:72%;
+width:20%;
+height:14%;
+z-index:5;
+}
+
+/* =========================
+FEATURE BAR
+========================= */
 
 .features{
 display:grid;
 grid-template-columns:repeat(5,1fr);
+background:#fff;
 border-bottom:1px solid var(--line);
-box-shadow:0 3px 12px #00000010;
 }
 
 .feature{
+min-height:76px;
+display:flex;
+align-items:center;
+gap:14px;
+padding:12px 22px;
+border-right:1px solid #ededed;
+}
+
+.feature:last-child{
+border-right:0;
+}
+
+.feature-icon{
+color:var(--orange);
+font-size:34px;
+min-width:39px;
 text-align:center;
-padding:18px 8px;
-border-right:1px solid var(--line);
+}
+
+.feature strong{
+display:block;
+font-size:14px;
+}
+
+.feature small{
+display:block;
+margin-top:5px;
+color:#777;
+font-size:12px;
+}
+
+/* =========================
+CATEGORY
+========================= */
+
+.categories{
+padding:26px 3.6% 36px;
+background:#fff;
+}
+
+.section-head{
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+margin-bottom:17px;
+}
+
+.kicker{
+color:var(--orange);
+font-size:13px;
+letter-spacing:5px;
+font-weight:1000;
+margin-bottom:6px;
+}
+
+.section-head h2{
+font-size:35px;
+line-height:1;
+font-weight:1000;
+}
+
+.view-all{
+border:1px solid var(--orange);
+color:var(--orange);
+padding:13px 21px;
+border-radius:7px;
+font-size:14px;
+font-weight:900;
+}
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(8,1fr);
+gap:10px;
+}
+
+.category-card{
+min-height:177px;
+border:1px solid #e3e5e7;
+border-radius:6px;
+background:#fff;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+cursor:pointer;
+transition:.2s;
+padding:10px;
+}
+
+.category-card:hover{
+border-color:var(--orange);
+box-shadow:0 6px 20px rgba(0,0,0,.08);
+transform:translateY(-2px);
+}
+
+.category-image{
+height:91px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:65px;
+margin-bottom:5px;
+}
+
+.category-card h3{
+font-size:14px;
+margin-bottom:9px;
+}
+
+.shop-link{
+color:var(--orange);
 font-size:13px;
 font-weight:900;
 }
 
-.feature-icon{
-display:block;
-color:var(--orange);
-font-size:25px;
-margin-bottom:5px;
+/* =========================
+DEALS
+========================= */
+
+.deals{
+background:#f6f6f6;
+padding:42px 4%;
 }
 
-.feature span{
-display:block;
-color:var(--muted);
-font-size:11px;
-margin-top:4px;
-font-weight:600;
-}
-
-/* SECTIONS */
-
-.section{
-padding:58px 0;
-}
-
-.section-heading{
-display:flex;
-justify-content:space-between;
-align-items:end;
-gap:20px;
-}
-
-.section h2{
-font-size:34px;
-margin-top:8px;
-}
-
-.view-all{
-color:var(--orange);
-font-weight:900;
-}
-
-/* CATEGORIES */
-
-.categories{
-display:grid;
-grid-template-columns:repeat(8,1fr);
-gap:12px;
-margin-top:25px;
-}
-
-.category{
-background:white;
-border:1px solid var(--line);
-border-radius:10px;
-padding:14px 8px;
+.center-title{
 text-align:center;
-cursor:pointer;
-transition:.2s;
+margin-bottom:27px;
 }
 
-.category:hover{
-transform:translateY(-3px);
-border-color:var(--orange);
-box-shadow:0 8px 20px #00000012;
+.center-title .kicker{
+margin-bottom:7px;
 }
 
-.category-icon{
-height:80px;
-display:grid;
-place-items:center;
-font-size:42px;
-}
-
-.category strong{
-font-size:12px;
-}
-
-.category small{
-display:block;
-color:var(--orange);
-font-weight:900;
-margin-top:6px;
-}
-
-/* PRODUCTS */
-
-.shop{
-background:var(--gray);
-}
-
-.filters{
-display:flex;
-gap:10px;
-}
-
-.filters select{
-border:1px solid var(--line);
-background:white;
-border-radius:8px;
-padding:11px 13px;
-font-weight:700;
+.center-title h2{
+font-size:36px;
+font-weight:1000;
 }
 
 .products{
+max-width:1400px;
+margin:auto;
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:16px;
-margin-top:25px;
+gap:18px;
 }
 
-.product-card{
-background:white;
-border:1px solid var(--line);
-border-radius:10px;
-overflow:hidden;
-}
-
-.product-image{
-height:230px;
-background:#f8f8f8;
-display:grid;
-place-items:center;
+.product{
+background:#fff;
+border:1px solid #dedede;
+border-radius:8px;
+padding:17px;
 position:relative;
 }
 
-.product-tag{
+.sale{
 position:absolute;
-top:10px;
-left:10px;
-background:var(--orange);
-color:white;
+top:12px;
+left:12px;
+background:var(--red);
+color:#fff;
 border-radius:4px;
-padding:5px 8px;
-font-size:10px;
+padding:5px 9px;
+font-size:11px;
 font-weight:1000;
 }
 
-.product-icon{
-font-size:100px;
-filter:drop-shadow(0 12px 10px #0002);
+.product-image{
+height:175px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:90px;
 }
 
-.product-info{
-padding:16px;
-}
-
-.product-category{
-font-size:11px;
-color:#78838c;
-font-weight:900;
-}
-
-.product-info h3{
+.product h3{
 font-size:16px;
-line-height:1.25;
-margin:6px 0 8px;
+line-height:1.3;
+min-height:42px;
 }
 
 .stars{
-color:#ff9d00;
+color:#f4a400;
+margin:7px 0;
+}
+
+.old-price{
+color:#999;
+text-decoration:line-through;
+font-size:13px;
 }
 
 .price{
-font-size:24px;
+color:var(--orange);
+font-size:27px;
 font-weight:1000;
-margin:9px 0;
-}
-
-.stock{
-color:var(--green);
-font-size:12px;
-font-weight:900;
+margin:3px 0 13px;
 }
 
 .add-cart{
 width:100%;
-margin-top:11px;
-padding:12px;
+height:43px;
 border:0;
-border-radius:7px;
+border-radius:5px;
 background:var(--orange);
-color:white;
+color:#fff;
+font-size:13px;
 font-weight:1000;
 cursor:pointer;
 }
 
-.add-cart:hover{
-background:#e84d00;
+/* =========================
+SMART LOCKS
+========================= */
+
+.smart{
+padding:44px 4%;
 }
 
-/* INSTALLATION */
-
-.installation{
-background:linear-gradient(
-110deg,
-var(--orange) 0%,
-#ff7800 55%,
-#111820 55%
-);
-color:white;
-}
-
-.installation-inner{
-min-height:270px;
+.smart-grid{
 display:grid;
-grid-template-columns:1fr 1fr;
-align-items:center;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
 }
 
-.installation h2{
-font-size:40px;
-margin:10px 0;
+.smart-card{
+min-height:230px;
+border-radius:9px;
+overflow:hidden;
+padding:25px;
+color:#fff;
+position:relative;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+background:linear-gradient(135deg,#121a20,#303a42);
 }
 
-.installation p{
-max-width:560px;
-line-height:1.5;
+.smart-card:nth-child(2){
+background:linear-gradient(135deg,#171717,#3b3b3b);
 }
 
-.service-cards{
+.smart-card:nth-child(3){
+background:linear-gradient(135deg,#ff5100,#a72c00);
+}
+
+.smart-card:nth-child(4){
+background:linear-gradient(135deg,#292929,#080808);
+}
+
+.smart-symbol{
+position:absolute;
+right:22px;
+top:18px;
+font-size:69px;
+}
+
+.smart-card h3{
+font-size:22px;
+margin-bottom:9px;
+}
+
+.smart-card p{
+font-size:14px;
+line-height:1.45;
+opacity:.95;
+}
+
+.smart-card a{
+margin-top:15px;
+font-size:14px;
+font-weight:900;
+}
+
+/* =========================
+SERVICES
+========================= */
+
+.services{
+background:#f6f6f6;
+padding:44px 4%;
+}
+
+.service-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:15px;
+gap:18px;
 }
 
 .service{
-background:#111a21dd;
-border:1px solid #ffffff25;
-border-radius:10px;
-padding:18px;
+min-height:210px;
+border-radius:9px;
+padding:28px;
+color:#fff;
+background:#11181e;
+}
+
+.service:nth-child(2){
+background:#171717;
+}
+
+.service:nth-child(3){
+background:linear-gradient(135deg,#ff5100,#a72c00);
 }
 
 .service-icon{
-font-size:30px;
+font-size:43px;
+margin-bottom:18px;
 }
 
-.service strong{
-display:block;
-margin-top:8px;
+.service h3{
+font-size:22px;
+margin-bottom:10px;
 }
 
-.service span{
-display:block;
-color:#ccd4da;
-font-size:12px;
-margin-top:4px;
+.service p{
+color:#ddd;
+font-size:14px;
+line-height:1.5;
 }
 
-/* FOOTER */
+/* =========================
+FOOTER
+========================= */
 
 footer{
-background:#080d11;
-color:#b5c0c8;
-padding:45px 0;
+background:#080b0e;
+color:#fff;
+padding:44px 5% 25px;
 }
 
 .footer-grid{
 display:grid;
 grid-template-columns:2fr 1fr 1fr 1fr;
-gap:35px;
+gap:40px;
 }
 
-.footer-grid h3{
-color:white;
+.footer-logo{
+font-size:51px;
+font-weight:1000;
+letter-spacing:-5px;
+}
+
+.footer-brand p{
+max-width:420px;
+color:#999;
+margin-top:14px;
+line-height:1.6;
+font-size:14px;
+}
+
+.footer-col h4{
 margin-bottom:15px;
 }
 
-.footer-grid a{
+.footer-col a{
 display:block;
+color:#999;
+font-size:14px;
 margin:10px 0;
-font-size:13px;
 }
 
-.copyright{
-border-top:1px solid #26313a;
-margin-top:30px;
+.footer-col a:hover{
+color:var(--orange);
+}
+
+.footer-bottom{
+border-top:1px solid #272d32;
+margin-top:35px;
 padding-top:20px;
+display:flex;
+justify-content:space-between;
+color:#777;
 font-size:12px;
 }
 
-/* CART DRAWER */
+/* =========================
+CART DRAWER
+========================= */
 
-.cart-overlay{
-display:none;
+.cart-drawer{
 position:fixed;
-inset:0;
-background:#0008;
-z-index:500;
-}
-
-.cart-overlay.open{
-display:block;
-}
-
-.cart-panel{
-position:absolute;
-right:0;
+right:-420px;
 top:0;
-width:min(430px,94%);
-height:100%;
-background:white;
-padding:22px;
-overflow:auto;
+width:400px;
+max-width:95vw;
+height:100vh;
+background:#fff;
+z-index:9999;
+box-shadow:-8px 0 30px rgba(0,0,0,.3);
+transition:.3s;
+padding:25px;
 }
 
-.cart-header{
+.cart-drawer.open{
+right:0;
+}
+
+.cart-head{
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
+border-bottom:1px solid #ddd;
+padding-bottom:18px;
+}
+
+.cart-head h2{
+font-size:23px;
 }
 
 .close-cart{
 border:0;
-background:#eee;
-padding:9px;
-border-radius:7px;
+background:none;
+font-size:28px;
 cursor:pointer;
 }
 
-.cart-item{
+.cart-items{
+padding-top:18px;
+}
+
+.empty{
+text-align:center;
+color:#777;
+padding:45px 10px;
+}
+
+.cart-total{
+border-top:1px solid #ddd;
+margin-top:20px;
+padding-top:18px;
 display:flex;
 justify-content:space-between;
-gap:12px;
-border-bottom:1px solid var(--line);
-padding:15px 0;
-}
-
-.remove{
-border:0;
-background:none;
-color:#d33;
-cursor:pointer;
+font-weight:1000;
 }
 
 .checkout{
 width:100%;
-background:var(--orange);
-color:white;
+height:50px;
+margin-top:18px;
 border:0;
-padding:14px;
-border-radius:8px;
+border-radius:6px;
+background:var(--orange);
+color:#fff;
 font-weight:1000;
 cursor:pointer;
 }
 
-.empty-cart{
-text-align:center;
-color:var(--muted);
-padding:50px 0;
-}
+/* =========================
+MOBILE NAV
+========================= */
 
-/* MOBILE BAR */
-
-.mobile-bar{
+.mobile-nav{
 display:none;
 }
 
-/* TABLET */
+/* =========================
+TABLET
+========================= */
 
-@media(max-width:1000px){
-
-.categories{
-grid-template-columns:repeat(4,1fr);
-}
-
-.products{
-grid-template-columns:repeat(3,1fr);
-}
-
-.features{
-grid-template-columns:repeat(3,1fr);
-}
-
-.feature:nth-child(n+4){
-display:none;
-}
-
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-body{
-padding-bottom:62px;
-}
-
-.topbar{
-font-size:11px;
-}
+@media(max-width:1100px){
 
 .header{
-display:grid;
-grid-template-columns:auto 1fr auto;
-gap:10px;
-padding:12px 0;
+gap:20px;
+padding-left:25px;
+padding-right:25px;
 }
 
 .logo{
-font-size:25px;
+min-width:210px;
+width:210px;
 }
 
-.account{
-display:none;
+.logo-main{
+font-size:54px;
 }
 
-.search{
-grid-column:1/-1;
-grid-row:2;
-}
-
-.navigation{
-display:none;
-}
-
-.hero-inner{
-display:block;
-min-height:0;
-}
-
-.hero-content{
-padding:48px 0 38px;
-}
-
-.hero h1{
-font-size:48px;
-}
-
-.hero p{
-font-size:16px;
-}
-
-.hero-image{
-display:none;
+.category-grid{
+grid-template-columns:repeat(4,1fr);
 }
 
 .features{
 grid-template-columns:repeat(3,1fr);
 }
 
-.feature{
-padding:13px 4px;
-font-size:10px;
+.feature:nth-child(n+4){
+display:none;
 }
 
-.feature:nth-child(n+4){
+.smart-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:800px){
+
+.topbar{
+min-height:38px;
+font-size:9px;
+gap:9px;
+padding:8px;
+}
+
+.header{
+padding:12px 15px;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.logo{
+width:145px;
+min-width:145px;
+}
+
+.logo-main{
+font-size:42px;
+}
+
+.logo-sub{
+font-size:7px;
+letter-spacing:1.5px;
+margin-top:7px;
+}
+
+.header-right{
+gap:12px;
+}
+
+.account-text{
+display:none;
+}
+
+.account-icon{
+font-size:28px;
+}
+
+.cart{
+border-left:0;
+padding-left:0;
+}
+
+.cart-text{
+display:none;
+}
+
+.cart-icon{
+font-size:28px;
+}
+
+.search{
+order:3;
+width:100%;
+max-width:none;
+height:48px;
+}
+
+.search button{
+width:55px;
+}
+
+.nav{
+height:55px;
+padding-left:0;
+}
+
+.nav-item{
+padding:0 13px;
+font-size:11px;
+}
+
+.nav-icon{
+font-size:18px;
+}
+
+.nav-clearance{
+margin:5px 8px;
+}
+
+/*
+Keep the uploaded hero artwork intact on mobile.
+*/
+
+.hero{
+aspect-ratio:auto;
+min-height:300px;
+background-size:cover;
+background-position:center;
+}
+
+/*
+The original artwork has the buttons inside the image.
+Make the clickable areas responsive.
+*/
+
+.hero-shop-link{
+left:5%;
+top:70%;
+width:42%;
+height:16%;
+}
+
+.hero-install-link{
+left:50%;
+top:70%;
+width:44%;
+height:16%;
+}
+
+.features{
+grid-template-columns:repeat(2,1fr);
+}
+
+.feature{
+min-height:70px;
+padding:10px;
+}
+
+.feature:nth-child(n+5){
 display:none;
 }
 
 .feature-icon{
-font-size:20px;
+font-size:27px;
+min-width:32px;
 }
 
-.section{
-padding:42px 0;
+.feature strong{
+font-size:11px;
 }
 
-.section h2{
-font-size:29px;
+.feature small{
+font-size:9px;
 }
 
-.section-heading{
-align-items:center;
+.categories,
+.deals,
+.smart,
+.services{
+padding-left:15px;
+padding-right:15px;
 }
 
-.categories{
-grid-template-columns:repeat(4,1fr);
-gap:8px;
+.section-head{
+gap:10px;
+align-items:flex-start;
 }
 
-.category{
-padding:8px 4px;
-}
-
-.category-icon{
-height:54px;
+.section-head h2{
 font-size:27px;
 }
 
-.category strong{
-font-size:9px;
+.view-all{
+font-size:10px;
+padding:9px;
 }
 
-.category small{
-font-size:9px;
+.category-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.category-card{
+min-height:150px;
 }
 
 .products{
 grid-template-columns:repeat(2,1fr);
-gap:9px;
+gap:10px;
 }
 
-.product-image{
-height:155px;
-}
-
-.product-icon{
-font-size:68px;
-}
-
-.product-info{
+.product{
 padding:11px;
 }
 
-.product-info h3{
-font-size:14px;
+.product-image{
+height:115px;
+font-size:65px;
+}
+
+.product h3{
+font-size:13px;
 }
 
 .price{
-font-size:20px;
+font-size:21px;
 }
 
-.installation{
-background:var(--orange);
-}
-
-.installation-inner{
-display:block;
-padding:42px 0;
-}
-
-.installation h2{
-font-size:32px;
-}
-
-.service-cards{
+.smart-grid{
 grid-template-columns:1fr;
-margin-top:25px;
+}
+
+.service-grid{
+grid-template-columns:1fr;
 }
 
 .footer-grid{
 grid-template-columns:1fr 1fr;
 }
 
-.mobile-bar{
-display:flex;
+.footer-brand{
+grid-column:1/-1;
+}
+
+.footer-bottom{
+flex-direction:column;
+gap:9px;
+}
+
+.mobile-nav{
 position:fixed;
 bottom:0;
 left:0;
 right:0;
-background:white;
-border-top:1px solid var(--line);
-z-index:400;
-box-shadow:0 -5px 20px #0002;
+height:62px;
+background:#080b0e;
+z-index:9998;
+display:flex;
+border-top:1px solid #333;
 }
 
-.mobile-bar a{
+.mobile-nav a{
 flex:1;
-text-align:center;
-padding:9px 4px;
-font-size:10px;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:3px;
+font-size:9px;
 font-weight:900;
 }
 
-.mobile-bar b{
-display:block;
+.mobile-nav a:first-child{
 color:var(--orange);
-font-size:19px;
-margin-bottom:2px;
 }
 
+body{
+padding-bottom:62px;
+}
 }
 
-/* SMALL PHONE */
+@media(max-width:480px){
 
-@media(max-width:430px){
-
-.categories{
-grid-template-columns:repeat(4,1fr);
+.hero{
+min-height:245px;
 }
 
-.category strong{
-font-size:8px;
+.category-grid{
+grid-template-columns:1fr 1fr;
 }
 
 .products{
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:1fr 1fr;
 }
 
-.search input{
-font-size:12px;
+.footer-grid{
+grid-template-columns:1fr;
 }
-
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
+<!-- TOP SHIPPING BAR -->
 
 <div class="topbar">
-🚚 FREE SHIPPING ON ORDERS OVER $99
-&nbsp; | &nbsp;
-🔧 PROFESSIONAL INSTALLATION AVAILABLE
+
+<div>🚚 FREE SHIPPING ON ORDERS OVER $100</div>
+
+<div class="topbar-divider">|</div>
+
+<div>PROFESSIONAL INSTALLATION AVAILABLE</div>
+
+<div class="topbar-divider">|</div>
+
+<div>COMMERCIAL & RESIDENTIAL HARDWARE</div>
+
 </div>
+
 
 <!-- HEADER -->
 
-<header>
+<header class="header">
 
-<div class="container header">
+<a href="#" class="logo">
 
-<a href="#home" class="logo">
-N<span>L</span>S
-<small>NATIONAL LOCK SUPPLY</small>
+<div class="logo-main">NLS</div>
+
+<div class="logo-sub">
+NATIONAL LOCK SUPPLY
+</div>
+
 </a>
 
+
 <div class="search">
+
 <input
 id="searchInput"
 type="text"
-placeholder="Search locks, deadbolts, access control..."
+placeholder="Search for locks, deadbolts, access control..."
 >
-<button onclick="searchProducts()">⌕</button>
+
+<button onclick="searchProducts()">
+🔍
+</button>
+
 </div>
 
+
+<div class="header-right">
+
 <div class="account">
-👤 Account
+
+<div class="account-icon">
+♙
+</div>
+
+<div class="account-text">
+Account
 <small>Sign In</small>
 </div>
 
-<button class="cart-button" onclick="openCart()">
-🛒 Cart
-<span class="cart-count" id="cartCount">0</span>
-</button>
+</div>
+
+
+<div class="cart" onclick="openCart()">
+
+<div class="cart-icon">
+🛒
+</div>
+
+<div class="cart-count" id="cartCount">
+0
+</div>
+
+<div class="cart-text">
+Cart
+</div>
+
+</div>
 
 </div>
 
 </header>
 
-<!-- NAV -->
 
-<nav class="navigation">
+<!-- NAVIGATION -->
 
-<div class="container">
+<nav class="nav">
 
-<a href="#shop">🏠 Shop All</a>
-<a href="#categories">🔑 Door Knobs</a>
-<a href="#categories">🔒 Deadbolts</a>
-<a href="#categories">◉ Mortise Cylinders</a>
-<a href="#categories">⚡ Electric Strikes</a>
-<a href="#categories">▣ Access Control</a>
-<a href="#categories">↔ Push Bars</a>
-<a href="#categories">🔔 Intercoms</a>
-<a href="#categories">📱 Smart Locks</a>
+<a href="#categories" class="nav-item active">
+<span class="nav-icon">⌂</span>
+Shop All
+</a>
 
-</div>
+<a href="#door-knobs" class="nav-item">
+<span class="nav-icon">⚿</span>
+Door Knobs
+</a>
+
+<a href="#deadbolts" class="nav-item">
+<span class="nav-icon">🔒</span>
+Deadbolts
+</a>
+
+<a href="#mortise" class="nav-item">
+<span class="nav-icon">◉</span>
+Mortise Cylinders
+</a>
+
+<a href="#electric" class="nav-item">
+<span class="nav-icon">ϟ</span>
+Electric Strikes
+</a>
+
+<a href="#access" class="nav-item">
+<span class="nav-icon">▦</span>
+Access Control
+</a>
+
+<a href="#pushbars" class="nav-item">
+<span class="nav-icon">▬</span>
+Push Bars
+</a>
+
+<a href="#intercoms" class="nav-item">
+<span class="nav-icon">♟</span>
+Intercoms
+</a>
+
+<a href="#smart" class="nav-item">
+<span class="nav-icon">▣</span>
+Smart Locks
+</a>
+
+<a href="#deals" class="nav-item nav-clearance">
+🏷 Clearance
+</a>
 
 </nav>
 
-<main id="home">
 
-<!-- HERO -->
+<!-- HERO IMAGE -->
 
 <section class="hero">
 
-<div class="container hero-inner">
+<!-- These are invisible clickable areas over the buttons
+already present in hero.jpg -->
 
-<div class="hero-content">
+<a
+href="#categories"
+class="hero-shop-link"
+aria-label="Shop Hardware"
+></a>
 
-<div class="eyebrow">
-PROFESSIONAL HARDWARE SUPPLY
-</div>
-
-<h1>
-LOCKS.
-<span>HARDWARE.</span><br>
-<span>ACCESS CONTROL.</span>
-</h1>
-
-<p>
-Professional-grade locks, door hardware and access-control products
-for residential and commercial applications.
-</p>
-
-<div class="hero-buttons">
-
-<a href="#shop" class="button orange-button">
-🔒 SHOP HARDWARE →
-</a>
-
-<a href="#installation" class="button dark-button">
-🛠 BOOK INSTALLATION
-</a>
-
-</div>
-
-<div class="checks">
-<span>✓ Residential</span>
-<span>✓ Commercial</span>
-<span>✓ Professional Installation</span>
-<span>✓ Top Brands</span>
-</div>
-
-</div>
-
-<div class="hero-image"></div>
-
-</div>
+<a
+href="#installation"
+class="hero-install-link"
+aria-label="Book Installation"
+></a>
 
 </section>
 
-<!-- FEATURES -->
+
+<!-- FEATURE BAR -->
 
 <section class="features">
 
 <div class="feature">
-<span class="feature-icon">🏷</span>
-Top Brands
-<span>Schlage, Kwikset & more</span>
+
+<div class="feature-icon">
+🏷
 </div>
 
-<div class="feature">
-<span class="feature-icon">🚚</span>
-Fast Shipping
-<span>Orders over $99</span>
+<div>
+<strong>Top Brands</strong>
+<small>Schlage, Kwikset, Yale & More</small>
 </div>
 
-<div class="feature">
-<span class="feature-icon">🔧</span>
-Installation
-<span>Residential & commercial</span>
 </div>
 
-<div class="feature">
-<span class="feature-icon">🛡</span>
-Secure Checkout
-<span>Safe payments</span>
-</div>
 
 <div class="feature">
-<span class="feature-icon">☎</span>
-Expert Support
-<span>Hardware assistance</span>
+
+<div class="feature-icon">
+🚚
+</div>
+
+<div>
+<strong>Fast Shipping</strong>
+<small>Orders Over $100</small>
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🔧
+</div>
+
+<div>
+<strong>Professional Installation</strong>
+<small>Residential & Commercial</small>
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🛡
+</div>
+
+<div>
+<strong>Secure Checkout</strong>
+<small>Safe & Encrypted Payments</small>
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🎧
+</div>
+
+<div>
+<strong>Expert Support</strong>
+<small>Call for Hardware Assistance</small>
+</div>
+
 </div>
 
 </section>
 
-<!-- CATEGORIES -->
 
-<section class="section" id="categories">
+<!-- SHOP BY CATEGORY -->
 
-<div class="container">
+<section class="categories" id="categories">
 
-<div class="section-heading">
+<div class="section-head">
 
 <div>
 
-<div class="eyebrow">
+<div class="kicker">
 SHOP BY CATEGORY
 </div>
 
@@ -1035,80 +1324,178 @@ Find the right hardware
 
 </div>
 
-<a href="#shop" class="view-all">
-View All →
+<a href="#deals" class="view-all">
+View All Products →
 </a>
 
 </div>
 
-<div class="categories">
 
-<div class="category" data-category="Door Knobs">
-<div class="category-icon">⚫</div>
-<strong>Door Knobs</strong>
-<small>Shop Now →</small>
+<div class="category-grid">
+
+<a
+href="#deals"
+class="category-card"
+id="door-knobs"
+>
+
+<div class="category-image">
+⚿
 </div>
 
-<div class="category" data-category="Deadbolts">
-<div class="category-icon">🔘</div>
-<strong>Deadbolts</strong>
-<small>Shop Now →</small>
+<h3>Door Knobs</h3>
+
+<div class="shop-link">
+Shop Now →
 </div>
 
-<div class="category" data-category="Mortise Cylinders">
-<div class="category-icon">🟡</div>
-<strong>Mortise Cylinders</strong>
-<small>Shop Now →</small>
+</a>
+
+
+<a
+href="#deals"
+class="category-card"
+id="deadbolts"
+>
+
+<div class="category-image">
+🔒
 </div>
 
-<div class="category" data-category="Electric Strikes">
-<div class="category-icon">⚡</div>
-<strong>Electric Strikes</strong>
-<small>Shop Now →</small>
+<h3>Deadbolts</h3>
+
+<div class="shop-link">
+Shop Now →
 </div>
 
-<div class="category" data-category="Access Control">
-<div class="category-icon">▣</div>
-<strong>Access Control</strong>
-<small>Shop Now →</small>
+</a>
+
+
+<a
+href="#deals"
+class="category-card"
+id="mortise"
+>
+
+<div class="category-image">
+◉
 </div>
 
-<div class="category" data-category="Push Bars">
-<div class="category-icon">↔</div>
-<strong>Push Bars</strong>
-<small>Shop Now →</small>
+<h3>Mortise Cylinders</h3>
+
+<div class="shop-link">
+Shop Now →
 </div>
 
-<div class="category" data-category="Intercoms">
-<div class="category-icon">🔔</div>
-<strong>Intercoms</strong>
-<small>Shop Now →</small>
+</a>
+
+
+<a
+href="#deals"
+class="category-card"
+id="electric"
+>
+
+<div class="category-image">
+ϟ
 </div>
 
-<div class="category" data-category="Smart Locks">
-<div class="category-icon">📱</div>
-<strong>Smart Locks</strong>
-<small>Shop Now →</small>
+<h3>Electric Strikes</h3>
+
+<div class="shop-link">
+Shop Now →
 </div>
 
+</a>
+
+
+<a
+href="#deals"
+class="category-card"
+id="access"
+>
+
+<div class="category-image">
+▦
 </div>
+
+<h3>Access Control</h3>
+
+<div class="shop-link">
+Shop Now →
+</div>
+
+</a>
+
+
+<a
+href="#deals"
+class="category-card"
+id="pushbars"
+>
+
+<div class="category-image">
+▬
+</div>
+
+<h3>Push Bars</h3>
+
+<div class="shop-link">
+Shop Now →
+</div>
+
+</a>
+
+
+<a
+href="#deals"
+class="category-card"
+id="intercoms"
+>
+
+<div class="category-image">
+♟
+</div>
+
+<h3>Intercoms</h3>
+
+<div class="shop-link">
+Shop Now →
+</div>
+
+</a>
+
+
+<a
+href="#smart"
+class="category-card"
+>
+
+<div class="category-image">
+▣
+</div>
+
+<h3>Smart Locks</h3>
+
+<div class="shop-link">
+Shop Now →
+</div>
+
+</a>
 
 </div>
 
 </section>
 
-<!-- PRODUCTS -->
 
-<section class="section shop" id="shop">
+<!-- DEALS -->
 
-<div class="container">
+<section class="deals" id="deals">
 
-<div class="section-heading">
+<div class="center-title">
 
-<div>
-
-<div class="eyebrow">
-NLS ONLINE STORE
+<div class="kicker">
+HOT DEALS
 </div>
 
 <h2>
@@ -1117,82 +1504,264 @@ Featured Hardware
 
 </div>
 
-<div class="filters">
 
-<select id="categoryFilter" onchange="renderProducts()">
+<div class="products">
 
-<option>All Products</option>
-<option>Door Knobs</option>
-<option>Deadbolts</option>
-<option>Mortise Cylinders</option>
-<option>Electric Strikes</option>
-<option>Access Control</option>
-<option>Push Bars</option>
-<option>Intercoms</option>
-<option>Smart Locks</option>
+<div class="product">
 
-</select>
+<div class="sale">
+SALE
+</div>
+
+<div class="product-image">
+🔒
+</div>
+
+<h3>
+Single Cylinder Deadbolt
+</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="old-price">
+$59.99
+</div>
+
+<div class="price">
+$39.99
+</div>
+
+<button
+class="add-cart"
+onclick="addToCart('Single Cylinder Deadbolt',39.99)"
+>
+ADD TO CART
+</button>
 
 </div>
 
+
+<div class="product">
+
+<div class="sale">
+SALE
 </div>
 
-<div class="products" id="products"></div>
+<div class="product-image">
+⚿
+</div>
+
+<h3>
+Entry Door Knob
+</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="old-price">
+$44.99
+</div>
+
+<div class="price">
+$29.99
+</div>
+
+<button
+class="add-cart"
+onclick="addToCart('Entry Door Knob',29.99)"
+>
+ADD TO CART
+</button>
+
+</div>
+
+
+<div class="product">
+
+<div class="sale">
+SALE
+</div>
+
+<div class="product-image">
+◉
+</div>
+
+<h3>
+Commercial Mortise Cylinder
+</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="old-price">
+$49.99
+</div>
+
+<div class="price">
+$34.99
+</div>
+
+<button
+class="add-cart"
+onclick="addToCart('Commercial Mortise Cylinder',34.99)"
+>
+ADD TO CART
+</button>
+
+</div>
+
+
+<div class="product">
+
+<div class="sale">
+SALE
+</div>
+
+<div class="product-image">
+ϟ
+</div>
+
+<h3>
+Electric Strike
+</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="old-price">
+$169.99
+</div>
+
+<div class="price">
+$129.99
+</div>
+
+<button
+class="add-cart"
+onclick="addToCart('Electric Strike',129.99)"
+>
+ADD TO CART
+</button>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- INSTALLATION -->
 
-<section class="installation" id="installation">
+<!-- SMART LOCKS -->
 
-<div class="container installation-inner">
+<section class="smart" id="smart">
+
+<div class="section-head">
 
 <div>
 
-<div class="eyebrow" style="color:white">
-NLS INSTALLATION SERVICES
+<div class="kicker">
+SMART & KEYPAD LOCKS
 </div>
 
 <h2>
-NEED IT INSTALLED?
+Choose the lock that fits your needs
 </h2>
+
+</div>
+
+</div>
+
+
+<div class="smart-grid">
+
+<div class="smart-card">
+
+<div class="smart-symbol">
+📱
+</div>
+
+<h3>
+Wi-Fi Smart Locks
+</h3>
 
 <p>
-Order your hardware from NLS and request professional installation
-for residential doors, commercial openings and access-control systems.
+App control, remote access and connected
+smart-home features.
 </p>
 
-<br>
-
-<a href="#contact"
-class="button"
-style="background:#111;color:white;">
-Schedule Installation →
+<a href="#deals">
+Shop Wi-Fi Locks →
 </a>
 
 </div>
 
-<div class="service-cards">
 
-<div class="service">
-<div class="service-icon">🏠</div>
-<strong>Residential</strong>
-<span>Homes, rentals & properties</span>
+<div class="smart-card">
+
+<div class="smart-symbol">
+📲
 </div>
 
-<div class="service">
-<div class="service-icon">🏢</div>
-<strong>Commercial</strong>
-<span>Businesses & offices</span>
+<h3>
+Bluetooth Smart Locks
+</h3>
+
+<p>
+Phone access and Bluetooth-enabled entry
+without requiring Wi-Fi.
+</p>
+
+<a href="#deals">
+Shop Bluetooth Locks →
+</a>
+
 </div>
 
-<div class="service">
-<div class="service-icon">⚙️</div>
-<strong>Access Control</strong>
-<span>Complete systems</span>
+
+<div class="smart-card">
+
+<div class="smart-symbol">
+🔢
 </div>
+
+<h3>
+Keypad Locks
+</h3>
+
+<p>
+<strong>NO WI-FI • NO BLUETOOTH • NO APP</strong>
+<br>
+Simple code-based entry with no internet required.
+</p>
+
+<a href="#deals">
+Shop Keypad Locks →
+</a>
+
+</div>
+
+
+<div class="smart-card">
+
+<div class="smart-symbol">
+🔐
+</div>
+
+<h3>
+Basic Keypad Locks
+</h3>
+
+<p>
+Simple keypad entry for homeowners and businesses.
+</p>
+
+<a href="#deals">
+Shop Basic Keypads →
+</a>
 
 </div>
 
@@ -1200,33 +1769,82 @@ Schedule Installation →
 
 </section>
 
-<!-- CONTACT -->
 
-<section class="section" id="contact">
+<!-- SERVICES -->
 
-<div class="container">
+<section class="services" id="installation">
 
-<div class="section-heading">
+<div class="section-head">
 
 <div>
 
-<div class="eyebrow">
-NATIONAL LOCK SUPPLY
+<div class="kicker">
+NLS SERVICES
 </div>
 
 <h2>
-Ready to secure the opening?
+More than just hardware
 </h2>
 
-<p style="color:var(--muted);margin-top:8px;">
-Shop hardware online or request professional installation.
+</div>
+
+</div>
+
+
+<div class="service-grid">
+
+<div class="service">
+
+<div class="service-icon">
+🚚
+</div>
+
+<h3>
+Fast Shipping
+</h3>
+
+<p>
+Get your hardware shipped quickly.
+Free shipping on orders over $100.
 </p>
 
 </div>
 
-<a href="#shop" class="button orange-button">
-SHOP HARDWARE →
-</a>
+
+<div class="service">
+
+<div class="service-icon">
+🚐
+</div>
+
+<h3>
+Mobile Locksmith
+</h3>
+
+<p>
+Professional residential and commercial
+locksmith service available for qualifying
+installations.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="service-icon">
+🔧
+</div>
+
+<h3>
+Professional Installation
+</h3>
+
+<p>
+Need help installing your hardware?
+Book professional residential or commercial
+installation.
+</p>
 
 </div>
 
@@ -1234,527 +1852,396 @@ SHOP HARDWARE →
 
 </section>
 
-</main>
 
 <!-- FOOTER -->
 
 <footer>
 
-<div class="container footer-grid">
+<div class="footer-grid">
 
-<div>
+<div class="footer-brand">
 
-<div class="logo">
-N<span>L</span>S
-<small>NATIONAL LOCK SUPPLY</small>
+<div class="footer-logo">
+NLS
 </div>
 
-<p style="margin-top:15px;">
-Locks • Hardware • Access Control
+<p>
+National Lock Supply provides locks,
+door hardware, access control, smart locks
+and professional installation products for
+residential and commercial applications.
 </p>
 
 </div>
 
+
+<div class="footer-col">
+
+<h4>Shop</h4>
+
+<a href="#door-knobs">
+Door Knobs
+</a>
+
+<a href="#deadbolts">
+Deadbolts
+</a>
+
+<a href="#mortise">
+Mortise Cylinders
+</a>
+
+<a href="#electric">
+Electric Strikes
+</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Access</h4>
+
+<a href="#access">
+Access Control
+</a>
+
+<a href="#pushbars">
+Push Bars
+</a>
+
+<a href="#intercoms">
+Intercoms
+</a>
+
+<a href="#smart">
+Smart Locks
+</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Services</h4>
+
+<a href="#installation">
+Installation
+</a>
+
+<a href="#installation">
+Mobile Locksmith
+</a>
+
+<a href="#deals">
+Deals
+</a>
+
+<a href="#">
+Contact Us
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
 <div>
-
-<h3>Shop</h3>
-
-<a href="#categories">Door Knobs</a>
-<a href="#categories">Deadbolts</a>
-<a href="#categories">Electric Strikes</a>
-<a href="#categories">Smart Locks</a>
-
+© 2026 National Lock Supply. All Rights Reserved.
 </div>
 
 <div>
-
-<h3>Services</h3>
-
-<a href="#installation">Installation</a>
-<a href="#installation">Residential</a>
-<a href="#installation">Commercial</a>
-<a href="#installation">Access Control</a>
-
+Residential • Commercial • Professional Hardware
 </div>
-
-<div>
-
-<h3>Help</h3>
-
-<a href="#contact">Contact NLS</a>
-<a href="#shop">Shipping</a>
-<a href="#shop">Returns</a>
-
-</div>
-
-</div>
-
-<div class="container copyright">
-
-© 2026 National Lock Supply. All rights reserved.
 
 </div>
 
 </footer>
 
-<!-- CART -->
 
-<div class="cart-overlay" id="cartOverlay">
+<!-- CART DRAWER -->
 
-<div class="cart-panel">
+<div class="cart-drawer" id="cartDrawer">
 
-<div class="cart-header">
+<div class="cart-head">
 
-<h2>Your Cart</h2>
+<h2>
+Your Cart
+</h2>
 
 <button
 class="close-cart"
-onclick="closeCart()">
-✕
+onclick="closeCart()"
+>
+×
 </button>
 
 </div>
 
-<div id="cartItems"></div>
 
-<div id="cartTotal"></div>
+<div
+class="cart-items"
+id="cartItems"
+>
 
+<div class="empty">
+Your cart is empty.
 </div>
 
 </div>
+
+
+<div class="cart-total">
+
+<span>
+Total
+</span>
+
+<span id="cartTotal">
+$0.00
+</span>
+
+</div>
+
+
+<button
+class="checkout"
+onclick="checkout()"
+>
+PROCEED TO CHECKOUT
+</button>
+
+</div>
+
 
 <!-- MOBILE NAV -->
 
-<div class="mobile-bar">
+<div class="mobile-nav">
 
-<a href="#home">
-<b>⌂</b>
-Home
+<a href="#">
+🏠
+<span>Home</span>
 </a>
 
 <a href="#categories">
-<b>☰</b>
-Categories
+🛒
+<span>Shop</span>
 </a>
 
-<a href="#shop">
-<b>🛍</b>
-Shop
+<a href="#smart">
+🔐
+<span>Smart</span>
 </a>
 
 <a href="#installation">
-<b>🔧</b>
-Install
+🔧
+<span>Install</span>
 </a>
 
-<a href="javascript:openCart()">
-<b>🛒</b>
-Cart
+<a
+href="#"
+onclick="openCart();return false;"
+>
+🛒
+<span>Cart</span>
 </a>
 
 </div>
+
 
 <script>
 
-const products = [
+let cart = [];
 
-{
-name:"Schlage B60 Single Cylinder Deadbolt",
-category:"Deadbolts",
-price:39.99,
-icon:"🔘",
-tag:"BEST SELLER"
-},
 
-{
-name:"Kwikset Tylo Entry Door Knob",
-category:"Door Knobs",
-price:24.99,
-icon:"⚫",
-tag:"SALE"
-},
+/* =========================
+CART
+========================= */
 
-{
-name:"Schlage Commercial Mortise Cylinder",
-category:"Mortise Cylinders",
-price:29.99,
-icon:"🟡",
-tag:"NEW"
-},
+function addToCart(name,price){
 
-{
-name:"HES 9600 Electric Strike",
-category:"Electric Strikes",
-price:129.99,
-icon:"⚡",
-tag:"PRO"
-},
-
-{
-name:"HID Prox Card Reader",
-category:"Access Control",
-price:149.99,
-icon:"▣",
-tag:"PRO"
-},
-
-{
-name:"Von Duprin Exit Device",
-category:"Push Bars",
-price:189.99,
-icon:"↔",
-tag:"BEST SELLER"
-},
-
-{
-name:"Apartment Intercom Entry Unit",
-category:"Intercoms",
-price:249.99,
-icon:"🔔",
-tag:"NEW"
-},
-
-{
-name:"Smart Keypad Door Lock",
-category:"Smart Locks",
-price:179.99,
-icon:"📱",
-tag:"NEW"
-}
-
-];
-
-let cart=[];
-
-function renderProducts(){
-
-const filter=document.getElementById("categoryFilter").value;
-
-const list=products.filter(product =>
-
-filter==="All Products" ||
-product.category===filter
-
-);
-
-document.getElementById("products").innerHTML=list.map((product,index)=>`
-
-<div class="product-card">
-
-<div class="product-image">
-
-<div class="product-tag">
-${product.tag}
-</div>
-
-<div class="product-icon">
-${product.icon}
-</div>
-
-</div>
-
-<div class="product-info">
-
-<div class="product-category">
-${product.category.toUpperCase()}
-</div>
-
-<h3>
-${product.name}
-</h3>
-
-<div class="stars">
-★★★★★
-</div>
-
-<div class="price">
-$${product.price.toFixed(2)}
-</div>
-
-<div class="stock">
-✓ In Stock
-</div>
-
-<button
-class="add-cart"
-onclick="addToCart(${products.indexOf(product)})">
-
-🛒 ADD TO CART
-
-</button>
-
-</div>
-
-</div>
-
-`).join("");
-
-}
-
-function addToCart(index){
-
-cart.push(products[index]);
+cart.push({
+name:name,
+price:price
+});
 
 updateCart();
 
 openCart();
-
 }
 
-function removeFromCart(index){
+
+function removeItem(index){
 
 cart.splice(index,1);
 
 updateCart();
-
 }
+
 
 function updateCart(){
 
-document.getElementById("cartCount").textContent=cart.length;
+const count =
+document.getElementById("cartCount");
 
-if(cart.length===0){
+const items =
+document.getElementById("cartItems");
 
-document.getElementById("cartItems").innerHTML=`
+const total =
+document.getElementById("cartTotal");
 
-<div class="empty-cart">
+count.textContent = cart.length;
 
-Your cart is empty.
 
-<br><br>
+if(cart.length === 0){
 
-Start shopping above.
+items.innerHTML =
+'<div class="empty">Your cart is empty.</div>';
 
-</div>
-
-`;
-
-document.getElementById("cartTotal").innerHTML="";
+total.textContent =
+"$0.00";
 
 return;
-
 }
 
-document.getElementById("cartItems").innerHTML=
 
-cart.map((product,index)=>`
+let html = "";
+let sum = 0;
 
-<div class="cart-item">
 
-<div>
+cart.forEach((item,index)=>{
 
-<strong>
-${product.name}
-</strong>
+sum += item.price;
 
-<br>
-
-<small>
-${product.category}
-</small>
-
-</div>
+html += `
+<div style="
+display:flex;
+justify-content:space-between;
+gap:12px;
+padding:14px 0;
+border-bottom:1px solid #eee;
+">
 
 <div>
 
 <strong>
-$${product.price.toFixed(2)}
+${item.name}
 </strong>
 
-<br>
-
-<button
-class="remove"
-onclick="removeFromCart(${index})">
-
-Remove
-
-</button>
-
+<div style="
+color:#ff4f00;
+font-weight:900;
+margin-top:5px;
+">
+$${item.price.toFixed(2)}
 </div>
 
 </div>
 
-`).join("");
-
-const total=cart.reduce(
-(sum,product)=>sum+product.price,
-0
-);
-
-document.getElementById("cartTotal").innerHTML=`
-
-<h3 style="margin-top:20px;">
-Total: $${total.toFixed(2)}
-</h3>
-
 <button
-class="checkout"
-onclick="checkout()">
-
-CONTINUE TO CHECKOUT
-
+onclick="removeItem(${index})"
+style="
+border:0;
+background:none;
+color:#999;
+cursor:pointer;
+font-size:21px;
+"
+>
+×
 </button>
 
+</div>
 `;
+});
 
+
+items.innerHTML = html;
+
+total.textContent =
+"$" + sum.toFixed(2);
 }
+
 
 function openCart(){
 
 document
-.getElementById("cartOverlay")
+.getElementById("cartDrawer")
 .classList.add("open");
-
 }
+
 
 function closeCart(){
 
 document
-.getElementById("cartOverlay")
+.getElementById("cartDrawer")
 .classList.remove("open");
-
 }
+
 
 function checkout(){
 
-alert(
-"Checkout will be connected to your payment processor next."
-);
+if(cart.length === 0){
 
+alert("Your cart is empty.");
+
+return;
 }
+
+alert(
+"NLS checkout will be connected to your payment system next."
+);
+}
+
+
+/* =========================
+SEARCH
+========================= */
 
 function searchProducts(){
 
-const search=
-document
-.getElementById("searchInput")
-.value
-.toLowerCase()
-.trim();
+const input =
+document.getElementById("searchInput");
 
-if(!search){
+const value =
+input.value.trim();
 
-renderProducts();
+
+if(!value){
+
+alert("Enter a product to search.");
+
+input.focus();
 
 return;
-
 }
 
-const results=products.filter(product=>
-(
-product.name+
-" "+
-product.category
-)
-.toLowerCase()
-.includes(search)
-);
-
-document.getElementById("products").innerHTML=
-
-results.length
-
-?
-
-results.map(product=>`
-
-<div class="product-card">
-
-<div class="product-image">
-
-<div class="product-tag">
-${product.tag}
-</div>
-
-<div class="product-icon">
-${product.icon}
-</div>
-
-</div>
-
-<div class="product-info">
-
-<div class="product-category">
-${product.category.toUpperCase()}
-</div>
-
-<h3>
-${product.name}
-</h3>
-
-<div class="stars">
-★★★★★
-</div>
-
-<div class="price">
-$${product.price.toFixed(2)}
-</div>
-
-<div class="stock">
-✓ In Stock
-</div>
-
-<button
-class="add-cart"
-onclick="addToCart(${products.indexOf(product)})">
-
-🛒 ADD TO CART
-
-</button>
-
-</div>
-
-</div>
-
-`).join("")
-
-:
-
-"<p>No products found. Try another search.</p>";
 
 document
-.getElementById("shop")
-.scrollIntoView();
-
+.getElementById("deals")
+.scrollIntoView({
+behavior:"smooth"
+});
 }
+
+
+/* =========================
+ENTER KEY SEARCH
+========================= */
 
 document
 .getElementById("searchInput")
 .addEventListener("keydown",function(event){
 
-if(event.key==="Enter"){
+if(event.key === "Enter"){
 
 searchProducts();
 
 }
 
 });
-
-document
-.querySelectorAll(".category")
-.forEach(category=>{
-
-category.addEventListener("click",function(){
-
-document
-.getElementById("categoryFilter")
-.value=
-this.dataset.category;
-
-renderProducts();
-
-document
-.getElementById("shop")
-.scrollIntoView();
-
-});
-
-});
-
-renderProducts();
-
-updateCart();
 
 </script>
 
