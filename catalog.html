@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>National Lock Supply | Lock & Door Hardware</title>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f5f5f5;
+color:#111;
+}
+
+.topbar{
+background:#111;
+color:#fff;
+text-align:center;
+padding:9px;
+font-size:13px;
+font-weight:bold;
+}
+
+header{
+background:#fff;
+border-bottom:1px solid #ddd;
+position:sticky;
+top:0;
+z-index:20;
+}
+
+.header-inner{
+max-width:1200px;
+margin:auto;
+padding:18px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.logo{
+font-size:25px;
+font-weight:900;
+white-space:nowrap;
+}
+
+.logo span{
+color:#f58220;
+}
+
+.search{
+flex:1;
+max-width:500px;
+}
+
+.search input{
+width:100%;
+padding:13px 16px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:15px;
+}
+
+.cart{
+background:#f58220;
+color:#fff;
+padding:13px 18px;
+border-radius:6px;
+font-weight:bold;
+white-space:nowrap;
+}
+
+nav{
+background:#111;
+}
+
+.nav-inner{
+max-width:1200px;
+margin:auto;
+display:flex;
+gap:28px;
+padding:13px 20px;
+overflow:auto;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+font-size:14px;
+font-weight:bold;
+white-space:nowrap;
+}
+
+.hero{
+background:#111;
+color:#fff;
+padding:45px 20px;
+}
+
+.hero-inner{
+max-width:1200px;
+margin:auto;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:12px;
+}
+
+.hero h1 span{
+color:#f58220;
+}
+
+.hero p{
+font-size:18px;
+color:#ddd;
+max-width:650px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:35px 20px;
+}
+
+.title-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+margin-bottom:25px;
+}
+
+.title-row h2{
+font-size:28px;
+}
+
+.title-row p{
+color:#666;
+margin-top:5px;
+}
+
+.filters{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+.filter{
+border:1px solid #ccc;
+background:#fff;
+padding:10px 16px;
+border-radius:5px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.filter.active,
+.filter:hover{
+background:#f58220;
+color:#fff;
+border-color:#f58220;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.product{
+background:#fff;
+border-radius:8px;
+overflow:hidden;
+border:1px solid #ddd;
+transition:.2s;
+}
+
+.product:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+.product-image{
+height:240px;
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:15px;
+position:relative;
+}
+
+.product-image img{
+width:100%;
+height:100%;
+object-fit:contain;
+}
+
+.badge{
+position:absolute;
+top:12px;
+left:12px;
+background:#f58220;
+color:#fff;
+padding:6px 9px;
+border-radius:4px;
+font-size:11px;
+font-weight:bold;
+}
+
+.product-info{
+padding:17px;
+}
+
+.product-number{
+color:#888;
+font-size:11px;
+font-weight:bold;
+margin-bottom:6px;
+}
+
+.product h3{
+font-size:16px;
+line-height:1.3;
+margin-bottom:7px;
+}
+
+.type{
+color:#666;
+font-size:13px;
+margin-bottom:12px;
+}
+
+.price{
+font-size:22px;
+font-weight:900;
+color:#111;
+}
+
+.price-note{
+color:#f58220;
+font-size:12px;
+font-weight:bold;
+margin-top:3px;
+}
+
+button{
+width:100%;
+margin-top:13px;
+padding:12px;
+background:#f58220;
+border:0;
+color:#fff;
+border-radius:5px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#d96d10;
+}
+
+.shipping{
+margin-top:35px;
+background:#111;
+color:#fff;
+padding:25px;
+border-radius:8px;
+text-align:center;
+}
+
+.shipping strong{
+color:#f58220;
+}
+
+footer{
+background:#111;
+color:#aaa;
+margin-top:50px;
+padding:35px 20px;
+text-align:center;
+}
+
+footer strong{
+color:#fff;
+}
+
+@media(max-width:900px){
+.products{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+@media(max-width:650px){
+.header-inner{
+flex-wrap:wrap;
+}
+
+.search{
+order:3;
+max-width:none;
+flex-basis:100%;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+.products{
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.product-image{
+height:190px;
+}
+
+.product-info{
+padding:12px;
+}
+
+.product h3{
+font-size:14px;
+}
+
+.price{
+font-size:19px;
+}
+}
+
+@media(max-width:400px){
+.products{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+FREE SHIPPING ON ORDERS OVER $100
+</div>
+
+<header>
+<div class="header-inner">
+
+<div class="logo">
+NATIONAL <span>LOCK SUPPLY</span>
+</div>
+
+<div class="search">
+<input
+type="text"
+id="search"
+placeholder="Search locks, deadbolts, knobs..."
+>
+</div>
+
+<div class="cart">
+🛒 CART <span id="cartCount">0</span>
+</div>
+
+</div>
+</header>
+
+<nav>
+<div class="nav-inner">
+<a href="index.html">HOME</a>
+<a href="#deals">DEALS</a>
+<a href="#knobs">DOOR KNOBS</a>
+<a href="#deadbolts">DEADBOLTS</a>
+<a href="#keypad">KEYPAD LOCKS</a>
+<a href="#smart">SMART LOCKS</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-inner">
+<h1>LOCKS & <span>DOOR HARDWARE</span></h1>
+<p>
+Professional-grade locks, deadbolts, door knobs,
+keypad locks and smart security hardware.
+</p>
+</div>
+</section>
+
+<main class="container">
+
+<div class="title-row">
+<div>
+<h2>ALL PRODUCTS</h2>
+<p>Browse our National Lock Supply hardware catalog.</p>
+</div>
+</div>
+
+<div class="filters">
+<button class="filter active" data-filter="all">ALL</button>
+<button class="filter" data-filter="knobs">DOOR KNOBS</button>
+<button class="filter" data-filter="deadbolts">DEADBOLTS</button>
+<button class="filter" data-filter="keypad">KEYPAD LOCKS</button>
+<button class="filter" data-filter="smart">SMART LOCKS</button>
+</div>
+
+<div class="products" id="products"></div>
+
+<div class="shipping">
+<strong>FREE SHIPPING</strong>
+<br>
+On orders over $100
+</div>
+
+</main>
+
+<footer>
+<strong>NATIONAL LOCK SUPPLY</strong>
+<br><br>
+Locks • Door Hardware • Access Control • Smart Security
+<br><br>
+© 2026 National Lock Supply
+</footer>
+
+<script>
+
+const products = [];
+
+for(let i = 1; i <= 50; i++){
+
+let number = String(i).padStart(2,"0");
+
+let category;
+
+if(i <= 15){
+category = "knobs";
+}
+else if(i <= 30){
+category = "deadbolts";
+}
+else if(i <= 40){
+category = "keypad";
+}
+else{
+category = "smart";
+}
+
+products.push({
+id:i,
+image:`NLS_50_Product_Images/product-${number}.jpg`,
+category:category,
+name:`National Lock Supply Product ${number}`
+});
+
+}
+
+const productContainer = document.getElementById("products");
+
+function displayProducts(list){
+
+productContainer.innerHTML = "";
+
+list.forEach(product => {
+
+const card = document.createElement("div");
+
+card.className = "product";
+card.dataset.category = product.category;
+
+card.innerHTML = `
+
+<div class="product-image">
+
+<div class="badge">
+NLS
+</div>
+
+<img
+src="${product.image}"
+alt="${product.name}"
+loading="lazy"
+>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-number">
+PRODUCT ${String(product.id).padStart(2,"0")}
+</div>
+
+<h3>
+${product.name}
+</h3>
+
+<div class="type">
+Professional Door Hardware
+</div>
+
+<div class="price">
+PRICE
+</div>
+
+<div class="price-note">
+Contact for current pricing
+</div>
+
+<button onclick="addToCart(${product.id})">
+ADD TO CART
+</button>
+
+</div>
+`;
+
+productContainer.appendChild(card);
+
+});
+
+}
+
+displayProducts(products);
+
+document.querySelectorAll(".filter").forEach(button => {
+
+button.addEventListener("click", () => {
+
+document
+.querySelectorAll(".filter")
+.forEach(btn => btn.classList.remove("active"));
+
+button.classList.add("active");
+
+const filter = button.dataset.filter;
+
+if(filter === "all"){
+displayProducts(products);
+}else{
+displayProducts(
+products.filter(product => product.category === filter)
+);
+}
+
+});
+
+});
+
+document.getElementById("search").addEventListener("input", function(){
+
+const search = this.value.toLowerCase();
+
+const filtered = products.filter(product =>
+product.name.toLowerCase().includes(search) ||
+product.category.toLowerCase().includes(search)
+);
+
+displayProducts(filtered);
+
+});
+
+let cartCount = 0;
+
+function addToCart(id){
+
+cartCount++;
+
+document.getElementById("cartCount").textContent = cartCount;
+
+}
+
+</script>
+
+</body>
+</html>
