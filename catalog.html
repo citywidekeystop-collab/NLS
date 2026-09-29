@@ -102,6 +102,12 @@ color:#fff;
 padding:9px 15px;
 font-weight:bold;
 cursor:pointer;
+border-radius:6px;
+}
+
+.nav-inner button.active{
+background:#d9a441;
+color:#111;
 }
 
 .hero{
@@ -282,9 +288,11 @@ display:none;
 }
 
 @media(max-width:1000px){
+
 .products{
 grid-template-columns:repeat(3,1fr);
 }
+
 }
 
 @media(max-width:700px){
@@ -406,6 +414,7 @@ display:block;
 font-size:23px;
 margin-bottom:2px;
 }
+
 }
 </style>
 </head>
@@ -431,6 +440,7 @@ NATIONAL <span>LOCK SUPPLY</span>
 </div>
 
 <div class="search-area">
+
 <input
 id="search"
 class="search"
@@ -438,18 +448,52 @@ type="search"
 placeholder="Search locks, deadbolts, knobs..."
 oninput="searchProducts()"
 >
+
 </div>
 
 </header>
 
 <nav>
+
 <div class="nav-inner">
-<button onclick="filterProducts('all')">ALL PRODUCTS</button>
-<button onclick="filterProducts('knobs')">DOOR KNOBS</button>
-<button onclick="filterProducts('deadbolts')">DEADBOLTS</button>
-<button onclick="filterProducts('keypad')">KEYPAD LOCKS</button>
-<button onclick="filterProducts('smart')">SMART LOCKS</button>
+
+<button
+class="nav-filter active"
+data-category="all"
+onclick="filterProducts('all')">
+ALL PRODUCTS (50)
+</button>
+
+<button
+class="nav-filter"
+data-category="knobs"
+onclick="filterProducts('knobs')">
+DOOR KNOBS (15)
+</button>
+
+<button
+class="nav-filter"
+data-category="deadbolts"
+onclick="filterProducts('deadbolts')">
+DEADBOLTS (15)
+</button>
+
+<button
+class="nav-filter"
+data-category="keypad"
+onclick="filterProducts('keypad')">
+KEYPAD LOCKS (10)
+</button>
+
+<button
+class="nav-filter"
+data-category="smart"
+onclick="filterProducts('smart')">
+SMART LOCKS (10)
+</button>
+
 </div>
+
 </nav>
 
 <section class="hero">
@@ -465,24 +509,39 @@ professionally install it for you.
 
 <div class="filters">
 
-<button class="filter active" onclick="filterProducts('all')">
-ALL
+<button
+class="filter active"
+data-category="all"
+onclick="filterProducts('all')">
+ALL (50)
 </button>
 
-<button class="filter" onclick="filterProducts('knobs')">
-DOOR KNOBS
+<button
+class="filter"
+data-category="knobs"
+onclick="filterProducts('knobs')">
+DOOR KNOBS (15)
 </button>
 
-<button class="filter" onclick="filterProducts('deadbolts')">
-DEADBOLTS
+<button
+class="filter"
+data-category="deadbolts"
+onclick="filterProducts('deadbolts')">
+DEADBOLTS (15)
 </button>
 
-<button class="filter" onclick="filterProducts('keypad')">
-KEYPAD
+<button
+class="filter"
+data-category="keypad"
+onclick="filterProducts('keypad')">
+KEYPAD (10)
 </button>
 
-<button class="filter" onclick="filterProducts('smart')">
-SMART LOCKS
+<button
+class="filter"
+data-category="smart"
+onclick="filterProducts('smart')">
+SMART LOCKS (10)
 </button>
 
 </div>
@@ -565,33 +624,49 @@ const number = String(i).padStart(2,"0");
 let category;
 
 if(i <= 15){
+
 category = "knobs";
+
 }
 else if(i <= 30){
+
 category = "deadbolts";
+
 }
 else if(i <= 40){
+
 category = "keypad";
+
 }
 else{
+
 category = "smart";
+
 }
 
 products.push({
+
 id:i,
+
 image:`product-${number}.jpg`,
+
 category:category,
+
 name:`National Lock Supply Product ${number}`
+
 });
 
 }
 
 let currentCategory = "all";
+
 let cartCount = 0;
+
 
 function displayProducts(list){
 
-const container = document.getElementById("products");
+const container =
+document.getElementById("products");
 
 container.innerHTML = "";
 
@@ -600,7 +675,8 @@ document.getElementById("results").textContent =
 
 list.forEach(product => {
 
-const card = document.createElement("div");
+const card =
+document.createElement("div");
 
 card.className = "product";
 
@@ -653,49 +729,73 @@ container.appendChild(card);
 
 }
 
+
 function filterProducts(category){
 
 currentCategory = category;
 
-document.querySelectorAll(".filter").forEach(btn=>{
-btn.classList.remove("active");
+document
+.querySelectorAll(".filter, .nav-filter")
+.forEach(btn => {
+
+btn.classList.toggle(
+"active",
+btn.dataset.category === category
+);
+
 });
 
 const filtered =
 category === "all"
 ? products
-: products.filter(p => p.category === category);
+: products.filter(
+p => p.category === category
+);
 
 displayProducts(filtered);
 
+document
+.querySelector(".filters")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
 }
+
 
 function searchProducts(){
 
 const search =
-document.getElementById("search").value
+document.getElementById("search")
+.value
 .toLowerCase()
 .trim();
 
 let filtered = products;
 
 if(currentCategory !== "all"){
+
 filtered = filtered.filter(
 p => p.category === currentCategory
 );
+
 }
 
 if(search){
+
 filtered = filtered.filter(
 p =>
 p.name.toLowerCase().includes(search) ||
 p.category.toLowerCase().includes(search)
 );
+
 }
 
 displayProducts(filtered);
 
 }
+
 
 function addToCart(){
 
@@ -706,15 +806,21 @@ cartCount;
 
 }
 
+
 function showCart(){
 
 alert(
+
 cartCount === 0
+
 ? "Your cart is empty."
+
 : `You have ${cartCount} item${cartCount === 1 ? "" : "s"} in your cart.`
+
 );
 
 }
+
 
 displayProducts(products);
 
