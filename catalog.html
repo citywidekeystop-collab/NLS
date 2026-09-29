@@ -90,7 +90,7 @@ max-width:1250px;
 margin:auto;
 display:flex;
 justify-content:center;
-gap:10px;
+gap:8px;
 padding:10px 20px;
 flex-wrap:wrap;
 }
@@ -99,7 +99,7 @@ flex-wrap:wrap;
 border:0;
 background:transparent;
 color:#fff;
-padding:9px 15px;
+padding:10px 14px;
 font-weight:bold;
 cursor:pointer;
 border-radius:6px;
@@ -114,7 +114,7 @@ color:#111;
 background:linear-gradient(135deg,#075fae,#0b78d0);
 color:#fff;
 text-align:center;
-padding:38px 20px;
+padding:42px 20px;
 }
 
 .hero h1{
@@ -124,8 +124,9 @@ margin-bottom:10px;
 
 .hero p{
 font-size:17px;
-max-width:700px;
+max-width:750px;
 margin:auto;
+line-height:1.5;
 }
 
 .filters{
@@ -140,7 +141,7 @@ flex-wrap:wrap;
 .filter{
 border:1px solid #ccc;
 background:#fff;
-padding:11px 17px;
+padding:11px 16px;
 border-radius:7px;
 font-weight:bold;
 cursor:pointer;
@@ -214,20 +215,20 @@ margin-bottom:6px;
 
 .product h2{
 font-size:18px;
-line-height:1.25;
+line-height:1.3;
 margin-bottom:8px;
 }
 
 .type{
 color:#666;
-margin-bottom:14px;
+font-size:14px;
+margin-bottom:12px;
 }
 
 .price{
-font-size:24px;
+font-size:22px;
 font-weight:900;
-color:#111;
-margin-bottom:5px;
+margin-bottom:4px;
 }
 
 .price-note{
@@ -367,11 +368,11 @@ font-size:15px;
 }
 
 .type{
-font-size:13px;
+font-size:12px;
 }
 
 .price{
-font-size:20px;
+font-size:19px;
 }
 
 .add{
@@ -445,7 +446,7 @@ NATIONAL <span>LOCK SUPPLY</span>
 id="search"
 class="search"
 type="search"
-placeholder="Search locks, deadbolts, knobs..."
+placeholder="Search locks, deadbolts, knobs, levers..."
 oninput="searchProducts()"
 >
 
@@ -457,39 +458,34 @@ oninput="searchProducts()"
 
 <div class="nav-inner">
 
-<button
-class="nav-filter active"
-data-category="all"
+<button class="nav-filter active" data-category="all"
 onclick="filterProducts('all')">
-ALL PRODUCTS (50)
+ALL PRODUCTS
 </button>
 
-<button
-class="nav-filter"
-data-category="knobs"
+<button class="nav-filter" data-category="knobs"
 onclick="filterProducts('knobs')">
-DOOR KNOBS (15)
+DOOR KNOBS
 </button>
 
-<button
-class="nav-filter"
-data-category="deadbolts"
+<button class="nav-filter" data-category="deadbolts"
 onclick="filterProducts('deadbolts')">
-DEADBOLTS (15)
+DEADBOLTS
 </button>
 
-<button
-class="nav-filter"
-data-category="keypad"
-onclick="filterProducts('keypad')">
-KEYPAD LOCKS (10)
+<button class="nav-filter" data-category="levers"
+onclick="filterProducts('levers')">
+DOOR LEVERS
 </button>
 
-<button
-class="nav-filter"
-data-category="smart"
+<button class="nav-filter" data-category="decorative"
+onclick="filterProducts('decorative')">
+DECORATIVE THUMBPIECE
+</button>
+
+<button class="nav-filter" data-category="smart"
 onclick="filterProducts('smart')">
-SMART LOCKS (10)
+KEYPAD / SMART
 </button>
 
 </div>
@@ -509,39 +505,34 @@ professionally install it for you.
 
 <div class="filters">
 
-<button
-class="filter active"
-data-category="all"
+<button class="filter active" data-category="all"
 onclick="filterProducts('all')">
-ALL (50)
+ALL PRODUCTS
 </button>
 
-<button
-class="filter"
-data-category="knobs"
+<button class="filter" data-category="knobs"
 onclick="filterProducts('knobs')">
-DOOR KNOBS (15)
+DOOR KNOBS
 </button>
 
-<button
-class="filter"
-data-category="deadbolts"
+<button class="filter" data-category="deadbolts"
 onclick="filterProducts('deadbolts')">
-DEADBOLTS (15)
+DEADBOLTS
 </button>
 
-<button
-class="filter"
-data-category="keypad"
-onclick="filterProducts('keypad')">
-KEYPAD (10)
+<button class="filter" data-category="levers"
+onclick="filterProducts('levers')">
+DOOR LEVERS
 </button>
 
-<button
-class="filter"
-data-category="smart"
+<button class="filter" data-category="decorative"
+onclick="filterProducts('decorative')">
+DECORATIVE THUMBPIECE
+</button>
+
+<button class="filter" data-category="smart"
 onclick="filterProducts('smart')">
-SMART LOCKS (10)
+KEYPAD / SMART
 </button>
 
 </div>
@@ -549,7 +540,7 @@ SMART LOCKS (10)
 <main class="catalog">
 
 <div class="results" id="results">
-50 products
+Loading products...
 </div>
 
 <div class="products" id="products"></div>
@@ -562,11 +553,11 @@ SMART LOCKS (10)
 
 <p>
 Our mobile locksmith service will come to you and professionally
-install your new lock.
+install your new lock — backed by our installation service.
 </p>
 
 <p>
-<strong>$99 mobile installation</strong>
+<strong>$99 MOBILE INSTALLATION</strong>
 </p>
 
 <p>
@@ -615,58 +606,396 @@ Cart
 
 <script>
 
-const products = [];
+const products = [
 
-for(let i = 1; i <= 50; i++){
+/* =========================
+DOOR KNOBS
+========================= */
 
-const number = String(i).padStart(2,"0");
+{
+sku:"NLS-KNO-001",
+category:"knobs",
+name:"Classic Round Keyed Entry Knob — Satin Nickel",
+image:"NLS_catalog_assets/knobs-01.webp",
+type:"Door Knob"
+},
 
-let category;
+{
+sku:"NLS-KNO-002",
+category:"knobs",
+name:"Round Keyed Entry Knob — Satin Nickel",
+image:"NLS_catalog_assets/knobs-02.webp",
+type:"Door Knob"
+},
 
-if(i <= 15){
+{
+sku:"NLS-KNO-003",
+category:"knobs",
+name:"Round Keyed Knob — Satin Nickel",
+image:"NLS_catalog_assets/knobs-03.webp",
+type:"Door Knob"
+},
 
-category = "knobs";
+{
+sku:"NLS-KNO-004",
+category:"knobs",
+name:"Classic Round Keyed Entry Knob — Matte Black",
+image:"NLS_catalog_assets/knobs-04.webp",
+type:"Door Knob"
+},
 
+{
+sku:"NLS-KNO-005",
+category:"knobs",
+name:"Classic Round Commercial Knob — Satin Nickel",
+image:"NLS_catalog_assets/knobs-05.webp",
+type:"Commercial Door Knob"
+},
+
+{
+sku:"NLS-KNO-006",
+category:"knobs",
+name:"Classic Round Keyed Entry Knob — Satin Nickel",
+image:"NLS_catalog_assets/knobs-06.webp",
+type:"Door Knob"
+},
+
+{
+sku:"NLS-KNO-007",
+category:"knobs",
+name:"Traditional Round Keyed Knob — Oil-Rubbed Bronze",
+image:"NLS_catalog_assets/knobs-07.webp",
+type:"Door Knob"
+},
+
+{
+sku:"NLS-KNO-008",
+category:"knobs",
+name:"Classic Round Keyed Knob — Satin Nickel",
+image:"NLS_catalog_assets/knobs-08.webp",
+type:"Door Knob"
+},
+
+{
+sku:"NLS-KNO-009",
+category:"knobs",
+name:"Round Keyed Entry Knob — Satin Nickel",
+image:"NLS_catalog_assets/knobs-09.webp",
+type:"Door Knob"
+},
+
+{
+sku:"NLS-KNO-010",
+category:"knobs",
+name:"Round Keyed Entry Knob — Oil-Rubbed Bronze",
+image:"NLS_catalog_assets/knobs-10.webp",
+type:"Door Knob"
+},
+
+{
+sku:"NLS-KNO-011",
+category:"knobs",
+name:"Round Keyed Entry Knob",
+image:"NLS_catalog_assets/knobs-11.webp",
+type:"Door Knob"
+},
+
+/* =========================
+DEADBOLTS
+========================= */
+
+{
+sku:"NLS-DEAD-001",
+category:"deadbolts",
+name:"Commercial One-Sided Cylinder Deadbolt — Satin Chrome",
+image:"NLS_catalog_assets/deadbolts-01.jpeg",
+type:"Commercial Deadbolt"
+},
+
+{
+sku:"NLS-DEAD-002",
+category:"deadbolts",
+name:"Commercial One-Sided Cylinder Deadbolt — Polished Brass",
+image:"NLS_catalog_assets/deadbolts-02.jpeg",
+type:"Commercial Deadbolt"
+},
+
+/* =========================
+DOOR LEVERS
+========================= */
+
+{
+sku:"NLS-LEV-001",
+category:"levers",
+name:"Curved Keyed Lever — Satin Nickel",
+image:"NLS_catalog_assets/levers-01.webp",
+type:"Door Lever"
+},
+
+{
+sku:"NLS-LEV-002",
+category:"levers",
+name:"Commercial Lever — Satin Nickel",
+image:"NLS_catalog_assets/levers-02.webp",
+type:"Commercial Door Lever"
+},
+
+{
+sku:"NLS-LEV-003",
+category:"levers",
+name:"Modern Straight Lever — Satin Nickel",
+image:"NLS_catalog_assets/levers-03.webp",
+type:"Door Lever"
+},
+
+{
+sku:"NLS-LEV-004",
+category:"levers",
+name:"Curved Privacy Lever — Satin Nickel",
+image:"NLS_catalog_assets/levers-04.webp",
+type:"Privacy Door Lever"
+},
+
+{
+sku:"NLS-LEV-005",
+category:"levers",
+name:"Modern Square-Rose Lever — Satin Nickel",
+image:"NLS_catalog_assets/levers-05.webp",
+type:"Door Lever"
+},
+
+{
+sku:"NLS-LEV-006",
+category:"levers",
+name:"Modern Entry Lever",
+image:"NLS_catalog_assets/levers-06.jpeg",
+type:"Door Lever"
+},
+
+/* =========================
+DECORATIVE THUMBPIECE
+========================= */
+
+{
+sku:"NLS-TPD-001",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 01",
+image:"NLS_catalog_assets/decorative-01.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-002",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 02",
+image:"NLS_catalog_assets/decorative-02.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-003",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 03",
+image:"NLS_catalog_assets/decorative-03.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-004",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 04",
+image:"NLS_catalog_assets/decorative-04.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-005",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 05",
+image:"NLS_catalog_assets/decorative-05.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-006",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 06",
+image:"NLS_catalog_assets/decorative-06.jpeg",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-007",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 07",
+image:"NLS_catalog_assets/decorative-07.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-008",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 08",
+image:"NLS_catalog_assets/decorative-08.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-009",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 09",
+image:"NLS_catalog_assets/decorative-09.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-010",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 10",
+image:"NLS_catalog_assets/decorative-10.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-011",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 11",
+image:"NLS_catalog_assets/decorative-11.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-012",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 12",
+image:"NLS_catalog_assets/decorative-12.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-013",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 13",
+image:"NLS_catalog_assets/decorative-13.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-014",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 14",
+image:"NLS_catalog_assets/decorative-14.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-015",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 15",
+image:"NLS_catalog_assets/decorative-15.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-016",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 16",
+image:"NLS_catalog_assets/decorative-16.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+{
+sku:"NLS-TPD-017",
+category:"decorative",
+name:"Decorative Thumbpiece Entry Lockset 17",
+image:"NLS_catalog_assets/decorative-17.webp",
+type:"Decorative Thumbpiece Lockset"
+},
+
+/* =========================
+KEYPAD / SMART LOCKS
+========================= */
+
+{
+sku:"NLS-SMART-001",
+category:"smart",
+name:"GHome Smart Door Knob — Fingerprint + Keypad + App",
+image:"NLS_catalog_assets/smart-01.jpeg",
+type:"Smart Keypad Lock"
+},
+
+{
+sku:"NLS-SMART-002",
+category:"smart",
+name:"Smart Keypad Door Lock — App Control",
+image:"NLS_catalog_assets/smart-02.jpeg",
+type:"Smart Keypad Lock"
+},
+
+{
+sku:"NLS-SMART-003",
+category:"smart",
+name:"Smart Keypad Entry Lock",
+image:"NLS_catalog_assets/smart-03.jpeg",
+type:"Smart Keypad Lock"
+},
+
+{
+sku:"NLS-SMART-004",
+category:"smart",
+name:"Keyless Entry Smart Deadbolt — Keypad + App",
+image:"NLS_catalog_assets/smart-04.jpeg",
+type:"Smart Deadbolt"
+},
+
+{
+sku:"NLS-SMART-005",
+category:"smart",
+name:"Smart Keypad Deadbolt",
+image:"NLS_catalog_assets/smart-05.jpeg",
+type:"Smart Deadbolt"
+},
+
+{
+sku:"NLS-SMART-006",
+category:"smart",
+name:"Smart Keypad Door Lock",
+image:"NLS_catalog_assets/smart-06.jpeg",
+type:"Smart Keypad Lock"
+},
+
+{
+sku:"NLS-SMART-007",
+category:"smart",
+name:"Smart Keypad Entry Lock",
+image:"NLS_catalog_assets/smart-07.jpeg",
+type:"Smart Keypad Lock"
+},
+
+{
+sku:"NLS-SMART-008",
+category:"smart",
+name:"Smart Keypad Door Lock",
+image:"NLS_catalog_assets/smart-08.jpeg",
+type:"Smart Keypad Lock"
+},
+
+{
+sku:"NLS-SMART-009",
+category:"smart",
+name:"Homki Smart Deadbolt — Keypad + App Control",
+image:"NLS_catalog_assets/smart-09.jpeg",
+type:"Smart Deadbolt"
 }
-else if(i <= 30){
 
-category = "deadbolts";
-
-}
-else if(i <= 40){
-
-category = "keypad";
-
-}
-else{
-
-category = "smart";
-
-}
-
-products.push({
-
-id:i,
-
-image:`product-${number}.jpg`,
-
-category:category,
-
-name:`National Lock Supply Product ${number}`
-
-});
-
-}
+];
 
 let currentCategory = "all";
-
 let cartCount = 0;
-
 
 function displayProducts(list){
 
-const container =
-document.getElementById("products");
+const container = document.getElementById("products");
 
 container.innerHTML = "";
 
@@ -675,8 +1004,7 @@ document.getElementById("results").textContent =
 
 list.forEach(product => {
 
-const card =
-document.createElement("div");
+const card = document.createElement("div");
 
 card.className = "product";
 
@@ -688,6 +1016,7 @@ card.innerHTML = `
 src="${product.image}"
 alt="${product.name}"
 loading="lazy"
+onerror="this.src='hero.jpg'"
 >
 
 </div>
@@ -695,13 +1024,13 @@ loading="lazy"
 <div class="product-info">
 
 <div class="product-number">
-PRODUCT ${String(product.id).padStart(2,"0")}
+${product.sku}
 </div>
 
 <h2>${product.name}</h2>
 
 <div class="type">
-Professional Door Hardware
+${product.type}
 </div>
 
 <div class="price">
@@ -714,8 +1043,7 @@ Contact for current pricing
 
 <button
 class="add"
-onclick="addToCart()"
->
+onclick="addToCart('${product.sku}')">
 ADD TO CART
 </button>
 
@@ -728,7 +1056,6 @@ container.appendChild(card);
 });
 
 }
-
 
 function filterProducts(category){
 
@@ -754,15 +1081,7 @@ p => p.category === category
 
 displayProducts(filtered);
 
-document
-.querySelector(".filters")
-.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
 }
-
 
 function searchProducts(){
 
@@ -784,10 +1103,16 @@ p => p.category === currentCategory
 
 if(search){
 
-filtered = filtered.filter(
-p =>
+filtered = filtered.filter(p =>
+
 p.name.toLowerCase().includes(search) ||
+
+p.sku.toLowerCase().includes(search) ||
+
+p.type.toLowerCase().includes(search) ||
+
 p.category.toLowerCase().includes(search)
+
 );
 
 }
@@ -796,8 +1121,7 @@ displayProducts(filtered);
 
 }
 
-
-function addToCart(){
+function addToCart(sku){
 
 cartCount++;
 
@@ -805,7 +1129,6 @@ document.getElementById("cartCount").textContent =
 cartCount;
 
 }
-
 
 function showCart(){
 
@@ -821,7 +1144,58 @@ cartCount === 0
 
 }
 
+function updateCategoryCounts(){
 
+const counts = {
+all:products.length,
+knobs:products.filter(p=>p.category==="knobs").length,
+deadbolts:products.filter(p=>p.category==="deadbolts").length,
+levers:products.filter(p=>p.category==="levers").length,
+decorative:products.filter(p=>p.category==="decorative").length,
+smart:products.filter(p=>p.category==="smart").length
+};
+
+document.querySelectorAll("[data-category]").forEach(button=>{
+
+const category = button.dataset.category;
+
+if(category==="all"){
+button.textContent =
+button.classList.contains("nav-filter")
+? `ALL PRODUCTS (${counts.all})`
+: `ALL PRODUCTS (${counts.all})`;
+}
+
+if(category==="knobs"){
+button.textContent =
+`DOOR KNOBS (${counts.knobs})`;
+}
+
+if(category==="deadbolts"){
+button.textContent =
+`DEADBOLTS (${counts.deadbolts})`;
+}
+
+if(category==="levers"){
+button.textContent =
+`DOOR LEVERS (${counts.levers})`;
+}
+
+if(category==="decorative"){
+button.textContent =
+`DECORATIVE THUMBPIECE (${counts.decorative})`;
+}
+
+if(category==="smart"){
+button.textContent =
+`KEYPAD / SMART (${counts.smart})`;
+}
+
+});
+
+}
+
+updateCategoryCounts();
 displayProducts(products);
 
 </script>
