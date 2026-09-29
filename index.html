@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
 <meta name="theme-color" content="#071426">
 
 <title>National Lock Supply | Buy Your Lock. We'll Install It.</title>
@@ -12,13 +16,17 @@ content="National Lock Supply - locks, door hardware, smart locks and profession
 
 <style>
 
+/* =========================================================
+NLS — NAVY / GOLD / WHITE
+========================================================= */
+
 :root{
 --navy:#071426;
 --navy2:#0d223b;
 --gold:#f7b923;
 --gold2:#ffc94f;
 --blue:#1768b3;
---white:#fff;
+--white:#ffffff;
 --light:#f5f7fa;
 --text:#14202b;
 --muted:#697887;
@@ -62,7 +70,10 @@ button{
 cursor:pointer;
 }
 
-/* TOP BAR */
+
+/* =========================================================
+TOP BAR
+========================================================= */
 
 .topbar{
 background:var(--gold);
@@ -78,7 +89,10 @@ font-weight:900;
 line-height:1.25;
 }
 
-/* HEADER */
+
+/* =========================================================
+HEADER
+========================================================= */
 
 .header{
 background:#fff;
@@ -92,11 +106,14 @@ width:94%;
 max-width:1250px;
 margin:auto;
 min-height:82px;
+
 display:grid;
 grid-template-columns:auto 1fr auto;
+
 align-items:center;
 gap:25px;
 }
+
 
 /* LOGO */
 
@@ -159,6 +176,7 @@ letter-spacing:2px;
 margin-top:8px;
 }
 
+
 /* SEARCH */
 
 .search{
@@ -190,6 +208,7 @@ color:var(--navy);
 font-size:25px;
 }
 
+
 /* HEADER ACTIONS */
 
 .header-actions{
@@ -202,10 +221,12 @@ gap:22px;
 border:0;
 background:none;
 color:var(--navy);
+
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
+
 font-weight:900;
 font-size:11px;
 }
@@ -224,19 +245,27 @@ position:relative;
 position:absolute;
 top:-5px;
 right:-9px;
+
 width:20px;
 height:20px;
+
 border-radius:50%;
+
 background:var(--gold);
 color:var(--navy);
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 font-size:10px;
 font-weight:900;
 }
 
-/* NAVIGATION */
+
+/* =========================================================
+NAVIGATION
+========================================================= */
 
 .nav{
 background:var(--navy);
@@ -266,7 +295,10 @@ white-space:nowrap;
 background:var(--blue);
 }
 
-/* HERO */
+
+/* =========================================================
+HERO
+========================================================= */
 
 .hero{
 position:relative;
@@ -279,16 +311,20 @@ background:var(--navy);
 .hero-image{
 position:absolute;
 inset:0;
+
 width:100%;
 height:100%;
+
 object-fit:cover;
 object-position:center;
+
 z-index:0;
 }
 
 .hero-overlay{
 position:absolute;
 inset:0;
+
 background:
 linear-gradient(
 90deg,
@@ -296,23 +332,29 @@ rgba(7,20,38,.94) 0%,
 rgba(7,20,38,.78) 43%,
 rgba(7,20,38,.18) 100%
 );
+
 z-index:1;
 }
 
 .hero-content{
 position:relative;
 z-index:2;
+
 width:min(1200px,92%);
 margin:auto;
+
 padding-top:100px;
+
 color:#fff;
 }
 
 .hero-title{
 max-width:650px;
+
 font-size:58px;
 line-height:.96;
 font-weight:900;
+
 text-transform:uppercase;
 }
 
@@ -322,7 +364,9 @@ color:var(--gold);
 
 .hero-text{
 max-width:570px;
+
 margin-top:20px;
+
 font-size:18px;
 line-height:1.45;
 font-weight:600;
@@ -331,8 +375,11 @@ font-weight:600;
 .hero-benefits{
 display:grid;
 grid-template-columns:repeat(4,1fr);
+
 max-width:680px;
+
 margin-top:25px;
+
 gap:8px;
 }
 
@@ -357,10 +404,13 @@ flex-wrap:wrap;
 .btn{
 min-height:53px;
 padding:0 25px;
+
 display:inline-flex;
 align-items:center;
 justify-content:center;
+
 border-radius:7px;
+
 font-weight:900;
 }
 
@@ -375,7 +425,10 @@ color:#fff;
 background:rgba(7,20,38,.25);
 }
 
-/* INSTALLATION STRIP */
+
+/* =========================================================
+INSTALLATION STRIP
+========================================================= */
 
 .install-strip{
 background:#fff;
@@ -386,6 +439,7 @@ box-shadow:0 3px 10px rgba(0,0,0,.05);
 .install-strip-grid{
 width:min(1200px,92%);
 margin:auto;
+
 display:grid;
 grid-template-columns:repeat(3,1fr);
 }
@@ -393,9 +447,11 @@ grid-template-columns:repeat(3,1fr);
 .install-strip-item{
 min-height:105px;
 padding:18px;
+
 display:flex;
 align-items:center;
 gap:15px;
+
 border-right:1px solid var(--line);
 }
 
@@ -406,13 +462,18 @@ border-right:0;
 .install-strip-icon{
 width:45px;
 height:45px;
+
 border-radius:50%;
+
 background:var(--navy);
 color:var(--gold);
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 flex:0 0 auto;
+
 font-size:22px;
 }
 
@@ -427,7 +488,10 @@ font-size:12px;
 line-height:1.35;
 }
 
-/* GENERAL */
+
+/* =========================================================
+GENERAL
+========================================================= */
 
 .section{
 padding:50px 0;
@@ -469,7 +533,10 @@ font-weight:900;
 white-space:nowrap;
 }
 
-/* CATEGORY */
+
+/* =========================================================
+SHOP BY CATEGORY
+========================================================= */
 
 .categories{
 background:#fff;
@@ -494,8 +561,11 @@ background:#fff;
 border:1px solid #dfe5eb;
 border-radius:12px;
 overflow:hidden;
+
 box-shadow:0 3px 12px rgba(7,20,38,.07);
+
 transition:.25s ease;
+
 display:block;
 }
 
@@ -507,11 +577,15 @@ box-shadow:0 12px 30px rgba(7,20,38,.14);
 .category-photo{
 height:245px;
 background:#fff;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 padding:18px;
+
 border-bottom:1px solid #edf0f3;
+
 overflow:hidden;
 }
 
@@ -556,7 +630,8 @@ background:#071426;
 }
 
 .installation-category .category-photo{
-background:linear-gradient(
+background:
+linear-gradient(
 135deg,
 #071426,
 #123250
@@ -582,7 +657,10 @@ color:#c7d3dd;
 color:#f7b923;
 }
 
-/* FEATURED PRODUCTS */
+
+/* =========================================================
+FEATURED PRODUCTS
+========================================================= */
 
 .featured{
 background:var(--light);
@@ -605,7 +683,9 @@ position:relative;
 .product-image{
 height:250px;
 padding:10px;
+
 background:#fff;
+
 display:flex;
 align-items:center;
 justify-content:center;
@@ -621,12 +701,17 @@ object-fit:contain;
 position:absolute;
 top:10px;
 left:10px;
+
 background:#1878d1;
 color:#fff;
+
 padding:5px 8px;
+
 border-radius:4px;
+
 font-size:10px;
 font-weight:900;
+
 z-index:2;
 }
 
@@ -670,29 +755,114 @@ margin-top:8px;
 
 .install-available:before{
 content:"✓";
+
 display:inline-flex;
+
 width:16px;
 height:16px;
+
 border-radius:50%;
+
 background:var(--green);
 color:#fff;
+
 align-items:center;
 justify-content:center;
+
 margin-right:5px;
 }
 
 .add-cart{
 width:100%;
 height:44px;
+
 margin-top:10px;
+
 border:0;
 border-radius:5px;
+
 background:var(--gold);
 color:var(--navy);
+
 font-weight:900;
 }
 
-/* HOW IT WORKS */
+
+/* =========================================================
+SERVICES
+========================================================= */
+
+.services{
+background:#fff;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+}
+
+.service-card{
+border:1px solid var(--line);
+border-radius:12px;
+padding:30px;
+background:#fff;
+box-shadow:0 4px 16px rgba(7,20,38,.07);
+}
+
+.service-card.dark{
+background:var(--navy);
+color:#fff;
+}
+
+.service-card h3{
+font-size:27px;
+font-weight:900;
+margin-bottom:12px;
+color:var(--navy);
+}
+
+.service-card.dark h3{
+color:#fff;
+}
+
+.service-card p{
+font-size:15px;
+line-height:1.55;
+color:var(--muted);
+margin-bottom:20px;
+}
+
+.service-card.dark p{
+color:#c7d3dd;
+}
+
+.service-price{
+display:inline-block;
+padding:10px 15px;
+background:var(--gold);
+color:var(--navy);
+border-radius:6px;
+font-weight:900;
+font-size:14px;
+}
+
+.service-link{
+display:inline-block;
+margin-top:20px;
+font-size:13px;
+font-weight:900;
+color:var(--blue);
+}
+
+.service-card.dark .service-link{
+color:var(--gold);
+}
+
+
+/* =========================================================
+HOW IT WORKS
+========================================================= */
 
 .how{
 background:#fff;
@@ -711,13 +881,18 @@ text-align:center;
 .step-number{
 width:55px;
 height:55px;
+
 margin:0 auto 12px;
+
 border-radius:50%;
+
 background:var(--navy);
 color:var(--gold);
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 font-size:20px;
 font-weight:900;
 }
@@ -734,7 +909,10 @@ font-size:13px;
 line-height:1.4;
 }
 
-/* INSTALLATION */
+
+/* =========================================================
+INSTALLATION
+========================================================= */
 
 .installation{
 background:var(--navy);
@@ -771,11 +949,16 @@ max-width:600px;
 
 .install-price{
 display:inline-block;
+
 margin-top:20px;
+
 padding:14px 18px;
+
 background:var(--gold);
 color:var(--navy);
+
 border-radius:6px;
+
 font-size:20px;
 font-weight:900;
 }
@@ -794,7 +977,9 @@ margin-right:7px;
 .install-card{
 background:#fff;
 color:var(--text);
+
 border-radius:10px;
+
 padding:27px;
 }
 
@@ -811,7 +996,10 @@ line-height:1.5;
 margin-bottom:12px;
 }
 
-/* SMART */
+
+/* =========================================================
+SMART LOCKS
+========================================================= */
 
 .smart{
 background:var(--light);
@@ -825,8 +1013,11 @@ gap:12px;
 
 .smart-card{
 min-height:190px;
+
 padding:22px;
+
 border-radius:9px;
+
 background:var(--navy);
 color:#fff;
 }
@@ -859,7 +1050,10 @@ font-size:12px;
 line-height:1.45;
 }
 
-/* CTA */
+
+/* =========================================================
+CTA
+========================================================= */
 
 .cta{
 padding:50px 0;
@@ -868,11 +1062,15 @@ padding:50px 0;
 .cta-box{
 background:var(--gold);
 color:var(--navy);
+
 border-radius:10px;
+
 padding:35px;
+
 display:flex;
 align-items:center;
 justify-content:space-between;
+
 gap:20px;
 }
 
@@ -881,7 +1079,10 @@ font-size:32px;
 margin-bottom:7px;
 }
 
-/* FOOTER */
+
+/* =========================================================
+FOOTER
+========================================================= */
 
 .footer{
 background:var(--navy);
@@ -908,26 +1109,40 @@ line-height:1.8;
 
 .footer-bottom{
 border-top:1px solid #294056;
+
 margin-top:30px;
 padding-top:18px;
+
 color:#8193a3;
+
 font-size:11px;
+
 display:flex;
 justify-content:space-between;
 }
 
-/* CART */
+
+/* =========================================================
+CART
+========================================================= */
 
 .cart-drawer{
 position:fixed;
+
 right:-420px;
 top:0;
+
 width:min(410px,92vw);
 height:100vh;
+
 background:#fff;
+
 z-index:9999;
+
 box-shadow:-10px 0 35px rgba(0,0,0,.25);
+
 transition:.3s;
+
 display:flex;
 flex-direction:column;
 }
@@ -939,7 +1154,9 @@ right:0;
 .cart-header{
 background:var(--navy);
 color:#fff;
+
 padding:20px;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -964,18 +1181,24 @@ color:#777;
 padding:50px 10px;
 }
 
-/* MOBILE NAV */
+
+/* =========================================================
+MOBILE BOTTOM NAV
+========================================================= */
 
 .mobile-nav{
 display:none;
 }
 
-/* TABLET */
+
+/* =========================================================
+TABLET
+========================================================= */
 
 @media(max-width:1050px){
 
 .category-grid{
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(2,1fr);
 }
 
 .product-grid{
@@ -988,7 +1211,10 @@ grid-template-columns:repeat(2,1fr);
 
 }
 
-/* MOBILE */
+
+/* =========================================================
+MOBILE
+========================================================= */
 
 @media(max-width:700px){
 
@@ -1003,14 +1229,21 @@ padding:8px;
 }
 
 .header-inner{
+
 width:92%;
+
 min-height:105px;
+
 padding:12px 0;
+
 display:grid;
+
 grid-template-columns:1fr auto;
+
 grid-template-areas:
 "logo actions"
 "search search";
+
 gap:13px;
 }
 
@@ -1065,21 +1298,51 @@ grid-area:search;
 height:49px;
 }
 
+
+/* NAV */
+
 .nav-item{
 padding:15px 21px;
 font-size:13px;
 }
 
+
+/* HERO */
+
 .hero{
+
 min-height:455px;
 height:455px;
+
+position:relative;
+
+overflow:hidden;
+
+background:var(--navy);
 }
 
 .hero-image{
+
+position:absolute;
+
+inset:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
 object-position:center right;
+
+z-index:0;
 }
 
 .hero-overlay{
+
+position:absolute;
+
+inset:0;
+
 background:
 linear-gradient(
 90deg,
@@ -1087,82 +1350,137 @@ rgba(7,20,38,.97) 0%,
 rgba(7,20,38,.84) 43%,
 rgba(7,20,38,.28) 100%
 );
+
+z-index:1;
 }
 
 .hero-content{
+
+position:relative;
+
+z-index:2;
+
 width:92%;
+
+margin:auto;
+
 padding-top:34px;
 }
 
 .hero-title{
+
 font-size:32px;
+
 line-height:.99;
+
 max-width:360px;
 }
 
 .hero-text{
+
 font-size:13px;
+
 line-height:1.4;
+
 max-width:350px;
+
 margin-top:13px;
 }
 
 .hero-benefits{
+
+display:grid;
+
 grid-template-columns:repeat(4,1fr);
+
+max-width:100%;
+
 margin-top:17px;
+
 gap:3px;
 }
 
 .hero-benefit{
+
 font-size:9px;
+
 line-height:1.15;
 }
 
 .hero-benefit-icon{
+
 font-size:24px;
+
 margin-bottom:5px;
 }
 
 .hero-buttons{
+
+display:flex;
+
 gap:8px;
+
 margin-top:16px;
+
 flex-wrap:nowrap;
 }
 
 .btn{
+
 min-height:47px;
+
 padding:0 13px;
+
 font-size:11px;
+
 white-space:nowrap;
 }
 
+
+/* INSTALLATION STRIP */
+
 .install-strip-grid{
+
 width:100%;
+
 grid-template-columns:repeat(3,1fr);
 }
 
 .install-strip-item{
+
 min-height:120px;
+
 padding:12px 6px;
+
 display:block;
+
 text-align:center;
 }
 
 .install-strip-icon{
+
 width:40px;
 height:40px;
+
 margin:0 auto 7px;
 }
 
 .install-strip h3{
+
 font-size:10px;
+
 line-height:1.2;
 }
 
 .install-strip p{
+
 font-size:8px;
+
 line-height:1.3;
 }
+
+
+/* SECTIONS */
 
 .section{
 padding:37px 0;
@@ -1173,7 +1491,9 @@ width:92%;
 }
 
 .section-heading{
+
 align-items:center;
+
 margin-bottom:19px;
 }
 
@@ -1181,210 +1501,329 @@ margin-bottom:19px;
 font-size:27px;
 }
 
+
+/* CATEGORIES */
+
 .category-grid{
-grid-template-columns:repeat(4,1fr);
-gap:5px;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
 }
 
-.category{
-padding:8px 3px;
-border-radius:5px;
+.category-photo{
+height:170px;
+padding:10px;
 }
 
-.category-image{
-height:67px;
+.category-card-content{
+padding:12px;
 }
 
-.category-placeholder{
-font-size:31px;
+.category-card-content h3{
+font-size:15px;
 }
 
-.category h3{
+.category-card-content p{
+font-size:10px;
+min-height:42px;
+}
+
+.category-card-content span{
 font-size:9px;
 }
 
+.installation-photo-text{
+font-size:45px;
+}
+
+
+/* PRODUCTS */
+
 .product-grid{
+
 grid-template-columns:repeat(2,1fr);
+
 gap:9px;
 }
 
 .product-image{
+
 height:170px;
 }
 
 .product-info{
+
 padding:10px;
 }
 
 .product-name{
+
 font-size:13px;
 }
 
 .stars{
+
 font-size:11px;
 }
 
 .price{
+
 font-size:19px;
 }
 
 .install-available{
+
 font-size:9px;
 }
 
 .add-cart{
+
 height:42px;
+
 font-size:10px;
 }
 
+
+/* SERVICES */
+
+.service-grid{
+grid-template-columns:1fr;
+gap:12px;
+}
+
+.service-card{
+padding:21px;
+}
+
+.service-card h3{
+font-size:22px;
+}
+
+.service-card p{
+font-size:12px;
+}
+
+
+/* STEPS */
+
 .steps{
+
 grid-template-columns:repeat(2,1fr);
+
 gap:25px 10px;
 }
 
 .step-number{
+
 width:45px;
 height:45px;
 }
 
 .step h3{
+
 font-size:14px;
 }
 
 .step p{
+
 font-size:11px;
 }
 
+
+/* INSTALLATION */
+
 .installation-grid{
+
 grid-template-columns:1fr;
+
 gap:25px;
 }
 
 .installation h2{
+
 font-size:31px;
 }
 
 .installation-description{
+
 font-size:14px;
 }
 
 .install-price{
+
 font-size:17px;
 }
 
 .install-card{
+
 padding:21px;
 }
 
+
+/* SMART */
+
 .smart-grid{
+
 grid-template-columns:repeat(2,1fr);
+
 gap:8px;
 }
 
 .smart-card{
+
 min-height:180px;
+
 padding:16px;
 }
 
 .smart-icon{
+
 font-size:29px;
 }
 
 .smart-card h3{
+
 font-size:15px;
 }
 
 .smart-card p{
+
 font-size:10px;
 }
 
+
+/* CTA */
+
 .cta-box{
+
 display:block;
+
 padding:27px 20px;
 }
 
 .cta-box h2{
+
 font-size:27px;
 }
 
 .cta-box .btn{
+
 margin-top:17px;
 }
 
+
+/* FOOTER */
+
 .footer-grid{
+
 grid-template-columns:1fr 1fr;
 }
 
 .footer-grid > div:first-child{
+
 grid-column:1/-1;
 }
 
 .footer-bottom{
+
 flex-direction:column;
 }
 
+
+/* MOBILE BOTTOM NAV */
+
 .mobile-nav{
+
 position:fixed;
+
 display:grid;
+
 grid-template-columns:repeat(3,1fr);
+
 left:0;
 right:0;
 bottom:0;
+
 height:70px;
+
 background:var(--navy);
+
 color:#fff;
+
 z-index:9000;
+
 border-top:1px solid #30455a;
 }
 
 .mobile-nav a{
+
 display:flex;
+
 flex-direction:column;
+
 align-items:center;
+
 justify-content:center;
+
 gap:3px;
+
 font-size:10px;
+
 font-weight:900;
 }
 
 .mobile-icon{
+
 font-size:22px;
 }
 
 .mobile-nav a:first-child{
+
 color:var(--gold);
 }
 
 }
 
+
+/* =========================================================
+SMALL PHONES
+========================================================= */
+
 @media(max-width:390px){
 
 .hero{
+
 min-height:440px;
+
 height:440px;
 }
 
 .hero-title{
+
 font-size:29px;
 }
 
 .hero-text{
+
 font-size:12px;
 }
 
 .hero-benefit-icon{
+
 font-size:21px;
 }
 
 .hero-benefit{
+
 font-size:8px;
 }
 
-.category-image{
-height:58px;
+.category-photo{
+
+height:145px;
 }
 
 .product-image{
+
 height:150px;
 }
 
@@ -1393,17 +1832,31 @@ height:150px;
 </style>
 </head>
 
+
 <body>
 
+
+<!-- =====================================================
+TOP BAR
+===================================================== -->
+
 <div class="topbar">
+
 🚚 FREE SHIPPING ON ORDERS OVER $100
 &nbsp;&nbsp; | &nbsp;&nbsp;
 🔧 PROFESSIONAL INSTALLATION AVAILABLE
+
 </div>
+
+
+<!-- =====================================================
+HEADER
+===================================================== -->
 
 <header class="header">
 
 <div class="header-inner">
+
 
 <a href="index.html" class="logo">
 
@@ -1423,6 +1876,7 @@ NATIONAL LOCK SUPPLY
 
 </a>
 
+
 <div class="search">
 
 <input
@@ -1436,6 +1890,7 @@ placeholder="Search locks, deadbolts, smart locks..."
 </button>
 
 </div>
+
 
 <div class="header-actions">
 
@@ -1454,6 +1909,7 @@ Search
 
 </button>
 
+
 <button
 class="header-action cart-action"
 onclick="openCart()"
@@ -1469,11 +1925,13 @@ Cart
 
 <span
 class="cart-count"
-id="cartCount">
+id="cartCount"
+>
 0
 </span>
 
 </button>
+
 
 <button
 class="header-action"
@@ -1496,41 +1954,72 @@ Menu
 
 </header>
 
+
+<!-- =====================================================
+NAV
+===================================================== -->
+
 <nav class="nav">
 
 <div class="nav-inner">
 
-<a href="catalog.html" class="nav-item active">
+<a
+href="catalog.html"
+class="nav-item active"
+>
 SHOP ALL
 </a>
 
-<a href="catalog.html?category=knobs" class="nav-item">
+<a
+href="catalog.html?category=knobs"
+class="nav-item"
+>
 DOOR KNOBS
 </a>
 
-<a href="catalog.html?category=deadbolts" class="nav-item">
+<a
+href="catalog.html?category=deadbolts"
+class="nav-item"
+>
 DEADBOLTS
 </a>
 
-<a href="catalog.html?category=levers" class="nav-item">
+<a
+href="catalog.html?category=levers"
+class="nav-item"
+>
 DOOR LEVERS
 </a>
 
-<a href="catalog.html?category=decorative" class="nav-item">
+<a
+href="catalog.html?category=decorative"
+class="nav-item"
+>
 DECORATIVE LOCKSETS
 </a>
 
-<a href="catalog.html?category=smart" class="nav-item">
+<a
+href="catalog.html?category=smart"
+class="nav-item"
+>
 SMART LOCKS
 </a>
 
-<a href="catalog.html" class="nav-item">
+<a
+href="catalog.html"
+class="nav-item"
+>
 ACCESS CONTROL
 </a>
 
 </div>
 
 </nav>
+
+
+<!-- =====================================================
+HERO
+===================================================== -->
 
 <section class="hero">
 
@@ -1544,61 +2033,112 @@ alt="National Lock Supply professional lock installation"
 
 <div class="hero-content">
 
+
 <h1 class="hero-title">
+
 BUY YOUR LOCK HERE.<br>
+
 <span>WE'LL INSTALL IT.</span>
+
 </h1>
 
+
 <p class="hero-text">
+
 Choose your new lock or door hardware online.
 Our mobile locksmith service will come to you
 and professionally install it — backed by our
 installation warranty.
+
 </p>
+
 
 <div class="hero-benefits">
 
-<div class="hero-benefit">
-<div class="hero-benefit-icon">🛒</div>
-Choose<br>Your Lock
-</div>
 
 <div class="hero-benefit">
-<div class="hero-benefit-icon">🚚</div>
-We Come<br>to You
+
+<div class="hero-benefit-icon">
+🛒
 </div>
+
+Choose<br>
+Your Lock
+
+</div>
+
 
 <div class="hero-benefit">
-<div class="hero-benefit-icon">🛠️</div>
-Professional<br>Installation
+
+<div class="hero-benefit-icon">
+🚚
 </div>
+
+We Come<br>
+to You
+
+</div>
+
 
 <div class="hero-benefit">
-<div class="hero-benefit-icon">🛡️</div>
-Installation<br>Warranty
+
+<div class="hero-benefit-icon">
+🛠️
 </div>
 
+Professional<br>
+Installation
+
 </div>
+
+
+<div class="hero-benefit">
+
+<div class="hero-benefit-icon">
+🛡️
+</div>
+
+Installation<br>
+Warranty
+
+</div>
+
+
+</div>
+
 
 <div class="hero-buttons">
 
-<a href="catalog.html" class="btn btn-gold">
+<a
+href="catalog.html"
+class="btn btn-gold"
+>
 SHOP LOCKS →
 </a>
 
-<a href="#installation" class="btn btn-outline">
+<a
+href="#installation"
+class="btn btn-outline"
+>
 📅 SCHEDULE INSTALLATION
 </a>
 
 </div>
 
+
 </div>
 
 </section>
 
+
+<!-- =====================================================
+INSTALLATION STRIP
+===================================================== -->
+
 <section class="install-strip">
 
 <div class="install-strip-grid">
+
 
 <div class="install-strip-item">
 
@@ -1620,6 +2160,7 @@ Professional installation available.
 
 </div>
 
+
 <div class="install-strip-item">
 
 <div class="install-strip-icon">
@@ -1639,6 +2180,7 @@ Quoted before additional work begins.
 </div>
 
 </div>
+
 
 <div class="install-strip-item">
 
@@ -1660,17 +2202,28 @@ Professional installation backed by warranty.
 
 </div>
 
+
 </div>
 
 </section>
+
+
+<!-- =====================================================
+SHOP BY CATEGORY
+===================================================== -->
+
 <section class="section categories">
 
 <div class="container">
 
+
 <div class="section-heading">
 
 <div>
-<div class="section-kicker">SHOP NLS</div>
+
+<div class="section-kicker">
+SHOP NLS
+</div>
 
 <h2 class="section-title">
 Shop by Category
@@ -1682,7 +2235,10 @@ Quality locks and door hardware for residential and commercial applications.
 
 </div>
 
-<a href="catalog.html" class="view-all">
+<a
+href="catalog.html"
+class="view-all"
+>
 View All →
 </a>
 
@@ -1711,7 +2267,9 @@ loading="lazy"
 
 <div class="category-card-content">
 
-<h3>Door Knobs</h3>
+<h3>
+Door Knobs
+</h3>
 
 <p>
 Keyed entry and residential door knobs
@@ -1745,7 +2303,9 @@ loading="lazy"
 
 <div class="category-card-content">
 
-<h3>Deadbolts</h3>
+<h3>
+Deadbolts
+</h3>
 
 <p>
 Residential and commercial deadbolt options
@@ -1779,7 +2339,9 @@ loading="lazy"
 
 <div class="category-card-content">
 
-<h3>Smart Locks</h3>
+<h3>
+Smart Locks
+</h3>
 
 <p>
 Keypad, fingerprint and app-enabled locks
@@ -1813,7 +2375,9 @@ loading="lazy"
 
 <div class="category-card-content">
 
-<h3>Door Levers</h3>
+<h3>
+Door Levers
+</h3>
 
 <p>
 Modern and traditional entry levers
@@ -1847,7 +2411,9 @@ loading="lazy"
 
 <div class="category-card-content">
 
-<h3>Decorative Locksets</h3>
+<h3>
+Decorative Locksets
+</h3>
 
 <p>
 Premium thumbpiece entry locksets
@@ -1862,7 +2428,7 @@ SHOP LOCKSETS →
 </a>
 
 
-<!-- INSTALLATION -->
+<!-- PROFESSIONAL INSTALLATION -->
 
 <a
 href="#installation"
@@ -1879,7 +2445,9 @@ NLS
 
 <div class="category-card-content">
 
-<h3>Professional Installation</h3>
+<h3>
+Professional Installation
+</h3>
 
 <p>
 Buy your lock here. We'll install it.
@@ -1890,847 +2458,6 @@ $99 MOBILE INSTALLATION →
 </span>
 
 </div>
+...
 
-</a>
-
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section featured">
-
-<div class="container">
-
-<div class="section-heading">
-
-<div>
-
-<div class="section-kicker">
-FEATURED LOCKS
-</div>
-
-<h2 class="section-title">
-Featured Locks
-</h2>
-
-</div>
-
-<a href="catalog.html" class="view-all">
-View All →
-</a>
-
-</div>
-
-<div class="product-grid">
-
-<!-- FEATURED 1 -->
-
-<article class="product-card">
-
-<div class="product-badge">
-Best Seller
-</div>
-
-<div class="product-image">
-
-<img
-src="NLS_catalog_assets/deadbolts-01.jpeg"
-alt="Commercial One-Sided Cylinder Deadbolt"
-loading="lazy"
->
-
-</div>
-
-<div class="product-info">
-
-<div class="product-name">
-Commercial One-Sided Cylinder Deadbolt
-</div>
-
-<div class="stars">
-★★★★★
-<span class="review-count">
-Featured
-</span>
-</div>
-
-<div class="price">
-Contact for pricing
-</div>
-
-<div class="install-available">
-Installation available
-</div>
-
-<button
-class="add-cart"
-onclick="addToCart('NLS-DEAD-001')"
->
-ADD TO CART
-</button>
-
-</div>
-
-</article>
-
-<!-- FEATURED 2 -->
-
-<article class="product-card">
-
-<div class="product-badge">
-Smart Lock
-</div>
-
-<div class="product-image">
-
-<img
-src="NLS_catalog_assets/smart-01.jpeg"
-alt="GHome Smart Door Knob"
-loading="lazy"
->
-
-</div>
-
-<div class="product-info">
-
-<div class="product-name">
-GHome Smart Door Knob — Fingerprint + Keypad + App
-</div>
-
-<div class="stars">
-★★★★★
-<span class="review-count">
-Featured
-</span>
-</div>
-
-<div class="price">
-Contact for pricing
-</div>
-
-<div class="install-available">
-Installation available
-</div>
-
-<button
-class="add-cart"
-onclick="addToCart('NLS-SMART-001')"
->
-ADD TO CART
-</button>
-
-</div>
-
-</article>
-
-<!-- FEATURED 3 -->
-
-<article class="product-card">
-
-<div class="product-image">
-
-<img
-src="NLS_catalog_assets/knobs-01.webp"
-alt="Classic Round Keyed Entry Knob"
-loading="lazy"
->
-
-</div>
-
-<div class="product-info">
-
-<div class="product-name">
-Classic Round Keyed Entry Knob — Satin Nickel
-</div>
-
-<div class="stars">
-★★★★★
-<span class="review-count">
-Featured
-</span>
-</div>
-
-<div class="price">
-Contact for pricing
-</div>
-
-<div class="install-available">
-Installation available
-</div>
-
-<button
-class="add-cart"
-onclick="addToCart('NLS-KNO-001')"
->
-ADD TO CART
-</button>
-
-</div>
-
-</article>
-
-<!-- FEATURED 4 -->
-
-<article class="product-card">
-
-<div class="product-image">
-
-<img
-src="NLS_catalog_assets/decorative-01.webp"
-alt="Decorative Thumbpiece Entry Lockset"
-loading="lazy"
->
-
-</div>
-
-<div class="product-info">
-
-<div class="product-name">
-Decorative Thumbpiece Entry Lockset
-</div>
-
-<div class="stars">
-★★★★★
-<span class="review-count">
-Featured
-</span>
-</div>
-
-<div class="price">
-Contact for pricing
-</div>
-
-<div class="install-available">
-Installation available
-</div>
-
-<button
-class="add-cart"
-onclick="addToCart('NLS-TPD-001')"
->
-ADD TO CART
-</button>
-
-</div>
-
-</article>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section how">
-
-<div class="container">
-
-<div class="section-heading">
-
-<div>
-
-<div class="section-kicker">
-HOW IT WORKS
-</div>
-
-<h2 class="section-title">
-Buy Your Lock. We'll Install It.
-</h2>
-
-</div>
-
-</div>
-
-<div class="steps">
-
-<div class="step">
-
-<div class="step-number">1</div>
-
-<h3>Choose Your Lock</h3>
-
-<p>
-Browse National Lock Supply products online.
-</p>
-
-</div>
-
-<div class="step">
-
-<div class="step-number">2</div>
-
-<h3>Place Your Order</h3>
-
-<p>
-Choose the hardware you need for your door.
-</p>
-
-</div>
-
-<div class="step">
-
-<div class="step-number">3</div>
-
-<h3>Schedule Installation</h3>
-
-<p>
-Our mobile locksmith service comes to you.
-</p>
-
-</div>
-
-<div class="step">
-
-<div class="step-number">4</div>
-
-<h3>Professional Installation</h3>
-
-<p>
-Your new lock is professionally installed.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section
-class="section installation"
-id="installation"
->
-
-<div class="container">
-
-<div class="installation-grid">
-
-<div>
-
-<div class="section-kicker">
-INSTALLATION SERVICE
-</div>
-
-<h2>
-BUY YOUR LOCK HERE.<br>
-<span>WE'LL INSTALL IT.</span>
-</h2>
-
-<p class="installation-description">
-Our mobile locksmith service will come to you and professionally
-install your new lock.
-</p>
-
-<div class="install-price">
-$99 MOBILE INSTALLATION
-</div>
-
-<div class="install-list">
-
-<div>
-<span>✓</span>
-Professional mobile installation
-</div>
-
-<div>
-<span>✓</span>
-Installation warranty
-</div>
-
-<div>
-<span>✓</span>
-Free installation on qualifying orders of $600+
-</div>
-
-<div>
-<span>✓</span>
-Additional modifications quoted before work begins
-</div>
-
-</div>
-
-</div>
-
-<div class="install-card">
-
-<h3>
-Installation Information
-</h3>
-
-<p>
-Standard mobile installation is $99.
-</p>
-
-<p>
-Installation is free on qualifying orders of
-$600 or more.
-</p>
-
-<p>
-Additional door or frame cutting/modifications
-may require an additional charge.
-</p>
-
-<p>
-Any additional work will be quoted before the
-work begins.
-</p>
-
-<a
-href="mailto:info@citywidelockandkey.com"
-class="btn btn-gold"
->
-CONTACT US
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section smart">
-
-<div class="container">
-
-<div class="section-heading">
-
-<div>
-
-<div class="section-kicker">
-SMART LOCKS
-</div>
-
-<h2 class="section-title">
-Modern Entry Options
-</h2>
-
-</div>
-
-<a href="catalog.html?category=smart" class="view-all">
-Shop Smart Locks →
-</a>
-
-</div>
-
-<div class="smart-grid">
-
-<div class="smart-card">
-
-<div class="smart-icon">
-🔢
-</div>
-
-<h3>Keypad Entry</h3>
-
-<p>
-Enter your home without carrying a traditional key.
-</p>
-
-</div>
-
-<div class="smart-card">
-
-<div class="smart-icon">
-📱
-</div>
-
-<h3>App Control</h3>
-
-<p>
-Compatible smart locks can provide convenient app control.
-</p>
-
-</div>
-
-<div class="smart-card">
-
-<div class="smart-icon">
-👆
-</div>
-
-<h3>Fingerprint</h3>
-
-<p>
-Selected smart locks offer fingerprint entry.
-</p>
-
-</div>
-
-<div class="smart-card">
-
-<div class="smart-icon">
-🔐
-</div>
-
-<h3>Keyless Entry</h3>
-
-<p>
-Choose from modern keypad and smart entry solutions.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="cta">
-
-<div class="container">
-
-<div class="cta-box">
-
-<div>
-
-<h2>
-Ready for a New Lock?
-</h2>
-
-<p>
-Shop your lock and schedule professional installation.
-</p>
-
-</div>
-
-<a
-href="catalog.html"
-class="btn"
-style="background:#071426;color:#fff;"
->
-SHOP LOCKS →
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<footer class="footer">
-
-<div class="container">
-
-<div class="footer-grid">
-
-<div>
-
-<h3>
-NATIONAL LOCK SUPPLY
-</h3>
-
-<p>
-Locks • Door Hardware • Smart Locks • Access Control
-</p>
-
-<p>
-Buy your lock here. We'll install it.
-</p>
-
-</div>
-
-<div>
-
-<h3>
-SHOP
-</h3>
-
-<p>
-<a href="catalog.html">All Products</a>
-</p>
-
-<p>
-<a href="catalog.html?category=knobs">
-Door Knobs
-</a>
-</p>
-
-<p>
-<a href="catalog.html?category=deadbolts">
-Deadbolts
-</a>
-</p>
-
-<p>
-<a href="catalog.html?category=smart">
-Smart Locks
-</a>
-</p>
-
-</div>
-
-<div>
-
-<h3>
-SERVICES
-</h3>
-
-<p>
-Professional Installation
-</p>
-
-<p>
-Residential Locks
-</p>
-
-<p>
-Commercial Locks
-</p>
-
-<p>
-Access Control
-</p>
-
-</div>
-
-<div>
-
-<h3>
-NLS
-</h3>
-
-<p>
-Free shipping on orders over $100.
-</p>
-
-<p>
-$99 mobile installation.
-</p>
-
-</div>
-
-</div>
-
-<div class="footer-bottom">
-
-<span>
-© 2026 National Lock Supply
-</span>
-
-<span>
-Locks • Hardware • Installation
-</span>
-
-</div>
-
-</div>
-
-</footer>
-
-<!-- CART DRAWER -->
-
-<div
-class="cart-drawer"
-id="cartDrawer"
->
-
-<div class="cart-header">
-
-<h2>
-Your Cart
-</h2>
-
-<button onclick="closeCart()">
-×
-</button>
-
-</div>
-
-<div
-class="cart-body"
-id="cartBody"
->
-
-<div class="cart-empty">
-Your cart is empty.
-</div>
-
-</div>
-
-</div>
-
-<!-- MOBILE NAV -->
-
-<div class="mobile-nav">
-
-<a href="index.html">
-
-<span class="mobile-icon">
-⌂
-</span>
-
-Home
-
-</a>
-
-<a href="catalog.html">
-
-<span class="mobile-icon">
-🔎
-</span>
-
-Shop
-
-</a>
-
-<a href="javascript:openCart()">
-
-<span class="mobile-icon">
-🛒
-</span>
-
-Cart
-
-</a>
-
-</div>
-
-<script>
-
-let cart = [];
-
-function addToCart(product){
-
-cart.push(product);
-
-document.getElementById("cartCount").textContent =
-cart.length;
-
-updateCart();
-
-}
-
-function openCart(){
-
-document
-.getElementById("cartDrawer")
-.classList.add("open");
-
-updateCart();
-
-}
-
-function closeCart(){
-
-document
-.getElementById("cartDrawer")
-.classList.remove("open");
-
-}
-
-function updateCart(){
-
-const body =
-document.getElementById("cartBody");
-
-if(cart.length === 0){
-
-body.innerHTML = `
-<div class="cart-empty">
-Your cart is empty.
-</div>
-`;
-
-return;
-
-}
-
-body.innerHTML = `
-
-<div>
-
-<h3 style="margin-bottom:15px;">
-${cart.length} item${cart.length === 1 ? "" : "s"}
-</h3>
-
-${cart.map((item,index)=>`
-
-<div style="
-padding:12px 0;
-border-bottom:1px solid #ddd;
-display:flex;
-justify-content:space-between;
-gap:10px;
-">
-
-<span>
-${item}
-</span>
-
-<button
-onclick="removeFromCart(${index})"
-style="
-border:0;
-background:none;
-color:#d00;
-font-weight:bold;
-"
->
-Remove
-</button>
-
-</div>
-
-`).join("")}
-
-</div>
-
-`;
-
-}
-
-function removeFromCart(index){
-
-cart.splice(index,1);
-
-document.getElementById("cartCount").textContent =
-cart.length;
-
-updateCart();
-
-}
-
-function searchProducts(){
-
-const query =
-document
-.getElementById("searchInput")
-.value
-.trim();
-
-if(query){
-
-window.location.href =
-"catalog.html?search=" +
-encodeURIComponent(query);
-
-}
-
-}
-
-document
-.getElementById("searchInput")
-.addEventListener(
-"keydown",
-function(event){
-
-if(event.key === "Enter"){
-
-searchProducts();
-
-}
-
-});
-
-</script>
-
-</body>
-</html>
+[Message clipped]  View entire message
