@@ -1,0 +1,272 @@
+[
+  {
+    "sku": "NLS-KNO-001",
+    "category": "knobs",
+    "name": "Knobs Product 01",
+    "image": "knobs-01.webp"
+  },
+  {
+    "sku": "NLS-KNO-002",
+    "category": "knobs",
+    "name": "Knobs Product 02",
+    "image": "knobs-02.webp"
+  },
+  {
+    "sku": "NLS-KNO-003",
+    "category": "knobs",
+    "name": "Knobs Product 03",
+    "image": "knobs-03.webp"
+  },
+  {
+    "sku": "NLS-KNO-004",
+    "category": "knobs",
+    "name": "Knobs Product 04",
+    "image": "knobs-04.webp"
+  },
+  {
+    "sku": "NLS-KNO-005",
+    "category": "knobs",
+    "name": "Knobs Product 05",
+    "image": "knobs-05.webp"
+  },
+  {
+    "sku": "NLS-KNO-006",
+    "category": "knobs",
+    "name": "Knobs Product 06",
+    "image": "knobs-06.webp"
+  },
+  {
+    "sku": "NLS-KNO-007",
+    "category": "knobs",
+    "name": "Knobs Product 07",
+    "image": "knobs-07.webp"
+  },
+  {
+    "sku": "NLS-KNO-008",
+    "category": "knobs",
+    "name": "Knobs Product 08",
+    "image": "knobs-08.webp"
+  },
+  {
+    "sku": "NLS-KNO-009",
+    "category": "knobs",
+    "name": "Knobs Product 09",
+    "image": "knobs-09.webp"
+  },
+  {
+    "sku": "NLS-KNO-010",
+    "category": "knobs",
+    "name": "Knobs Product 10",
+    "image": "knobs-10.webp"
+  },
+  {
+    "sku": "NLS-KNO-011",
+    "category": "knobs",
+    "name": "Knobs Product 11",
+    "image": "knobs-11.webp"
+  },
+  {
+    "sku": "NLS-DEA-001",
+    "category": "deadbolts",
+    "name": "Deadbolts Product 01",
+    "image": "deadbolts-01.jpeg"
+  },
+  {
+    "sku": "NLS-DEA-002",
+    "category": "deadbolts",
+    "name": "Deadbolts Product 02",
+    "image": "deadbolts-02.jpeg"
+  },
+  {
+    "sku": "NLS-LEV-001",
+    "category": "levers",
+    "name": "Levers Product 01",
+    "image": "levers-01.webp"
+  },
+  {
+    "sku": "NLS-LEV-002",
+    "category": "levers",
+    "name": "Levers Product 02",
+    "image": "levers-02.webp"
+  },
+  {
+    "sku": "NLS-LEV-003",
+    "category": "levers",
+    "name": "Levers Product 03",
+    "image": "levers-03.webp"
+  },
+  {
+    "sku": "NLS-LEV-004",
+    "category": "levers",
+    "name": "Levers Product 04",
+    "image": "levers-04.webp"
+  },
+  {
+    "sku": "NLS-LEV-005",
+    "category": "levers",
+    "name": "Levers Product 05",
+    "image": "levers-05.webp"
+  },
+  {
+    "sku": "NLS-LEV-006",
+    "category": "levers",
+    "name": "Levers Product 06",
+    "image": "levers-06.jpeg"
+  },
+  {
+    "sku": "NLS-DEC-001",
+    "category": "decorative",
+    "name": "Decorative Product 01",
+    "image": "decorative-01.webp"
+  },
+  {
+    "sku": "NLS-DEC-002",
+    "category": "decorative",
+    "name": "Decorative Product 02",
+    "image": "decorative-02.webp"
+  },
+  {
+    "sku": "NLS-DEC-003",
+    "category": "decorative",
+    "name": "Decorative Product 03",
+    "image": "decorative-03.webp"
+  },
+  {
+    "sku": "NLS-DEC-004",
+    "category": "decorative",
+    "name": "Decorative Product 04",
+    "image": "decorative-04.webp"
+  },
+  {
+    "sku": "NLS-DEC-005",
+    "category": "decorative",
+    "name": "Decorative Product 05",
+    "image": "decorative-05.webp"
+  },
+  {
+    "sku": "NLS-DEC-006",
+    "category": "decorative",
+    "name": "Decorative Product 06",
+    "image": "decorative-06.jpeg"
+  },
+  {
+    "sku": "NLS-DEC-007",
+    "category": "decorative",
+    "name": "Decorative Product 07",
+    "image": "decorative-07.webp"
+  },
+  {
+    "sku": "NLS-DEC-008",
+    "category": "decorative",
+    "name": "Decorative Product 08",
+    "image": "decorative-08.webp"
+  },
+  {
+    "sku": "NLS-DEC-009",
+    "category": "decorative",
+    "name": "Decorative Product 09",
+    "image": "decorative-09.webp"
+  },
+  {
+    "sku": "NLS-DEC-010",
+    "category": "decorative",
+    "name": "Decorative Product 10",
+    "image": "decorative-10.webp"
+  },
+  {
+    "sku": "NLS-DEC-011",
+    "category": "decorative",
+    "name": "Decorative Product 11",
+    "image": "decorative-11.webp"
+  },
+  {
+    "sku": "NLS-DEC-012",
+    "category": "decorative",
+    "name": "Decorative Product 12",
+    "image": "decorative-12.webp"
+  },
+  {
+    "sku": "NLS-DEC-013",
+    "category": "decorative",
+    "name": "Decorative Product 13",
+    "image": "decorative-13.webp"
+  },
+  {
+    "sku": "NLS-DEC-014",
+    "category": "decorative",
+    "name": "Decorative Product 14",
+    "image": "decorative-14.webp"
+  },
+  {
+    "sku": "NLS-DEC-015",
+    "category": "decorative",
+    "name": "Decorative Product 15",
+    "image": "decorative-15.webp"
+  },
+  {
+    "sku": "NLS-DEC-016",
+    "category": "decorative",
+    "name": "Decorative Product 16",
+    "image": "decorative-16.webp"
+  },
+  {
+    "sku": "NLS-DEC-017",
+    "category": "decorative",
+    "name": "Decorative Product 17",
+    "image": "decorative-17.webp"
+  },
+  {
+    "sku": "NLS-SMA-001",
+    "category": "smart",
+    "name": "Smart Product 01",
+    "image": "smart-01.jpeg"
+  },
+  {
+    "sku": "NLS-SMA-002",
+    "category": "smart",
+    "name": "Smart Product 02",
+    "image": "smart-02.jpeg"
+  },
+  {
+    "sku": "NLS-SMA-003",
+    "category": "smart",
+    "name": "Smart Product 03",
+    "image": "smart-03.jpeg"
+  },
+  {
+    "sku": "NLS-SMA-004",
+    "category": "smart",
+    "name": "Smart Product 04",
+    "image": "smart-04.jpeg"
+  },
+  {
+    "sku": "NLS-SMA-005",
+    "category": "smart",
+    "name": "Smart Product 05",
+    "image": "smart-05.jpeg"
+  },
+  {
+    "sku": "NLS-SMA-006",
+    "category": "smart",
+    "name": "Smart Product 06",
+    "image": "smart-06.jpeg"
+  },
+  {
+    "sku": "NLS-SMA-007",
+    "category": "smart",
+    "name": "Smart Product 07",
+    "image": "smart-07.jpeg"
+  },
+  {
+    "sku": "NLS-SMA-008",
+    "category": "smart",
+    "name": "Smart Product 08",
+    "image": "smart-08.jpeg"
+  },
+  {
+    "sku": "NLS-SMA-009",
+    "category": "smart",
+    "name": "Smart Product 09",
+    "image": "smart-09.jpeg"
+  }
+]
