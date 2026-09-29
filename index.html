@@ -475,36 +475,111 @@ white-space:nowrap;
 background:#fff;
 }
 
+.category-intro{
+margin-top:10px;
+color:#697887;
+font-size:14px;
+line-height:1.45;
+max-width:600px;
+}
+
 .category-grid{
 display:grid;
-grid-template-columns:repeat(8,1fr);
-gap:9px;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
 }
 
-.category{
-border:1px solid var(--line);
+.category-card{
 background:#fff;
-border-radius:7px;
-padding:10px 5px;
-text-align:center;
+border:1px solid #dfe5eb;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 3px 12px rgba(7,20,38,.07);
+transition:.25s ease;
+display:block;
 }
 
-.category-image{
-height:85px;
+.category-card:hover{
+transform:translateY(-5px);
+box-shadow:0 12px 30px rgba(7,20,38,.14);
+}
+
+.category-photo{
+height:245px;
+background:#fff;
 display:flex;
 align-items:center;
 justify-content:center;
+padding:18px;
+border-bottom:1px solid #edf0f3;
+overflow:hidden;
+}
+
+.category-photo img{
+width:100%;
+height:100%;
+object-fit:contain;
+transition:.3s ease;
+}
+
+.category-card:hover .category-photo img{
+transform:scale(1.05);
+}
+
+.category-card-content{
+padding:18px;
+}
+
+.category-card-content h3{
+font-size:21px;
+font-weight:900;
+color:#071426;
 margin-bottom:7px;
 }
 
-.category-placeholder{
-font-size:43px;
+.category-card-content p{
+font-size:13px;
+color:#697887;
+line-height:1.4;
+min-height:37px;
+margin-bottom:15px;
 }
 
-.category h3{
-color:var(--navy);
-font-size:13px;
-line-height:1.15;
+.category-card-content span{
+font-size:12px;
+font-weight:900;
+color:#1768b3;
+}
+
+.installation-category{
+background:#071426;
+}
+
+.installation-category .category-photo{
+background:linear-gradient(
+135deg,
+#071426,
+#123250
+);
+}
+
+.installation-photo-text{
+font-size:70px;
+font-weight:900;
+letter-spacing:-5px;
+color:#f7b923;
+}
+
+.installation-category .category-card-content h3{
+color:#fff;
+}
+
+.installation-category .category-card-content p{
+color:#c7d3dd;
+}
+
+.installation-category .category-card-content span{
+color:#f7b923;
 }
 
 /* FEATURED PRODUCTS */
@@ -1588,7 +1663,6 @@ Professional installation backed by warranty.
 </div>
 
 </section>
-
 <section class="section categories">
 
 <div class="container">
@@ -1596,14 +1670,15 @@ Professional installation backed by warranty.
 <div class="section-heading">
 
 <div>
-
-<div class="section-kicker">
-SHOP NLS
-</div>
+<div class="section-kicker">SHOP NLS</div>
 
 <h2 class="section-title">
 Shop by Category
 </h2>
+
+<p class="category-intro">
+Quality locks and door hardware for residential and commercial applications.
+</p>
 
 </div>
 
@@ -1613,87 +1688,211 @@ View All →
 
 </div>
 
+
 <div class="category-grid">
 
-<a href="catalog.html?category=knobs" class="category">
 
-<div class="category-image">
-<div class="category-placeholder">🚪</div>
+<!-- DOOR KNOBS -->
+
+<a
+href="catalog.html?category=knobs"
+class="category-card"
+>
+
+<div class="category-photo">
+
+<img
+src="NLS_catalog_assets/knobs-01.webp"
+alt="Door Knobs"
+loading="lazy"
+>
+
 </div>
+
+<div class="category-card-content">
 
 <h3>Door Knobs</h3>
 
+<p>
+Keyed entry and residential door knobs
+</p>
+
+<span>
+SHOP DOOR KNOBS →
+</span>
+
+</div>
+
 </a>
 
-<a href="catalog.html?category=deadbolts" class="category">
 
-<div class="category-image">
-<div class="category-placeholder">🔒</div>
+<!-- DEADBOLTS -->
+
+<a
+href="catalog.html?category=deadbolts"
+class="category-card"
+>
+
+<div class="category-photo">
+
+<img
+src="NLS_catalog_assets/deadbolts-01.jpeg"
+alt="Deadbolts"
+loading="lazy"
+>
+
 </div>
+
+<div class="category-card-content">
 
 <h3>Deadbolts</h3>
 
+<p>
+Residential and commercial deadbolt options
+</p>
+
+<span>
+SHOP DEADBOLTS →
+</span>
+
+</div>
+
 </a>
 
-<a href="catalog.html?category=smart" class="category">
 
-<div class="category-image">
-<div class="category-placeholder">🔢</div>
+<!-- SMART LOCKS -->
+
+<a
+href="catalog.html?category=smart"
+class="category-card"
+>
+
+<div class="category-photo">
+
+<img
+src="NLS_catalog_assets/smart-01.jpeg"
+alt="Smart Locks"
+loading="lazy"
+>
+
 </div>
+
+<div class="category-card-content">
 
 <h3>Smart Locks</h3>
 
+<p>
+Keypad, fingerprint and app-enabled locks
+</p>
+
+<span>
+SHOP SMART LOCKS →
+</span>
+
+</div>
+
 </a>
 
-<a href="catalog.html?category=levers" class="category">
 
-<div class="category-image">
-<div class="category-placeholder">🚪</div>
+<!-- DOOR LEVERS -->
+
+<a
+href="catalog.html?category=levers"
+class="category-card"
+>
+
+<div class="category-photo">
+
+<img
+src="NLS_catalog_assets/levers-01.webp"
+alt="Door Levers"
+loading="lazy"
+>
+
 </div>
+
+<div class="category-card-content">
 
 <h3>Door Levers</h3>
 
+<p>
+Modern and traditional entry levers
+</p>
+
+<span>
+SHOP DOOR LEVERS →
+</span>
+
+</div>
+
 </a>
 
-<a href="catalog.html?category=decorative" class="category">
 
-<div class="category-image">
-<div class="category-placeholder">🔐</div>
+<!-- DECORATIVE LOCKSETS -->
+
+<a
+href="catalog.html?category=decorative"
+class="category-card"
+>
+
+<div class="category-photo">
+
+<img
+src="NLS_catalog_assets/decorative-01.webp"
+alt="Decorative Locksets"
+loading="lazy"
+>
+
 </div>
+
+<div class="category-card-content">
 
 <h3>Decorative Locksets</h3>
 
-</a>
+<p>
+Premium thumbpiece entry locksets
+</p>
 
-<a href="catalog.html" class="category">
+<span>
+SHOP LOCKSETS →
+</span>
 
-<div class="category-image">
-<div class="category-placeholder">▰</div>
 </div>
 
-<h3>Panic Bars</h3>
-
 </a>
 
-<a href="catalog.html" class="category">
 
-<div class="category-image">
-<div class="category-placeholder">ϟ</div>
+<!-- INSTALLATION -->
+
+<a
+href="#installation"
+class="category-card installation-category"
+>
+
+<div class="category-photo installation-photo">
+
+<div class="installation-photo-text">
+NLS
 </div>
 
-<h3>Electric Strikes</h3>
-
-</a>
-
-<a href="catalog.html" class="category">
-
-<div class="category-image">
-<div class="category-placeholder">🔐</div>
 </div>
 
-<h3>Access Control</h3>
+<div class="category-card-content">
+
+<h3>Professional Installation</h3>
+
+<p>
+Buy your lock here. We'll install it.
+</p>
+
+<span>
+$99 MOBILE INSTALLATION →
+</span>
+
+</div>
 
 </a>
+
 
 </div>
 
