@@ -3,19 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>National Lock Supply | Locks & Door Hardware</title>
 
 <style>
+
 *{
 box-sizing:border-box;
 margin:0;
-padding:0;
+padding:0
 }
 
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:#f5f7fa;
-color:#111;
+color:#111
 }
 
 .topbar{
@@ -24,7 +26,7 @@ color:#fff;
 text-align:center;
 padding:9px;
 font-size:13px;
-font-weight:bold;
+font-weight:bold
 }
 
 header{
@@ -32,7 +34,7 @@ background:#fff;
 position:sticky;
 top:0;
 z-index:50;
-border-bottom:1px solid #ddd;
+border-bottom:1px solid #ddd
 }
 
 .header-inner{
@@ -42,17 +44,17 @@ padding:16px 20px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:20px;
+gap:20px
 }
 
 .logo{
 font-size:27px;
 font-weight:900;
-white-space:nowrap;
+white-space:nowrap
 }
 
 .logo span{
-color:#f58220;
+color:#f58220
 }
 
 .cart{
@@ -63,13 +65,13 @@ border-radius:8px;
 padding:13px 20px;
 font-size:16px;
 font-weight:bold;
-cursor:pointer;
+cursor:pointer
 }
 
 .search-area{
 max-width:1250px;
 margin:auto;
-padding:0 20px 16px;
+padding:0 20px 16px
 }
 
 .search{
@@ -77,11 +79,11 @@ width:100%;
 padding:15px 18px;
 border:1px solid #ccc;
 border-radius:8px;
-font-size:17px;
+font-size:17px
 }
 
 nav{
-background:#075fae;
+background:#075fae
 }
 
 .nav-inner{
@@ -91,7 +93,7 @@ display:flex;
 justify-content:center;
 gap:8px;
 padding:10px 20px;
-flex-wrap:wrap;
+flex-wrap:wrap
 }
 
 .nav-inner button{
@@ -101,31 +103,31 @@ color:#fff;
 padding:10px 14px;
 font-weight:bold;
 cursor:pointer;
-border-radius:6px;
+border-radius:6px
 }
 
 .nav-inner button.active{
 background:#d9a441;
-color:#111;
+color:#111
 }
 
 .hero{
 background:linear-gradient(135deg,#075fae,#0b78d0);
 color:#fff;
 text-align:center;
-padding:42px 20px;
+padding:42px 20px
 }
 
 .hero h1{
 font-size:38px;
-margin-bottom:10px;
+margin-bottom:10px
 }
 
 .hero p{
 font-size:17px;
 max-width:800px;
 margin:auto;
-line-height:1.5;
+line-height:1.5
 }
 
 .filters{
@@ -134,7 +136,7 @@ margin:25px auto 10px;
 padding:0 20px;
 display:flex;
 gap:10px;
-flex-wrap:wrap;
+flex-wrap:wrap
 }
 
 .filter{
@@ -143,31 +145,31 @@ background:#fff;
 padding:11px 16px;
 border-radius:7px;
 font-weight:bold;
-cursor:pointer;
+cursor:pointer
 }
 
 .filter.active,
 .filter:hover{
 background:#075fae;
-color:#fff;
+color:#fff
 }
 
 .catalog{
 max-width:1250px;
 margin:auto;
-padding:20px;
+padding:20px
 }
 
 .results{
 margin-bottom:15px;
 color:#555;
-font-weight:bold;
+font-weight:bold
 }
 
 .products{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:18px;
+gap:18px
 }
 
 .product{
@@ -176,12 +178,12 @@ border-radius:10px;
 overflow:hidden;
 border:1px solid #ddd;
 box-shadow:0 2px 8px rgba(0,0,0,.07);
-transition:.2s;
+transition:.2s
 }
 
 .product:hover{
 transform:translateY(-3px);
-box-shadow:0 6px 18px rgba(0,0,0,.12);
+box-shadow:0 6px 18px rgba(0,0,0,.12)
 }
 
 .product-image{
@@ -192,62 +194,71 @@ align-items:center;
 justify-content:center;
 padding:15px;
 border-bottom:1px solid #eee;
+flex-direction:column
 }
 
 .product-image img{
 width:100%;
 height:100%;
-object-fit:contain;
+object-fit:contain
 }
 
-.supplier-image{
-background:linear-gradient(135deg,#f4f7fa,#e9eef3);
+.supplier-placeholder{
+background:linear-gradient(135deg,#f4f7fa,#e9eef3)
+}
+
+.supplier-placeholder strong{
 color:#075fae;
-flex-direction:column;
-font-weight:900;
-font-size:26px;
+font-size:26px
 }
 
-.supplier-image small{
+.supplier-placeholder small{
 font-size:11px;
 color:#777;
-margin-top:8px;
+margin-top:8px
 }
 
 .product-info{
-padding:17px;
+padding:17px
 }
 
 .product-number{
 color:#777;
 font-size:12px;
 font-weight:bold;
-margin-bottom:6px;
+margin-bottom:6px
 }
 
 .product h2{
 font-size:16px;
 line-height:1.3;
-margin-bottom:8px;
+margin-bottom:8px
 }
 
 .type{
 color:#666;
 font-size:13px;
-margin-bottom:12px;
+margin-bottom:12px
+}
+
+.stock{
+color:#168a43;
+font-size:12px;
+font-weight:bold;
+margin-bottom:10px
 }
 
 .price{
 font-size:22px;
 font-weight:900;
-margin-bottom:4px;
+margin-bottom:4px
 }
 
 .price-note{
 color:#f58220;
 font-size:13px;
 font-weight:bold;
-margin-bottom:15px;
+margin-bottom:15px
 }
 
 .add{
@@ -259,11 +270,11 @@ padding:13px;
 border-radius:7px;
 font-size:15px;
 font-weight:bold;
-cursor:pointer;
+cursor:pointer
 }
 
 .add:hover{
-background:#d9680d;
+background:#d96f0c
 }
 
 .install{
@@ -271,50 +282,35 @@ margin-top:45px;
 background:#075fae;
 color:#fff;
 padding:45px 25px;
-text-align:center;
+text-align:center
 }
 
 .install h2{
 font-size:32px;
-margin-bottom:12px;
+margin-bottom:12px
 }
 
 .install p{
 max-width:750px;
 margin:8px auto;
-line-height:1.5;
+line-height:1.5
 }
 
 .install strong{
-color:#ffd166;
+color:#ffd166
 }
 
 footer{
 background:#111;
 color:#fff;
 text-align:center;
-padding:35px 20px 90px;
-}
-
-.section-title{
-max-width:1250px;
-margin:38px auto 8px;
-padding:0 20px;
-}
-
-.section-title h2{
-font-size:28px;
-}
-
-.section-title p{
-color:#666;
-margin-top:5px;
+padding:35px 20px 90px
 }
 
 @media(max-width:1000px){
 
 .products{
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(3,1fr)
 }
 
 }
@@ -322,96 +318,97 @@ grid-template-columns:repeat(3,1fr);
 @media(max-width:700px){
 
 .topbar{
-font-size:11px;
+font-size:11px
 }
 
 .header-inner{
-padding:14px 12px;
+padding:14px 12px
 }
 
 .logo{
-font-size:20px;
+font-size:20px
 }
 
 .cart{
 padding:11px 13px;
-font-size:14px;
+font-size:14px
 }
 
 .search-area{
-padding:0 12px 12px;
+padding:0 12px 12px
 }
 
 nav{
-overflow-x:auto;
+overflow-x:auto
 }
 
 .nav-inner{
 justify-content:flex-start;
 flex-wrap:nowrap;
-width:max-content;
+width:max-content
 }
 
 .hero{
-padding:28px 15px;
+padding:28px 15px
 }
 
 .hero h1{
-font-size:28px;
+font-size:28px
 }
 
 .hero p{
-font-size:15px;
+font-size:15px
 }
 
 .filters{
-padding:0 12px;
+padding:0 12px
 }
 
 .catalog{
-padding:12px;
+padding:12px
 }
 
 .products{
 grid-template-columns:repeat(2,1fr);
-gap:10px;
+gap:10px
 }
 
 .product-image{
 height:180px;
-padding:8px;
+padding:8px
 }
 
 .product-info{
-padding:12px;
+padding:12px
 }
 
 .product h2{
-font-size:14px;
+font-size:14px
 }
 
 .type{
-font-size:11px;
+font-size:11px
 }
 
 .price{
-font-size:19px;
+font-size:19px
 }
 
 .add{
 font-size:13px;
-padding:11px 5px;
+padding:11px 5px
 }
 
 .install{
-padding:35px 18px 100px;
+padding:35px 18px 100px
 }
 
 .install h2{
-font-size:25px;
+font-size:25px
 }
 
 }
+
 </style>
 </head>
 
@@ -448,6 +445,7 @@ oninput="searchProducts()"
 </div>
 
 </header>
+
 
 <nav>
 
@@ -506,6 +504,7 @@ SELOCK CATALOG
 
 </nav>
 
+
 <section class="hero">
 
 <h1>
@@ -513,12 +512,11 @@ SHOP LOCKS & DOOR HARDWARE
 </h1>
 
 <p>
-Choose your lock online. National Lock Supply now includes selected
-products from your SELOCK supplier catalog, with NLS pricing calculated
-at 3× supplier cost.
+Choose your lock online. National Lock Supply includes selected products from your SELOCK supplier catalog, with NLS pricing calculated at 3× supplier cost.
 </p>
 
 </section>
+
 
 <div class="filters">
 
@@ -573,19 +571,8 @@ SELOCK CATALOG
 
 </div>
 
-<div class="section-title">
 
-<h2>
-National Lock Supply Catalog
-</h2>
-
-<p>
-Your existing NLS products plus the first 20 SELOCK supplier products.
-</p>
-
-</div>
-
-<main class="catalog">
+<div class="catalog">
 
 <div
 class="results"
@@ -598,7 +585,8 @@ class="products"
 id="products">
 </div>
 
-</main>
+</div>
+
 
 <section class="install">
 
@@ -607,14 +595,11 @@ BUY YOUR LOCK HERE. WE'LL INSTALL IT.
 </h2>
 
 <p>
-Our mobile locksmith service will come to you and professionally
-install your new lock.
+Our mobile locksmith service will come to you and professionally install your new lock.
 </p>
 
 <p>
-<strong>
-$99 MOBILE INSTALLATION
-</strong>
+<strong>$99 MOBILE INSTALLATION</strong>
 </p>
 
 <p>
@@ -623,12 +608,12 @@ Installation is free on qualifying orders of
 </p>
 
 <p>
-Additional door or frame cutting/modifications may require an
-additional charge. Any additional work will be quoted before
-the work begins.
+Additional door or frame cutting/modifications may require an additional charge.
+Any additional work will be quoted before the work begins.
 </p>
 
 </section>
+
 
 <footer>
 
@@ -648,12 +633,18 @@ Locks • Door Hardware • Access Control
 
 </footer>
 
+
 <script>
+
+
+/* =========================================================
+PRODUCT DATABASE
+========================================================= */
 
 const products = [
 
 /* =========================
-EXISTING NLS PRODUCTS
+NLS PRODUCTS
 ========================= */
 
 {
@@ -662,7 +653,8 @@ category:"knobs",
 name:"Classic Round Keyed Entry Knob — Satin Nickel",
 image:"NLS_catalog_assets/knobs-01.webp",
 type:"Door Knob",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -671,7 +663,8 @@ category:"knobs",
 name:"Round Keyed Entry Knob — Satin Nickel",
 image:"NLS_catalog_assets/knobs-02.webp",
 type:"Door Knob",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -680,7 +673,8 @@ category:"knobs",
 name:"Round Keyed Knob — Satin Nickel",
 image:"NLS_catalog_assets/knobs-03.webp",
 type:"Door Knob",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -689,7 +683,8 @@ category:"knobs",
 name:"Classic Round Keyed Entry Knob — Matte Black",
 image:"NLS_catalog_assets/knobs-04.webp",
 type:"Door Knob",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -698,7 +693,8 @@ category:"knobs",
 name:"Classic Round Commercial Knob — Satin Nickel",
 image:"NLS_catalog_assets/knobs-05.webp",
 type:"Commercial Door Knob",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -707,7 +703,8 @@ category:"knobs",
 name:"Classic Round Keyed Entry Knob — Satin Nickel",
 image:"NLS_catalog_assets/knobs-06.webp",
 type:"Door Knob",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -716,7 +713,8 @@ category:"knobs",
 name:"Traditional Round Keyed Knob — Oil-Rubbed Bronze",
 image:"NLS_catalog_assets/knobs-07.webp",
 type:"Door Knob",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -725,7 +723,8 @@ category:"knobs",
 name:"Classic Round Keyed Knob — Satin Nickel",
 image:"NLS_catalog_assets/knobs-08.webp",
 type:"Door Knob",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -734,7 +733,8 @@ category:"knobs",
 name:"Round Keyed Entry Knob — Satin Nickel",
 image:"NLS_catalog_assets/knobs-09.webp",
 type:"Door Knob",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -743,7 +743,8 @@ category:"knobs",
 name:"Round Keyed Entry Knob — Oil-Rubbed Bronze",
 image:"NLS_catalog_assets/knobs-10.webp",
 type:"Door Knob",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -752,12 +753,9 @@ category:"knobs",
 name:"Round Keyed Entry Knob",
 image:"NLS_catalog_assets/knobs-11.webp",
 type:"Door Knob",
-source:"NLS"
+source:"NLS",
+price:null
 },
-
-/* =========================
-DEADBOLTS
-========================= */
 
 {
 sku:"NLS-DEAD-001",
@@ -765,7 +763,8 @@ category:"deadbolts",
 name:"Commercial One-Sided Cylinder Deadbolt — Satin Chrome",
 image:"NLS_catalog_assets/deadbolts-01.jpeg",
 type:"Commercial Deadbolt",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -774,12 +773,9 @@ category:"deadbolts",
 name:"Commercial One-Sided Cylinder Deadbolt — Polished Brass",
 image:"NLS_catalog_assets/deadbolts-02.jpeg",
 type:"Commercial Deadbolt",
-source:"NLS"
+source:"NLS",
+price:null
 },
-
-/* =========================
-DOOR LEVERS
-========================= */
 
 {
 sku:"NLS-LEV-001",
@@ -787,7 +783,8 @@ category:"levers",
 name:"Curved Keyed Lever — Satin Nickel",
 image:"NLS_catalog_assets/levers-01.webp",
 type:"Door Lever",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -796,7 +793,8 @@ category:"levers",
 name:"Commercial Lever — Satin Nickel",
 image:"NLS_catalog_assets/levers-02.webp",
 type:"Commercial Door Lever",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -805,7 +803,8 @@ category:"levers",
 name:"Modern Straight Lever — Satin Nickel",
 image:"NLS_catalog_assets/levers-03.webp",
 type:"Door Lever",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -814,7 +813,8 @@ category:"levers",
 name:"Curved Privacy Lever — Satin Nickel",
 image:"NLS_catalog_assets/levers-04.webp",
 type:"Privacy Door Lever",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -823,7 +823,8 @@ category:"levers",
 name:"Modern Square-Rose Lever — Satin Nickel",
 image:"NLS_catalog_assets/levers-05.webp",
 type:"Door Lever",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -832,11 +833,13 @@ category:"levers",
 name:"Modern Entry Lever",
 image:"NLS_catalog_assets/levers-06.jpeg",
 type:"Door Lever",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
+
 /* =========================
-DECORATIVE THUMBPIECE
+DECORATIVE
 ========================= */
 
 {
@@ -845,7 +848,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 01",
 image:"NLS_catalog_assets/decorative-01.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -854,7 +858,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 02",
 image:"NLS_catalog_assets/decorative-02.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -863,7 +868,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 03",
 image:"NLS_catalog_assets/decorative-03.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -872,7 +878,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 04",
 image:"NLS_catalog_assets/decorative-04.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -881,7 +888,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 05",
 image:"NLS_catalog_assets/decorative-05.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -890,7 +898,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 06",
 image:"NLS_catalog_assets/decorative-06.jpeg",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -899,7 +908,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 07",
 image:"NLS_catalog_assets/decorative-07.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -908,7 +918,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 08",
 image:"NLS_catalog_assets/decorative-08.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -917,7 +928,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 09",
 image:"NLS_catalog_assets/decorative-09.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -926,7 +938,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 10",
 image:"NLS_catalog_assets/decorative-10.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -935,7 +948,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 11",
 image:"NLS_catalog_assets/decorative-11.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -944,7 +958,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 12",
 image:"NLS_catalog_assets/decorative-12.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -953,7 +968,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 13",
 image:"NLS_catalog_assets/decorative-13.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -962,7 +978,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 14",
 image:"NLS_catalog_assets/decorative-14.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -971,7 +988,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 15",
 image:"NLS_catalog_assets/decorative-15.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -980,7 +998,8 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 16",
 image:"NLS_catalog_assets/decorative-16.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -989,11 +1008,13 @@ category:"decorative",
 name:"Decorative Thumbpiece Entry Lockset 17",
 image:"NLS_catalog_assets/decorative-17.webp",
 type:"Decorative Thumbpiece Lockset",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
+
 /* =========================
-SMART LOCKS
+SMART / KEYPAD
 ========================= */
 
 {
@@ -1002,7 +1023,8 @@ category:"smart",
 name:"GHome Smart Door Knob — Fingerprint + Keypad + App",
 image:"NLS_catalog_assets/smart-01.jpeg",
 type:"Smart Keypad Lock",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -1011,7 +1033,8 @@ category:"smart",
 name:"Smart Keypad Door Lock — App Control",
 image:"NLS_catalog_assets/smart-02.jpeg",
 type:"Smart Keypad Lock",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -1020,7 +1043,8 @@ category:"smart",
 name:"Smart Keypad Entry Lock",
 image:"NLS_catalog_assets/smart-03.jpeg",
 type:"Smart Keypad Lock",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -1029,7 +1053,8 @@ category:"smart",
 name:"Keyless Entry Smart Deadbolt — Keypad + App",
 image:"NLS_catalog_assets/smart-04.jpeg",
 type:"Smart Deadbolt",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -1038,7 +1063,8 @@ category:"smart",
 name:"Smart Keypad Deadbolt",
 image:"NLS_catalog_assets/smart-05.jpeg",
 type:"Smart Deadbolt",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -1047,7 +1073,8 @@ category:"smart",
 name:"Smart Keypad Door Lock",
 image:"NLS_catalog_assets/smart-06.jpeg",
 type:"Smart Keypad Lock",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -1056,7 +1083,8 @@ category:"smart",
 name:"Smart Keypad Entry Lock",
 image:"NLS_catalog_assets/smart-07.jpeg",
 type:"Smart Keypad Lock",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -1065,7 +1093,8 @@ category:"smart",
 name:"Smart Keypad Door Lock",
 image:"NLS_catalog_assets/smart-08.jpeg",
 type:"Smart Keypad Lock",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
 {
@@ -1074,218 +1103,252 @@ category:"smart",
 name:"Homki Smart Deadbolt — Keypad + App Control",
 image:"NLS_catalog_assets/smart-09.jpeg",
 type:"Smart Deadbolt",
-source:"NLS"
+source:"NLS",
+price:null
 },
 
-/* =========================
-SELOCK CATALOG
-20 PRODUCTS
-========================= */
+
+/* =========================================================
+SELOCK PRODUCTS
+IMPORTANT:
+EACH PRODUCT HAS AN IMAGE FIELD
+========================================================= */
 
 {
 sku:"1CC7A2 GREEN",
-category:"selock",
+category:"selock-cylinders",
 name:"SFIC Core, 7-Pin, Keys Not Included, Green Finish",
+image:"https://assets.seclock.com/image/private/t_product-img/BES1001CC7A2GREEN",
 type:"SELOCK • BEST",
 source:"SELOCK",
 price:46.29,
-stock:"In Stock"
+stock:3472
 },
 
 {
 sku:"1A2A2KS531KS681",
-category:"selock",
+category:"selock-keys",
 name:"Control Key for Green Core, A Keyway",
+image:"https://cdn11.bigcommerce.com/s-o7xz8z3asb/images/stencil/500x659/products/16490/23813/BEST_1A2A2KS531KS681__31875.1740789482.jpg?c=1",
 type:"SELOCK • BEST",
 source:"SELOCK",
 price:12.30,
-stock:"In Stock"
+stock:145
 },
 
 {
 sku:"1A3A2KS531KS681",
-category:"selock",
+category:"selock-keys",
 name:"Operating Key for Green Core, A Keyway",
+image:"https://cdnimages.opentip.com/full/LEC/LEC-1A3A2KS531KS681.jpg",
 type:"SELOCK • BEST",
 source:"SELOCK",
 price:12.75,
-stock:"In Stock"
+stock:608
 },
 
 {
 sku:"23-030 C 626",
-category:"selock",
+category:"selock-cylinders",
 name:"FSIC Core, 6-Pin, C Keyway, 1 Bitted, Satin Chrome Finish, Non-Handed",
+image:"https://cdn11.bigcommerce.com/s-6thskua/images/stencil/1280x1280/products/200816/372567/23-030-626__60142.1521872156.jpg?c=2",
 type:"SELOCK • Schlage",
 source:"SELOCK",
-price:279.00,
-stock:"In Stock"
+price:159.30,
+stock:3104
 },
 
 {
 sku:"20-079 G26",
-category:"selock",
+category:"selock-cylinders",
 name:"FSIC Rim Housing, Convertible Tailpiece Cam, Satin Chrome Finish, Non-Handed",
+image:"",
 type:"SELOCK • Schlage",
 source:"SELOCK",
-price:345.00,
-stock:"In Stock"
+price:155.25,
+stock:2007
 },
 
 {
 sku:"D271 626",
-category:"selock",
+category:"selock-deadbolts",
 name:"Grade 2 Deadbolt, Thumbturn x Occupancy Indicator, Satin Chrome Finish, Non-Handed",
+image:"https://assets.seclock.com/image/private/t_product-img/FAL100D271626",
 type:"SELOCK • Falcon",
 source:"SELOCK",
 price:88.32,
-stock:"In Stock"
+stock:673
 },
 
 {
 sku:"48-056 ICC",
-category:"selock",
+category:"selock-keys",
 name:"Cut Control Key for ICC Construction Core, Embossed Both Sides",
+image:"https://cdn11.bigcommerce.com/s-o7xz8z3asb/images/stencil/500x659/products/50396/711859/Schlage-48-056-ICC-Cut-Control-Key-for-ICC-Construction-Core-Embossed-Both-Sides-48-056-ICC_57648__64332.1786988494.jpg?c=1",
 type:"SELOCK • Schlage",
 source:"SELOCK",
-price:64.80,
-stock:"In Stock"
+price:29.16,
+stock:6584
 },
 
 {
 sku:"48-101 ICC",
-category:"selock",
+category:"selock-keys",
 name:"Cut Key for ICC Construction Core, Embossed One Side",
+image:"https://assets.seclock.com/image/private/t_product-img/SCH_48-101_ICC",
 type:"SELOCK • Schlage",
 source:"SELOCK",
-price:33.30,
-stock:"In Stock"
+price:14.97,
+stock:1235
 },
 
 {
 sku:"12E72-S2RP626",
-category:"selock",
+category:"selock-cylinders",
 name:"Standard 1-1/8 Rim Cylinder, 7-Pin SFIC Prep Less Core, Standard Spindle, Satin Chrome Finish",
+image:"https://assets.seclock.com/image/private/t_product-img/BEST_12E_LFIC_626",
 type:"SELOCK • BEST",
 source:"SELOCK",
-price:330.00,
-stock:"In Stock"
+price:165.00,
+stock:1766
 },
 
 {
 sku:"23-030 ICC ORG",
-category:"selock",
-name:"FSIC Core, 6-Pin, ICC Keyway, Construction, Applied Finish",
+category:"selock-cylinders",
+name:"FSIC Core, 6-Pin, ICC Keyway, Construction, Applied Finish, Non-Handed",
+image:"https://s.dkhardware.com/images/710539/500x500/SCH_23_030_Orange.webp?51c1e3dba4a40320bf278461d5d8b25f=",
 type:"SELOCK • Schlage",
 source:"SELOCK",
-price:0,
-stock:"In Stock"
+price:181.71,
+stock:908
 },
 
 {
 sku:"ND10S RHO 626",
-category:"selock",
+category:"selock-levers",
 name:"Grade 1 Passage Latch, Rhodes Lever, Non-Keyed, Satin Chrome Finish, Non-Handed",
+image:"https://assets.seclock.com/image/private/t_product-img/ALXND.RHOPASSAGE626.Master",
 type:"SELOCK • Schlage",
 source:"SELOCK",
-price:0,
-stock:"In Stock"
+price:1000.35,
+stock:688
 },
 
 {
-sku:"7180CD-26D",
-category:"selock",
+sku:"7180DC-26D",
+category:"selock-mortise",
 name:"1-1/8 Dummy Mortise Cylinder, Satin Chrome",
-type:"SELOCK • Schlage",
+image:"",
+type:"SELOCK • Kaba Ilco",
 source:"SELOCK",
-price:0,
-stock:"In Stock"
+price:22.59,
+stock:2609
 },
 
 {
 sku:"ALX80P SAT 626",
-category:"selock",
-name:"Grade 2 Storeroom Cylindrical Lock with Field Selectable Vandal, Saturn Lever",
-type:"SELOCK • BEST",
+category:"selock-levers",
+name:"Grade 2 Storeroom Cylindrical Lock with Field Selectable Vandlgard, Saturn Lever, Conventional Cylinder, Satin Chrome Finish, Non-Handed",
+image:"https://assets.seclock.com/image/private/t_product-img/ALXND.SATCYL626.Master",
+type:"SELOCK • Schlage",
 source:"SELOCK",
-price:0,
-stock:"In Stock"
+price:513.60,
+stock:483
 },
 
 {
 sku:"4510-35-101-628",
-category:"selock",
-name:"Standard Duty Deadlatch, Flat Faceplate, Guarded Latch, 1-1/8 Backset, Satin Aluminum",
-type:"SELOCK • Commercial Hardware",
+category:"selock-commercial",
+name:"Standard Duty Deadlatch, Flat Faceplate, Guarded Latch, 1-1/8 Backset, 4-5/8 Mortise Strike, Satin Aluminum Clear Anodized Finish",
+image:"https://americanlocksets.blob.core.windows.net/thumbs/0022911_4510-35-101-628.png_500.jpeg",
+type:"SELOCK • Adams Rite",
 source:"SELOCK",
-price:0,
-stock:"In Stock"
+price:178.50,
+stock:749
 },
 
 {
 sku:"ND80PD RHO 626",
-category:"selock",
+category:"selock-levers",
 name:"Grade 1 Storeroom Lock, Rhodes Lever, Standard Cylinder, Satin Chrome Finish",
+image:"https://sntrysupply.com/cdn/shop/files/ND80PD-RHO-626-Schlage-Cylindrical-Storeroom-Lock-Main.jpg?v=1779488517&width=800",
 type:"SELOCK • Schlage",
 source:"SELOCK",
-price:0,
-stock:"In Stock"
+price:1363.50,
+stock:594
 },
 
 {
-sku:"4591-02-00-626",
-category:"selock",
-name:"Curved Deadlock Paddle for 1-3/4 Thick Doors, Satin Aluminum",
-type:"SELOCK • Commercial Hardware",
+sku:"4591-02-00-628",
+category:"selock-commercial",
+name:"Curved Deadlatch Paddle, for 1-3/4 Thick Doors, Satin Aluminum Clear Anodized Finish",
+image:"",
+type:"SELOCK • Adams Rite",
 source:"SELOCK",
-price:0,
-stock:"In Stock"
+price:262.50,
+stock:196
 },
 
 {
 sku:"F40 ELA 626",
-category:"selock",
+category:"selock-levers",
 name:"Grade 2 Privacy Lock, Elan Lever, Satin Chrome Finish",
-type:"SELOCK • Commercial Hardware",
+image:"https://images.thdstatic.com/productImages/fd6a7e0d-9b55-4577-8073-cb5f84b6c3d2/svn/schlage-privacy-door-handles-f40-ela-626-64_600.jpg",
+type:"SELOCK • Schlage Residential",
 source:"SELOCK",
-price:0,
-stock:"In Stock"
+price:133.65,
+stock:793
 },
 
 {
 sku:"4591-02-00-313",
-category:"selock",
-name:"Curved Deadlatch Paddle for 1-3/4 Thick Doors, Dark Bronze",
-type:"SELOCK • Commercial Hardware",
+category:"selock-commercial",
+name:"Curved Deadlatch Paddle, for 1-3/4 Thick Doors, Dark Bronze Anodized Aluminum Finish",
+image:"https://cdn11.bigcommerce.com/s-6thskua/images/stencil/1280x1280/products/39875/64715/4591-313__16976.1438969980.jpg?c=2",
+type:"SELOCK • Adams Rite",
 source:"SELOCK",
-price:0,
-stock:"In Stock"
+price:262.50,
+stock:221
 },
 
 {
 sku:"7185SC1-26D-KD",
-category:"selock",
-name:"1-1/8 Mortise Cylinder, 5-Pin, C Keyway, Standard Cam, Keyed Different, Satin Chrome",
-type:"SELOCK • Schlage",
+category:"selock-mortise",
+name:"1-1/8 Mortise Cylinder, 5-Pin, Schlage C Keyway, Standard Cam, Keyed Different, Satin Chrome",
+image:"https://assets.seclock.com/image/private/t_product-img/ILC_Mortise_Cyl_626",
+type:"SELOCK • Kaba Ilco",
 source:"SELOCK",
-price:0,
-stock:"In Stock"
+price:36.81,
+stock:1198
 },
 
 {
 sku:"R28207-9-26D",
-category:"selock",
+category:"selock-cylinders",
 name:"SFIC Rim Housing, 6/7-Pin, 1-3/8 Thin Head, Satin Chrome Finish",
-type:"SELOCK • Schlage",
+image:"https://cdn11.bigcommerce.com/s-6thskua/images/stencil/1280x1280/products/592271/1046411/ILC_R28207-9-26D__53732.1772580427.jpg?c=2",
+type:"SELOCK • Kaba Ilco",
 source:"SELOCK",
-price:0,
-stock:"In Stock"
+price:44.64,
+stock:595
 }
 
 ];
 
+
+/* =========================================================
+STATE
+========================================================= */
+
 let currentCategory="all";
-let cartCount=0;
+
+let cart=[];
+
+
+/* =========================================================
+DISPLAY PRODUCTS
+========================================================= */
 
 function displayProducts(list){
 
@@ -1294,46 +1357,126 @@ const container=document.getElementById("products");
 container.innerHTML="";
 
 document.getElementById("results").textContent=
-list.length+" product"+(list.length===1?"":"s");
+list.length+
+" product"+
+(list.length===1?"":"s");
+
 
 list.forEach(product=>{
 
-const card=document.createElement("div");
+const card=document.createElement("article");
 
 card.className="product";
 
+
+const isSupplier=
+product.source==="SELOCK";
+
+
+/* =====================================================
+CORRECT IMAGE LOGIC
+
+SELOCK + IMAGE:
+SHOW REAL IMAGE
+
+SELOCK + NO IMAGE:
+SHOW IMAGE PENDING
+
+OTHER PRODUCTS:
+SHOW NORMAL IMAGE
+===================================================== */
+
 let imageHTML="";
 
-if(product.source==="SELOCK"){
+
+if(
+isSupplier &&
+product.image
+){
 
 imageHTML=`
-<div class="product-image supplier-image">
-<strong>SELOCK</strong>
-<small>Supplier Catalog</small>
-</div>
-`;
 
-}else{
-
-imageHTML=`
 <div class="product-image">
+
 <img
 src="${product.image}"
 alt="${product.name}"
 loading="lazy"
+
+onerror="
+this.style.display='none';
+this.parentElement.classList.add('supplier-placeholder');
+this.parentElement.innerHTML=
+'<strong>SELOCK</strong><small>Image unavailable</small>';
+"
+
 >
+
 </div>
+
 `;
 
 }
 
+else if(
+isSupplier
+){
+
+imageHTML=`
+
+<div class="product-image supplier-placeholder">
+
+<strong>SELOCK</strong>
+
+<small>
+Image pending
+</small>
+
+</div>
+
+`;
+
+}
+
+else{
+
+imageHTML=`
+
+<div class="product-image">
+
+<img
+src="${product.image}"
+alt="${product.name}"
+loading="lazy"
+
+onerror="
+this.style.display='none';
+"
+
+>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+PRICE
+===================================================== */
+
 let priceHTML="";
 
-if(product.source==="SELOCK"){
 
-if(product.price>0){
+if(
+isSupplier &&
+product.price !== null &&
+product.price !== undefined
+){
 
 priceHTML=`
+
 <div class="price">
 $${Number(product.price).toFixed(2)}
 </div>
@@ -1341,39 +1484,61 @@ $${Number(product.price).toFixed(2)}
 <div class="price-note">
 NLS PRICE • SUPPLIER COST × 3
 </div>
+
 `;
 
-}else{
+}
+
+else{
 
 priceHTML=`
+
 <div class="price">
 PRICE
 </div>
 
 <div class="price-note">
-CONTACT FOR CURRENT PRICING
+Contact for current pricing
 </div>
+
 `;
 
 }
 
-}else{
 
-priceHTML=`
-<div class="price">
-PRICE
+/* =====================================================
+STOCK
+===================================================== */
+
+let stockHTML="";
+
+
+if(
+isSupplier &&
+product.stock !== undefined
+){
+
+stockHTML=`
+
+<div class="stock">
+${Number(product.stock).toLocaleString()}
+IN STOCK AT EXPORT
 </div>
 
-<div class="price-note">
-CONTACT FOR CURRENT PRICING
-</div>
 `;
 
 }
 
-card.innerHTML=`
 
-${imageHTML}
+/* =====================================================
+CARD
+===================================================== */
+
+card.innerHTML=
+
+imageHTML+
+
+`
 
 <div class="product-info">
 
@@ -1389,11 +1554,14 @@ ${product.name}
 ${product.type}
 </div>
 
+${stockHTML}
+
 ${priceHTML}
 
 <button
 class="add"
-onclick="addToCart()">
+onclick="addToCart('${escapeQuotes(product.name)}','${escapeQuotes(product.sku)}',${product.price || 0})"
+>
 ADD TO CART
 </button>
 
@@ -1401,15 +1569,22 @@ ADD TO CART
 
 `;
 
+
 container.appendChild(card);
 
 });
 
 }
 
+
+/* =========================================================
+FILTER
+========================================================= */
+
 function filterProducts(category){
 
 currentCategory=category;
+
 
 document
 .querySelectorAll(".filter,.nav-filter")
@@ -1422,78 +1597,167 @@ button.dataset.category===category
 
 });
 
+
 searchProducts();
 
 }
 
+
+/* =========================================================
+SEARCH
+========================================================= */
+
 function searchProducts(){
 
-const search=document
+const searchValue=
+document
 .getElementById("search")
 .value
 .toLowerCase()
 .trim();
 
-let filtered=products;
 
-if(currentCategory!=="all"){
+const list=
+products.filter(product=>{
 
-filtered=filtered.filter(
-product=>product.category===currentCategory
-);
+const categoryMatch=
 
-}
+currentCategory==="all"
 
-if(search){
+? true
 
-filtered=filtered.filter(product=>{
+: currentCategory==="selock"
 
-const text=(
-product.name+" "+
-product.sku+" "+
-product.type+" "+
-product.source+" "+
+? product.source==="SELOCK"
+
+: product.category===currentCategory;
+
+
+const searchableText=
+
+(
+product.name+
+" "+
+product.sku+
+" "+
+product.type+
+" "+
+product.source+
+" "+
 product.category
-).toLowerCase();
+)
+.toLowerCase();
 
-return text.includes(search);
+
+const searchMatch=
+
+!searchValue ||
+searchableText.includes(searchValue);
+
+
+return categoryMatch && searchMatch;
 
 });
 
+
+displayProducts(list);
+
 }
 
-displayProducts(filtered);
 
-}
+/* =========================================================
+CART
+========================================================= */
 
-function addToCart(){
+function addToCart(name,sku,price){
 
-cartCount++;
+cart.push({
+
+name:name,
+
+sku:sku,
+
+price:price
+
+});
+
 
 document.getElementById("cartCount").textContent=
-cartCount;
+cart.length;
+
+showCart();
 
 }
+
+
+/* =========================================================
+CART DISPLAY
+========================================================= */
 
 function showCart(){
 
-if(cartCount===0){
+if(cart.length===0){
 
 alert("Your cart is empty.");
 
-}else{
+return;
 
-alert(
+}
+
+
+let message=
 "You have "+
-cartCount+
+cart.length+
 " item"+
-(cartCount===1?"":"s")+
-" in your cart."
-);
+(cart.length===1?"":"s")+
+" in your cart.\n\n";
+
+
+cart.forEach((item,index)=>{
+
+message+=
+(index+1)+
+". "+
+item.name+
+"\nSKU: "+
+item.sku+
+"\n";
+
+if(item.price>0){
+
+message+=
+"Price: $"+
+Number(item.price).toFixed(2)+
+"\n";
 
 }
 
+message+="\n";
+
+});
+
+
+alert(message);
+
 }
+
+
+/* =========================================================
+ESCAPE QUOTES
+========================================================= */
+
+function escapeQuotes(value){
+
+return String(value)
+.replace(/\\/g,"\\\\")
+.replace(/'/g,"\\'");
+
+}
+
+
+/* =========================================================
+START
+========================================================= */
 
 displayProducts(products);
 
