@@ -1,10 +1,15 @@
 import express from "express";
 import cors from "cors";
 import Stripe from "stripe";
+import fs from "node:fs";
+import path from "node:path";
 
 const app = express();
 const PORT = process.env.PORT || 10000;
-const SITE_URL = "https://nationallocksupply.com";
+const SITE_URL = (
+process.env.SITE_URL ||
+"https://nationallocksupply.com"
+).replace(/\/$/, "");
 
 const stripe = process.env.STRIPE_SECRET_KEY
 ? new Stripe(process.env.STRIPE_SECRET_KEY)
@@ -13,37 +18,61 @@ const stripe = process.env.STRIPE_SECRET_KEY
 app.use(cors({ origin: SITE_URL }));
 app.use(express.json({ limit: "32kb" }));
 
+// Load verified product prices from the server.
+// Expected nls-catalog.json format:
+// {
+// "005": {
+// "name": "Defiant Entry Door Knob",
+// "price": 33.00,
+// "verified": true
+// }
+// }
+
+function loadCatalog() {
+const file = path.join(
+process.cwd(),
+"nls-catalog.json"
+);
+
+const data = JSON.parse(
+fs.readFileSync(file, "utf8")
+);
+
+if (!data || Array.isArray(data) ||
+typeof data !== "object") {
+throw new Error("Invalid product catalog");
+}
+
+return data;
+}
+
 app.get("/", (req, res) => {
 res.json({
-status: "ok",
-service: "National Lock Supply Stripe Backend"
+service: "National Lock Supply",
+status: "online"
 });
 });
 
 app.get("/health", (req, res) => {
+let catalogReady = false;
+
+try {
+loadCatalog();
+catalogReady = true;
+} catch {
+catalogReady = false;
+}
+
 res.json({
 status: "ok",
-stripeConfigured: Boolean(stripe)
+stripeConfigured: Boolean(stripe),
+catalogReady
 });
 });
 
-// Map each NLS product SKU to its verified Stripe Price ID.
-// Configure STRIPE_PRICE_MAP_JSON in Render.
-// Example: {"005":"price_123456789"}
-function getCatalog() {
-const map = JSON.parse(
-process.env.STRIPE_PRICE_MAP_JSON || "{}"
-);
-
-if (!map || Array.isArray(map) ||
-typeof map !== "object") {
-throw new Error("Invalid catalog");
-}
-
-return map;
-}
-
-app.post("/create-checkout-session", async (req, res) => {
+app.post(
+"/create-checkout-session",
+async (req, res) => {
 try {
 if (!stripe) {
 return res.status(503).json({
@@ -51,41 +80,44 @@ error: "Stripe is not configured"
 });
 }
 
-const items = req.body?.items;
-const catalog = getCatalog();
+const catalog = loadCatalog();
+const cart = req.body?.items;
 
-if (!Array.isArray(items) ||
-items.length === 0 ||
-items.length > 50) {
+if (!Array.isArray(cart) ||
+cart.length < 1 ||
+cart.length > 50) {
 return res.status(400).json({
-error: "Invalid cart"
+error: "Invalid shopping cart"
 });
 }
 
 const quantities = new Map();
 
-for (const item of items) {
-const sku = String(item?.sku ?? item?.id ?? "");
-const quantity = Number(item?.quantity);
+for (const item of cart) {
+const sku = String(
+item?.sku ?? item?.id ?? ""
+);
+
+const qty = Number(item?.quantity);
 
 if (!Object.prototype.hasOwnProperty.call(
 catalog, sku
 )) {
 return res.status(400).json({
-error: "Product unavailable",
+error: "Product not found",
 sku
 });
 }
 
-if (!Number.isSafeInteger(quantity) ||
-quantity < 1 || quantity > 25) {
+if (!Number.isSafeInteger(qty) ||
+qty < 1 || qty > 25) {
 return res.status(400).json({
 error: "Invalid quantity"
 });
 }
 
 const total =
-(quantities.get(sku) || 0) + quantity;
+(quantities.get(sku) || 0) + qty;
 
 if (total > 25) {
 return res.status(400).json({
@@ -99,47 +131,85 @@ quantities.set(sku, total);
 const line_items = [];
 
 for (const [sku, quantity] of quantities) {
-const price = catalog[sku];
+const product = catalog[sku];
 
-if (typeof price !== "string" ||
-!/^price_[A-Za-z0-9]+$/.test(price)) {
-return res.status(503).json({
-error: "Price not configured"
+if (product?.verified !== true) {
+return res.status(400).json({
+error: "Price requires verification",
+sku
 });
 }
 
-line_items.push({ price, quantity });
+const name = product.name;
+const price = Number(product.price);
+
+if (typeof name !== "string" ||
+!name.trim() ||
+!Number.isFinite(price) ||
+price <= 0 ||
+!Number.isSafeInteger(
+Math.round(price * 100)
+)) {
+return res.status(503).json({
+error: "Invalid catalog price",
+sku
+});
+}
+
+line_items.push({
+price_data: {
+currency: "usd",
+product_data: {
+name: name.trim()
+},
+unit_amount: Math.round(
+price * 100
+)
+},
+quantity
+});
 }
 
 const options = {
 mode: "payment",
 line_items,
-success_url:
-SITE_URL +
-"/?checkout=success&session_id={CHECKOUT_SESSION_ID}",
-cancel_url: SITE_URL + "/?checkout=cancel",
 billing_address_collection: "required",
 shipping_address_collection: {
 allowed_countries: ["US"]
 },
 phone_number_collection: {
 enabled: true
-}
+},
+success_url:
+SITE_URL +
+"/?checkout=success&session_id=" +
+"{CHECKOUT_SESSION_ID}",
+cancel_url:
+SITE_URL + "/?checkout=cancel"
 };
 
-if (process.env.STRIPE_AUTOMATIC_TAX === "true") {
-options.automatic_tax = { enabled: true };
+if (
+process.env.STRIPE_AUTOMATIC_TAX
+?.toLowerCase() === "true"
+) {
+options.automatic_tax = {
+enabled: true
+};
 }
 
-if (process.env.STRIPE_SHIPPING_RATE_ID) {
+const shippingRate =
+process.env.STRIPE_SHIPPING_RATE_ID;
+
+if (shippingRate) {
 options.shipping_options = [{
-shipping_rate:
-process.env.STRIPE_SHIPPING_RATE_ID
+shipping_rate: shippingRate
 }];
 }
 
 const session =
-await stripe.checkout.sessions.create(options);
+await stripe.checkout.sessions.create(
+options
+);
 
 return res.json({
 url: session.url,
@@ -147,36 +217,47 @@ sessionId: session.id
 });
 
 } catch (error) {
-console.error("Checkout error:", error.message);
+console.error(
+"NLS checkout error:",
+error.message
+);
 
 return res.status(500).json({
-error: "Unable to start checkout"
+error: "Checkout unavailable"
 });
 }
-});
+}
+);
 
 app.get("/checkout-status", async (req, res) => {
 try {
 if (!stripe) {
 return res.status(503).json({
-error: "Stripe not configured"
+error: "Stripe unavailable"
 });
 }
 
-const id = String(req.query.session_id || "");
+const sessionId = String(
+req.query.session_id || ""
+);
 
-if (!/^cs_(test_)?[A-Za-z0-9]+$/.test(id)) {
+if (!/^cs_(test_)?[A-Za-z0-9]+$/.test(
+sessionId
+)) {
 return res.status(400).json({
-error: "Invalid session"
+error: "Invalid checkout session"
 });
 }
 
 const session =
-await stripe.checkout.sessions.retrieve(id);
+await stripe.checkout.sessions.retrieve(
+sessionId
+);
 
 return res.json({
 status: session.status,
-payment_status: session.payment_status
+payment_status:
+session.payment_status
 });
 
 } catch {
@@ -187,5 +268,7 @@ error: "Session not found"
 });
 
 app.listen(PORT, "0.0.0.0", () => {
-console.log("NLS backend running on port " + PORT);
+console.log(
+"NLS Stripe backend running on " + PORT
+);
 });
