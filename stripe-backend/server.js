@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 10000;
 const SITE_URL = (
 process.env.SITE_URL ||
-"https://nationallocksupply.com"
+"https://nationallockssupply.com"
 ).replace(/\/$/, "");
 
 const stripe = process.env.STRIPE_SECRET_KEY
@@ -129,6 +129,7 @@ quantities.set(sku, total);
 }
 
 const line_items = [];
+let subtotalCents = 0;
 
 for (const [sku, quantity] of quantities) {
 const product = catalog[sku];
@@ -155,6 +156,8 @@ error: "Invalid catalog price",
 sku
 });
 }
+
+subtotalCents += Math.round(price * 100) * quantity;
 
 line_items.push({
 price_data: {
@@ -197,14 +200,19 @@ enabled: true
 };
 }
 
-const shippingRate =
-process.env.STRIPE_SHIPPING_RATE_ID;
-
-if (shippingRate) {
+// Match the published NLS policy using server-verified merchandise prices.
 options.shipping_options = [{
-shipping_rate: shippingRate
+  shipping_rate_data: {
+    type: "fixed_amount",
+    fixed_amount: { amount: subtotalCents >= 10000 ? 0 : 900, currency: "usd" },
+    display_name: "NLS Standard Shipping"
+  }
 }];
-}
+options.custom_text = {
+  shipping_address: {
+    message: "Standard shipping covers qualifying orders to the contiguous United States. Contact NLS before ordering oversized items or shipments to Alaska or Hawaii."
+  }
+};
 
 const session =
 await stripe.checkout.sessions.create(
