@@ -1,0 +1,104 @@
+[
+  {
+    "id": "knobs",
+    "file": "door-knobs.html",
+    "title": "Keyed Entry Door Knobs",
+    "description": "Shop keyed entry door knobs in satin nickel, matte black and oil-rubbed bronze. Compare round knob styles and commercial door knob options at NLS.",
+    "intro": "Browse round keyed entry door knobs for replacement lock and door hardware projects. Compare satin nickel, matte black and oil-rubbed bronze finishes, along with the commercial knob option in this collection. Choose the listed entry function and finish that suit your door.",
+    "guide": "Before choosing a replacement door knob, compare the bore, backset and door thickness with your existing hardware. Keyway, included keys and rekeying requirements should be confirmed for the individual item.",
+    "cats": [
+      "knobs"
+    ]
+  },
+  {
+    "id": "deadbolts",
+    "file": "deadbolt-locks.html",
+    "title": "Deadbolt Locks & Occupancy Indicator Hardware",
+    "description": "Shop commercial deadbolt locks, one-sided cylinder deadbolts and the Falcon Grade 2 occupancy indicator deadbolt. Compare finishes and lock functions.",
+    "intro": "Compare commercial deadbolt locks for your next replacement hardware project. This collection includes one-sided cylinder deadbolts in satin chrome or polished brass, plus the Falcon D271 Grade 2 thumbturn deadbolt with an occupancy indicator. For electronic options, browse our smart keypad locks.",
+    "guide": "Deadbolts have different cylinder arrangements and operating functions. Check the door preparation, backset, thickness and intended function before ordering. Match the exact model and finish when replacing existing hardware.",
+    "cats": [
+      "deadbolts",
+      "selock-deadbolts"
+    ]
+  },
+  {
+    "id": "levers",
+    "file": "door-lever-locks.html",
+    "title": "Door Lever Locks: Keyed Entry, Privacy & Passage",
+    "description": "Shop door lever locks, privacy levers, passage hardware and commercial storeroom locks. Compare listed Schlage models, functions and satin finishes.",
+    "intro": "Find door lever hardware for entry, privacy, passage and commercial storeroom applications. Browse curved and modern lever designs alongside listed Schlage Rhodes, Saturn and Elan models. Compare each product’s lock function and finish to choose suitable replacement door hardware.",
+    "guide": "A passage lever is non-keyed, while privacy, keyed entry and storeroom functions serve different purposes. Confirm the correct function, handing, cylinder requirements and door measurements for the specific lock you select.",
+    "cats": [
+      "levers",
+      "selock-levers"
+    ]
+  },
+  {
+    "id": "decorative",
+    "file": "entry-door-handlesets.html",
+    "title": "Decorative Entry Door Handlesets & Thumbpiece Locksets",
+    "description": "Browse decorative entry door handlesets and thumbpiece locksets. Compare 17 pictured designs and confirm the finish, components and fit for your door.",
+    "intro": "Shop decorative thumbpiece entry door handlesets in 17 pictured designs. Compare the shape and style of each option when planning a front door hardware update. Each design has its own item number so you can identify the handleset you want when speaking with NLS.",
+    "guide": "Confirm the supplied finish, interior trim, exterior components and locking function for the chosen design. Measure the backset, door thickness and mounting hole spacing before replacing a handleset; matching the style alone does not establish compatibility.",
+    "cats": [
+      "decorative"
+    ]
+  },
+  {
+    "id": "smart",
+    "file": "smart-keypad-door-locks.html",
+    "title": "Smart Keypad Door Locks & Keyless Entry Deadbolts",
+    "description": "Shop smart keypad door locks and keyless entry deadbolts, including listed GHome fingerprint and Homki app-control options. Compare features by item.",
+    "intro": "Explore smart keypad door locks and keyless entry deadbolts for a door hardware upgrade. The collection includes the listed GHome fingerprint door knob with keypad and app control, Homki keypad deadbolt with app control, and other keypad lock options. Compare the features specified for each item.",
+    "guide": "Smart lock features vary by model. Check door preparation, power source, app requirements and any gateway or network requirements. App control does not by itself establish Wi-Fi connectivity or remote access. Ask NLS about installation assistance for your location.",
+    "cats": [
+      "smart"
+    ]
+  },
+  {
+    "id": "cylinders",
+    "file": "lock-cylinders-cores.html",
+    "title": "Lock Cylinders, SFIC & FSIC Cores, Rim & Mortise Hardware",
+    "description": "Shop BEST, Schlage and Kaba Ilco lock components: SFIC and FSIC cores, rim housings, rim cylinders and mortise cylinders. Compare exact part numbers.",
+    "intro": "Find replacement commercial lock cylinders, interchangeable cores and cylinder housings from the listed BEST, Schlage and Kaba Ilco catalog. Browse SFIC and FSIC components, rim hardware, keyed mortise cylinders and a dummy mortise cylinder. Use the full manufacturer part number to compare replacement components.",
+    "guide": "SFIC and FSIC are different core formats. Also compare keyway, pin count, cylinder length, cam or spindle, and finish. A housing listed less core needs a compatible core, and a dummy cylinder is different from a working keyed cylinder.",
+    "cats": [
+      "selock-cylinders",
+      "selock-mortise"
+    ]
+  },
+  {
+    "id": "keys",
+    "file": "commercial-lock-keys.html",
+    "title": "Commercial Lock Keys: Control, Operating & Construction",
+    "description": "Shop listed BEST green-core A keyway keys and Schlage ICC construction-core keys. Compare control and operating key functions by exact part number.",
+    "intro": "Browse BEST A keyway keys for green cores and Schlage ICC construction-core keys. This collection separates listed control keys from operating and cut key options so you can identify the component your commercial key system requires.",
+    "guide": "Match the exact keyway, core system, part number and keying requirements before ordering. A control key and an operating key have different functions; brand or appearance alone does not confirm that a key will work with an existing lock.",
+    "cats": [
+      "selock-keys"
+    ]
+  },
+  {
+    "id": "commercial",
+    "file": "commercial-door-hardware.html",
+    "title": "Commercial Door Hardware: Locks, Cylinders & Deadlatches",
+    "description": "Shop commercial door hardware: Schlage lever locks, BEST cores, Kaba Ilco cylinders, Falcon deadbolts and Adams Rite deadlatches and paddles.",
+    "intro": "Shop commercial door locks and replacement components for business door hardware projects. Compare listed Schlage lever locks, BEST interchangeable cores, Kaba Ilco cylinders, Falcon deadbolts and Adams Rite deadlatches and paddles. Product pages identify the listed model, finish and function to help you compare parts.",
+    "guide": "For deadlatch and paddle replacement, check the backset, faceplate, strike, push direction, door thickness and handing. For cylinders and lever locks, match the key system and door preparation. Order by the exact part number when replacing an existing component.",
+    "cats": [
+      "selock-cylinders",
+      "selock-mortise",
+      "selock-keys",
+      "selock-deadbolts",
+      "selock-levers",
+      "selock-commercial"
+    ],
+    "skus": [
+      "NLS-KNO-005",
+      "NLS-LEV-002",
+      "NLS-DEAD-001",
+      "NLS-DEAD-002"
+    ]
+  }
+]
