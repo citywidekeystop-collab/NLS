@@ -249,7 +249,7 @@ const sessionId = String(
 req.query.session_id || ""
 );
 
-if (!/^cs_(test_)?[A-Za-z0-9]+$/.test(
+if (!/^cs_(live|test)_[A-Za-z0-9]+$/.test(
 sessionId
 )) {
 return res.status(400).json({
@@ -264,8 +264,10 @@ sessionId
 
 return res.json({
 status: session.status,
-payment_status:
-session.payment_status
+payment_status: session.payment_status,
+livemode: session.livemode,
+amount_total: session.amount_total,
+currency: session.currency
 });
 
 } catch {
