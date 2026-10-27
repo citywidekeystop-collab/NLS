@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://nationallockssupply.com'
 categories=json.loads((ROOT/'seo-categories.json').read_text())
 def theme(page):
+    page=page.replace('<head>', '<head><script src="/nls-ads-pixel.js"></script>', 1)
     listing='"@type": "CollectionPage"' in page
     page=page.replace('</head>','<link rel="stylesheet" href="/nls-store.css?v=2"></head>')
     page=page.replace('<body>', '<body class="nls-listing">' if listing else '<body class="nls-detail">')
