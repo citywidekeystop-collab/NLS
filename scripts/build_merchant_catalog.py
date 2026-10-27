@@ -107,3 +107,15 @@ for url in dict.fromkeys([BASE+'/',BASE+'/catalog.html',BASE+'/returns.html']+ke
 ET.indent(sm);ET.ElementTree(sm).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
 (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: https://nationallockssupply.com/sitemap.xml\n')
 print(f'Built {len(products)} matching product pages, images and feed entries.')
+
+# Consolidate legacy /products/ pages with the current catalog URLs.
+legacy = ROOT/'products'
+if legacy.is_dir():
+    for old in legacy.glob('*.html'):
+        current = ROOT/old.name
+        if current.is_file() and old.name in {x[1] for x in links}:
+            destination = BASE+'/'+old.name
+            page = current.read_text().replace('</head>', '<meta http-equiv="refresh" content="0;url='+destination+'"></head>')
+        else:
+            page = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><title>Product no longer listed | National Locks Supply</title><link rel="stylesheet" href="/nls-store.css?v=2"></head><body class="nls-detail"><header class="nls-header"><a class="nls-brand" href="/">NATIONAL LOCKS SUPPLY</a></header><main><h1>This product is no longer in our current catalog</h1><p>Browse our current locks and door hardware, or call us for help finding a replacement.</p><p><a href="/catalog.html">Shop current locks and door hardware</a></p><p><a href="/smart-keypad-door-locks.html">Shop smart keypad locks</a></p><p><a href="tel:+14435781686">443-578-1686</a></p></main></body></html>'
+        old.write_text(page)
