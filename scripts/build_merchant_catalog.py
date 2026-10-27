@@ -69,7 +69,7 @@ def cards(selected):
     for p in selected:
         slug=re.sub(r'[^a-z0-9]+','-',p['sku'].lower()).strip('-')
         asset=next(x[2] for x in links if x[1]==slug+'.html')
-        output.append(f'<article><a href="/{slug}.html"><img loading="lazy" src="/{asset}" alt="{html.escape(p["name"],quote=True)}"><h2>{html.escape(p["name"])}</h2></a><p>${float(p["price"]):,.2f} · In stock</p><p>{html.escape(p["description"].split(". ")[0]+".")}</p><a href="/{slug}.html">View product details</a></article>')
+        output.append(f'<article><a href="/{slug}.html"><img loading="lazy" src="/{asset}" alt="{html.escape(p["name"],quote=True)}"><h2>{html.escape(p["name"])}</h2></a><p>${float(p["price"]):,.2f} · In stock</p><a href="/{slug}.html">View product details</a></article>')
     return ''.join(output)
 nav='<nav class="categories" aria-label="Shop by category">'+''.join(f'<a href="/{c["file"]}">{html.escape(c["title"])}</a>' for c in categories)+'</nav>'
 style='body{margin:0;background:#f3f6f9;color:#172d40;font:16px/1.6 Arial}header{background:#102e47;padding:22px}header a{color:white;font-weight:bold;text-decoration:none}main{max-width:1200px;margin:auto;padding:24px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:22px}article{background:white;padding:20px;border-radius:10px}img{width:100%;height:210px;object-fit:contain}h1{line-height:1.2}h2{font-size:19px}a{color:#08649b}.categories{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.categories a{background:white;border:1px solid #d5dce6;padding:10px 14px;border-radius:6px}.intro{max-width:900px}.guide{background:white;padding:20px;margin:24px 0}footer{padding:24px 0}footer a{margin-right:20px}'
