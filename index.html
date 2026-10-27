@@ -511,7 +511,8 @@ if (typeof module !== 'undefined') module.exports = {createNlsCart};
     window.showCart();el('cartError').textContent='Checking your payment…';
     try{
       const response=await fetch('https://els-stripe-backend.onrender.com/checkout-status?session_id='+encodeURIComponent(id));const data=await response.json();
-      if(!response.ok||data.payment_status!=='paid')throw Error('Payment has not been confirmed. Your cart is saved.');
+      if(!response.ok||data.status!=='complete'||data.payment_status!=='paid')throw Error('Payment has not been confirmed. Your cart is saved.');
+      try{if(typeof window.nlsTrackConfirmedOrder==='function')window.nlsTrackConfirmedOrder(id,data);}catch{}
       let pending;try{pending=JSON.parse(sessionStorage.getItem('nls-pending-checkout')||'null');}catch{}
       if(pending&&pending.id===id&&JSON.stringify(pending.items)===JSON.stringify(cart.payload()))cart.clear();
       el('cartError').textContent='Payment confirmed. Your receipt and shipping details are available in your checkout confirmation.';render();
