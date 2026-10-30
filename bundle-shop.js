@@ -19,7 +19,7 @@
   function save(){try{localStorage.setItem(storageKey,JSON.stringify(rows));}catch{storageOK=false;}invalidateReview();renderSelections();}
   function field(label,options){const wrap=element('label',label,'field');const select=element('select');select.setAttribute('aria-label',label);for(const option of options){const o=element('option',option.label||option.finish);o.value=option.id;select.append(o);}wrap.append(select);return {wrap,select};}
   function card(style){
-    const article=element('article',undefined,'bundle-card');
+    const article=element('article',undefined,'bundle-card');article.id='bundle-'+style.id;
     const photo=element('div',undefined,'product-photo');const image=element('img');image.loading='lazy';image.decoding='async';photo.append(image);
     const secondary=element('img');secondary.loading='lazy';secondary.hidden=true;photo.append(secondary);
     const fallback=element('div','Matching product photo being confirmed.','no-photo');fallback.hidden=true;photo.append(fallback);
@@ -27,6 +27,12 @@
     const content=element('div',undefined,'card-content');content.append(element('span',style.brand,'manufacturer'),element('h3',style.style),element('p',style.description,'description'));
     const variants=style.variants;
     const finishField=field('Finish',variants);const sizeField=field('Bundle size',style.sizes||sizes);sizeField.select.value=style.group==='keypad'?'1k1d':'2k2d';const keyField=field(style.group==='keypad'?'Backup keys':'Keying',style.keyings||keyings);
+    const linkSelection=new URLSearchParams(location.search);
+    if(linkSelection.get('style')===style.id){
+      for(const [key,field] of [['finish',finishField],['size',sizeField],['keying',keyField]]){
+        const value=linkSelection.get(key);if(value&&[...field.select.options].some(o=>o.value===value))field.select.value=value;
+      }
+    }
     content.append(finishField.wrap,sizeField.wrap,keyField.wrap);
     const block=element('div',undefined,'price-block');const amount=element('strong',undefined,'bundle-price');const note=element('small',undefined,'price-status');const button=element('button',undefined,'primary');button.type='button';block.append(amount,note,button);content.append(block);article.append(content);
     function selection(){return {style:style.id,finish:finishField.select.value,size:sizeField.select.value,keying:keyField.select.value,quantity:1};}
