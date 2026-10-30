@@ -851,5 +851,305 @@
     "price": 365.76,
     "verified": true,
     "bundleVersion": "nls-bundles-v1"
+  },
+  "NLS-KPD-001": {
+    "name": "Kwikset HALO Matte Black Touchscreen WiFi Keypad Electronic Single-Cylinder Smart Lock Deadbolt",
+    "price": 398.0,
+    "verified": true
+  },
+  "NLS-KPD-002": {
+    "name": "Kwikset HALO Satin Nickel Single-Cylinder Keypad Electronic Smart Lock Deadbolt Featuring SmartKey, Touchscreen and WiFi",
+    "price": 398.0,
+    "verified": true
+  },
+  "NLS-KPD-003": {
+    "name": "Kwikset HALO Venetian Bronze Single-Cylinder Keypad Electronic Smart Lock Deadbolt featuring SmartKey, Touchscreen and WiFi",
+    "price": 398.0,
+    "verified": true
+  },
+  "NLS-KPD-004": {
+    "name": "Kwikset SmartCode 270 Contemporary Matte Black Touchpad Single Cylinder Electronic Deadbolt",
+    "price": 238.0,
+    "verified": true
+  },
+  "NLS-KPD-005": {
+    "name": "Kwikset SmartCode 270 Traditional Satin Nickel Touchpad Single Cylinder Electronic Deadbolt",
+    "price": 238.0,
+    "verified": true
+  },
+  "NLS-KPD-006": {
+    "name": "Kwikset SmartCode 270 Contemporary Satin Nickel Touchpad Single Cylinder Electronic Deadbolt",
+    "price": 238.0,
+    "verified": true
+  },
+  "NLS-KPD-007": {
+    "name": "Kwikset SmartCode 260 Contemporary Matte Black Keypad Single Cylinder Electronic Deadbolt",
+    "price": 197.94,
+    "verified": true
+  },
+  "NLS-KPD-008": {
+    "name": "Kwikset Smartcode 260 Traditional Lifetime Polished Brass Keypad Single Cylinder Electronic Deadbolt",
+    "price": 190.8,
+    "verified": true
+  },
+  "NLS-KPD-009": {
+    "name": "Kwikset SmartCode 917 Satin Nickel Keypad Electronic Single-Cylinder Tustin Door Handle",
+    "price": 288.0,
+    "verified": true
+  },
+  "NLS-KPD-010": {
+    "name": "Kwikset SmartCode 955 Satin Nickel Electronic Pembroke Door Handle",
+    "price": 178.0,
+    "verified": true
+  },
+  "NLS-KPD-011": {
+    "name": "Kwikset HALO Venetian Bronze Keypad WiFi Electronic Single-Cylinder Smart Lock Deadbolt",
+    "price": 305.6,
+    "verified": true
+  },
+  "NLS-KPD-012": {
+    "name": "Kwikset HALO Satin Nickel Keypad WiFi Electronic Single-Cylinder Smart Lock Deadbolt",
+    "price": 398.0,
+    "verified": true
+  },
+  "NLS-KPD-013": {
+    "name": "Kwikset HALO Matte Black Keypad Wi-Fi Electronic Single-Cylinder Smart Lock Deadbolt",
+    "price": 280.0,
+    "verified": true
+  },
+  "NLS-KPD-014": {
+    "name": "Kwikset Halo Select Plus Touchscreen Deadbolt Wi-Fi + Matter Smart Lock Apple Home Keys Tap-to-Unlock Technology Matte Black",
+    "price": 618.0,
+    "verified": true
+  },
+  "NLS-KPD-015": {
+    "name": "Kwikset Halo Select Plus Touchscreen Deadbolt Wi-Fi + Matter Smart Lock Apple Home Keys Tap-to-Unlock Technology Satin Nickel",
+    "price": 618.0,
+    "verified": true
+  },
+  "NLS-KPD-016": {
+    "name": "Kwikset HALO Select Touchscreen Wi-Fi and Matter Enabled Smart Lock Deadbolt in Matte Black",
+    "price": 418.0,
+    "verified": true
+  },
+  "NLS-KPD-017": {
+    "name": "Kwikset HALO Select Touchscreen Wi-Fi and Matter Enabled Smart Lock Deadbolt in Satin Nickel",
+    "price": 418.0,
+    "verified": true
+  },
+  "NLS-KPD-018": {
+    "name": "Kwikset Powerbolt 240 5-Button Keypad Satin Nickel Traditional Electronic Deadbolt Door Lock",
+    "price": 86.58,
+    "verified": true
+  },
+  "NLS-KPD-019": {
+    "name": "Kwikset SmartCode 955 Satin Nickel Light Commercial Electronic Keypad with Kingston Handle For High Traffic Durability",
+    "price": 248.4,
+    "verified": true
+  },
+  "NLS-KPD-020": {
+    "name": "Kwikset SmartCode 955 Satin Chrome Light Commercial Electronic Keypad with Kingston Handle For High Traffic Durability",
+    "price": 234.5,
+    "verified": true
+  },
+  "NLS-KPD-021": {
+    "name": "Schlage Camelot Satin Nickel Encode Wifi Electronic Touchscreen Door Deadbolt Alarmed Lock",
+    "price": 598.0,
+    "verified": true
+  },
+  "NLS-KPD-022": {
+    "name": "Schlage Century Matte Black Electronic Encode Plus Smart WiFi Deadbolt with Alarm",
+    "price": 658.0,
+    "verified": true
+  },
+  "NLS-KPD-023": {
+    "name": "Schlage Century Matte Black Electronic Encode Smart WiFi Deadbolt with Alarm",
+    "price": 458.0,
+    "verified": true
+  },
+  "NLS-KPD-024": {
+    "name": "Schlage Camelot Aged Bronze Encode Smart WiFi Lock with Alarm",
+    "price": 598.0,
+    "verified": true
+  },
+  "NLS-KPD-025": {
+    "name": "Schlage Camelot Aged Bronze Electronic Keypad Deadbolt",
+    "price": 258.0,
+    "verified": true
+  },
+  "NLS-KPD-026": {
+    "name": "Schlage Century Satin Nickel Electronic Encode Plus Smart WiFi Deadbolt with Alarm",
+    "price": 658.0,
+    "verified": true
+  },
+  "NLS-KPD-027": {
+    "name": "Schlage Camelot Satin Nickel Electronic Encode Plus Smart WiFi Deadbolt with Alarm",
+    "price": 569.98,
+    "verified": true
+  },
+  "NLS-KPD-028": {
+    "name": "Schlage Remsen Matte Black Electronic Arrive Smart Wifi Deadbolt",
+    "price": 397.94,
+    "verified": true
+  },
+  "NLS-KPD-029": {
+    "name": "Schlage Plymouth Antique Brass Electronic Keypad Deadbolt",
+    "price": 195.58,
+    "verified": true
+  },
+  "NLS-KPD-030": {
+    "name": "Schlage Plymouth Bright Brass Electronic Keypad Deadbolt",
+    "price": 237.14,
+    "verified": true
+  },
+  "NLS-DBT-001": {
+    "name": "Schlage B60 Series Satin Nickel Single Cylinder Deadbolt",
+    "price": 77.94,
+    "verified": true
+  },
+  "NLS-DBT-002": {
+    "name": "Schlage B60 Series Matte Black Single Cylinder Deadbolt",
+    "price": 77.94,
+    "verified": true
+  },
+  "NLS-DBT-003": {
+    "name": "Schlage B60 Series Aged Bronze Single Cylinder Deadbolt",
+    "price": 79.94,
+    "verified": true
+  },
+  "NLS-DBT-004": {
+    "name": "Schlage B60 Series Century Matte Black Single Cylinder Deadbolt",
+    "price": 122.88,
+    "verified": true
+  },
+  "NLS-DBT-005": {
+    "name": "Schlage B60 Series Camelot Aged Bronze Single Cylinder Deadbolt",
+    "price": 121.94,
+    "verified": true
+  },
+  "NLS-DBT-006": {
+    "name": "Schlage B60 Series Collins Matte Black Single Cylinder Deadbolt",
+    "price": 84.56,
+    "verified": true
+  },
+  "NLS-DBT-007": {
+    "name": "Schlage B60 Series Addison Aged Bronze Single Cylinder Deadbolt",
+    "price": 74.72,
+    "verified": true
+  },
+  "NLS-DBT-008": {
+    "name": "Schlage B60 Series Brookshire Aged Bronze Single Cylinder Deadbolt",
+    "price": 102.48,
+    "verified": true
+  },
+  "NLS-DBT-009": {
+    "name": "Schlage B60 Series Remsen Matte Black Single Cylinder Deadbolt",
+    "price": 86.5,
+    "verified": true
+  },
+  "NLS-DBT-010": {
+    "name": "Schlage B60 Series Antique Brass Single Cylinder Deadbolt",
+    "price": 65.94,
+    "verified": true
+  },
+  "NLS-DBT-011": {
+    "name": "Schlage B60 Series Collins Satin Brass Single Cylinder Deadbolt",
+    "price": 109.94,
+    "verified": true
+  },
+  "NLS-DBT-012": {
+    "name": "Kwikset Satin Nickel Single Cylinder Deadbolt",
+    "price": 83.94,
+    "verified": true
+  },
+  "NLS-DBT-013": {
+    "name": "Kwikset 660 Satin Chrome Single Cylinder Deadbolt",
+    "price": 37.94,
+    "verified": true
+  },
+  "NLS-DBT-014": {
+    "name": "Kwikset 660 Polished Brass Single Cylinder Deadbolt",
+    "price": 33.94,
+    "verified": true
+  },
+  "NLS-DBT-015": {
+    "name": "Kwikset 660 Antique Brass Single Cylinder Deadbolt",
+    "price": 37.94,
+    "verified": true
+  },
+  "NLS-DBT-016": {
+    "name": "Kwikset Downtown Low Profile Satin Brass Single Cylinder Square Contemporary Deadbolt",
+    "price": 90.94,
+    "verified": true
+  },
+  "NLS-DBT-017": {
+    "name": "Kwikset Uptown Low Profile Iron Black Round Contemporary Single Cylinder Deadbolt",
+    "price": 89.56,
+    "verified": true
+  },
+  "NLS-DBT-018": {
+    "name": "Defiant Stainless Steel Single Cylinder Deadbolt",
+    "price": 28.94,
+    "verified": true
+  },
+  "NLS-DBT-019": {
+    "name": "Defiant Square Matte Black Single Cylinder Contemporary Deadbolt",
+    "price": 32.94,
+    "verified": true
+  },
+  "NLS-DBT-020": {
+    "name": "Kwikset 660 Series Matte Black Keyed Square Deadbolt Keyed One Side",
+    "price": 43.94,
+    "verified": true
+  },
+  "NLS-KPB-001": {
+    "name": "Kwikset SmartCode 260 + Halifax Passage Lever — Matte Black",
+    "price": 258.0,
+    "verified": true
+  },
+  "NLS-KPB-002": {
+    "name": "Kwikset SmartCode 260 + Hancock Passage Knob — Satin Nickel",
+    "price": 232.72,
+    "verified": true
+  },
+  "NLS-KPB-003": {
+    "name": "Schlage Camelot BE365 + Accent Passage Lever — Satin Nickel",
+    "price": 327.94,
+    "verified": true
+  },
+  "NLS-KPB-004": {
+    "name": "Schlage Encode Wi-Fi + Camelot / Accent Decorative Handleset — Aged Bronze",
+    "price": 698.0,
+    "verified": true
+  },
+  "NLS-KPB-005": {
+    "name": "Schlage Encode Wi-Fi + Camelot / Accent Decorative Handleset — Satin Nickel",
+    "price": 702.18,
+    "verified": true
+  },
+  "NLS-KPB-006": {
+    "name": "Schlage Encode Wi-Fi + Greenwich / Bowery Decorative Handleset — Matte Black",
+    "price": 738.0,
+    "verified": true
+  },
+  "NLS-KPB-007": {
+    "name": "Schlage Encode Wi-Fi + Century / Latitude Decorative Handleset — Bright Chrome",
+    "price": 738.76,
+    "verified": true
+  },
+  "NLS-KPB-008": {
+    "name": "Schlage Encode Wi-Fi + Camelot / Georgian Decorative Handleset — Satin Nickel",
+    "price": 698.0,
+    "verified": true
+  },
+  "NLS-KPB-009": {
+    "name": "Kwikset HALO Wi-Fi Keypad + Polo Passage Knob — Satin Nickel",
+    "price": 419.08,
+    "verified": true
+  },
+  "NLS-KPB-010": {
+    "name": "Kwikset SmartCode 270 + Balboa Passage Lever — Satin Nickel",
+    "price": 280.94,
+    "verified": true
   }
 }
