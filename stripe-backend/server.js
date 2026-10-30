@@ -55,10 +55,12 @@ status: "online"
 
 app.get("/health", (req, res) => {
 let catalogReady = false;
+let bundleCatalogReady = false;
 
 try {
-loadCatalog();
+const healthCatalog = loadCatalog();
 catalogReady = true;
+bundleCatalogReady = Object.entries(healthCatalog).filter(([sku, item]) => sku.startsWith("NLS-BDL-") && item.verified === true && item.bundleVersion === "nls-bundles-v1").length === 88;
 } catch {
 catalogReady = false;
 }
@@ -66,7 +68,8 @@ catalogReady = false;
 res.json({
 status: "ok",
 stripeConfigured: Boolean(stripe),
-catalogReady
+catalogReady,
+bundleCatalogReady
 });
 });
 
@@ -173,6 +176,8 @@ quantity
 });
 }
 
+// Only this explicit same-site return path can override the original storefront.
+const checkoutPath = req.body?.returnPath === "/lock-bundles.html" ? "/lock-bundles.html" : "/";
 const options = {
 mode: "payment",
 line_items,
@@ -185,10 +190,10 @@ enabled: true
 },
 success_url:
 SITE_URL +
-"/?checkout=success&session_id=" +
+checkoutPath + "?checkout=success&session_id=" +
 "{CHECKOUT_SESSION_ID}",
 cancel_url:
-SITE_URL + "/?checkout=cancel"
+SITE_URL + checkoutPath + "?checkout=cancel"
 };
 
 if (
