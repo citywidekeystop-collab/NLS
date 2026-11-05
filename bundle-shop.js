@@ -15,6 +15,14 @@
     return {style,size,keying,variant,cents,sku:sku(style,variant,size,keying)};
   }
   try{rows=JSON.parse(localStorage.getItem(storageKey)||'[]');if(!Array.isArray(rows))rows=[];rows=rows.filter(resolve).slice(0,50);}catch{rows=[];storageOK=false;}
+  function trackedItem(row) {
+    const resolved = resolve(row);
+    if (!resolved) return null;
+    return {item_id:resolved.sku,item_name:resolved.style.brand+' '+resolved.style.style+' — '+resolved.variant.finish,price:resolved.cents/100,quantity:row.quantity};
+  }
+  function track(event, payload) {
+    try { window.NLSEcommerce?.track(event,payload); } catch (_) {}
+  }
   function invalidateReview(){$('checkoutError').textContent='';}
   function save(){try{localStorage.setItem(storageKey,JSON.stringify(rows));}catch{storageOK=false;}invalidateReview();renderSelections();}
   function field(label,options){const wrap=element('label',label,'field');const select=element('select');select.setAttribute('aria-label',label);for(const option of options){const o=element('option',option.label||option.finish);o.value=option.id;select.append(o);}wrap.append(select);return {wrap,select};}
@@ -47,14 +55,14 @@
     }
     image.onerror=()=>{image.hidden=true;fallback.hidden=false;fallback.textContent='Product photo unavailable. Your selected style and finish are listed below.';};
     [finishField.select,sizeField.select,keyField.select].forEach(s=>s.addEventListener('change',update));
-    button.onclick=()=>{const row=selection();const existing=rows.find(r=>r.style===row.style&&r.finish===row.finish&&r.size===row.size&&r.keying===row.keying);if(existing)existing.quantity=Math.min(25,existing.quantity+1);else if(rows.length<50)rows.push(row);save();$('announcement').textContent=style.brand+' '+style.style+' bundle added to your selections.';openSelections();};
+    button.onclick=()=>{const row=selection();const item=trackedItem(row);const existing=rows.find(r=>r.style===row.style&&r.finish===row.finish&&r.size===row.size&&r.keying===row.keying);if(existing)existing.quantity=Math.min(25,existing.quantity+1);else if(rows.length<50)rows.push(row);save();if(item)track('add_to_cart',{currency:'USD',value:item.price,items:[item]});$('announcement').textContent=style.brand+' '+style.style+' bundle added to your selections.';openSelections();};
     update();return article;
   }
   function renderGrid(){const value=$('brandFilter').value;const grid=$('bundleGrid');grid.replaceChildren();styles.filter(s=>s.group!=='keypad'&&(value==='all'||s.brand===value)).forEach(s=>grid.append(card(s)));const keypad=$('keypadGrid');keypad.replaceChildren();styles.filter(s=>s.group==='keypad').forEach(s=>keypad.append(card(s)));}
   function renderSelections(){
     $('selectionCount').textContent=rows.reduce((n,r)=>n+r.quantity,0);$('storageNotice').hidden=storageOK;const target=$('selectionRows');target.replaceChildren();let subtotal=0,quotes=0;
     rows.forEach((row,index)=>{const {style,variant,size,keying,cents}=resolve(row);const line=element('div',undefined,'selection-row');const text=element('div');text.append(element('h3',style.brand+' '+style.style+' — '+variant.finish),element('p',size.label),element('p',keying.label));
-      const label=element('label','Bundle quantity');const input=element('input');input.type='number';input.min='1';input.max='25';input.step='1';input.value=row.quantity;input.setAttribute('aria-label','Quantity of '+style.brand+' '+style.style+' bundles');input.onchange=()=>{const n=Number(input.value);if(!Number.isInteger(n)||n<1||n>25){input.value=row.quantity;return;}row.quantity=n;save();};label.append(input);const remove=element('button','Remove','remove');remove.type='button';remove.onclick=()=>{rows.splice(index,1);save();};text.append(label,remove);line.append(text,element('strong',cents===null?'Quote required':money(cents*row.quantity)));target.append(line);if(cents===null)quotes+=row.quantity;else subtotal+=cents*row.quantity;
+      const label=element('label','Bundle quantity');const input=element('input');input.type='number';input.min='1';input.max='25';input.step='1';input.value=row.quantity;input.setAttribute('aria-label','Quantity of '+style.brand+' '+style.style+' bundles');input.onchange=()=>{const n=Number(input.value);if(!Number.isInteger(n)||n<1||n>25){input.value=row.quantity;return;}const delta=n-row.quantity;row.quantity=n;save();const item=trackedItem({...row,quantity:Math.abs(delta)});if(item&&delta)track(delta>0?'add_to_cart':'remove_from_cart',{currency:'USD',value:item.price*Math.abs(delta),items:[item]});};label.append(input);const remove=element('button','Remove','remove');remove.type='button';remove.onclick=()=>{const item=trackedItem(row);rows.splice(index,1);save();if(item)track('remove_from_cart',{currency:'USD',value:item.price*item.quantity,items:[item]});};text.append(label,remove);line.append(text,element('strong',cents===null?'Quote required':money(cents*row.quantity)));target.append(line);if(cents===null)quotes+=row.quantity;else subtotal+=cents*row.quantity;
     });
     if(!rows.length)target.append(element('p','Choose a bundle to begin your request.'));
     $('selectionTotals').textContent=quotes?('Priced selections: '+money(subtotal)+' + '+quotes+' bundle'+(quotes===1?'':'s')+' awaiting a quote. Final total pending.'):'Merchandise subtotal: '+money(subtotal);
@@ -65,7 +73,7 @@
   for(const brand of [...new Set(styles.map(s=>s.brand))]){const option=element('option',brand);option.value=brand;$('brandFilter').append(option);}
   $('brandFilter').onchange=renderGrid;
   $('payBundles').onclick=async()=>{
-    if(!rows.length||busy)return;busy=true;renderSelections();$('checkoutError').textContent='Connecting to secure checkout…';
+    if(!rows.length||busy)return;const checkoutItems=rows.map(trackedItem).filter(Boolean);track('begin_checkout',{currency:'USD',value:checkoutItems.reduce((total,item)=>total+item.price*item.quantity,0),items:checkoutItems});busy=true;renderSelections();$('checkoutError').textContent='Connecting to secure checkout…';
     try{
       const health=await fetch('https://els-stripe-backend.onrender.com/health',{cache:'no-store',signal:AbortSignal.timeout(70000)});const state=await health.json();
       if(!health.ok||!state.stripeConfigured||!state.bundleCatalogReady)throw Error('Bundle checkout is temporarily unavailable. Your selections are saved; please try again shortly.');
@@ -82,6 +90,7 @@
     try{const r=await fetch('https://els-stripe-backend.onrender.com/checkout-status?session_id='+encodeURIComponent(id),{signal:AbortSignal.timeout(70000)});const data=await r.json();if(!r.ok||data.status!=='complete'||data.payment_status!=='paid'||data.livemode!==true)return;
       let pending;try{pending=JSON.parse(sessionStorage.getItem('nls-bundle-payment')||'null');}catch{}
       if(pending?.id===id){rows=[];save();try{sessionStorage.removeItem('nls-bundle-payment');}catch{}}
+      try{if(pending?.id===id){const items=(pending.rows||[]).map(trackedItem).filter(Boolean);window.NLSEcommerce?.purchase(id,items,Number(data.amount_total||0)/100);}}catch{} 
       try{if(typeof window.nlsTrackConfirmedOrder==='function')window.nlsTrackConfirmedOrder(id,data);}catch{}
       document.querySelector('main').prepend(element('p','Payment confirmed. Thank you for your order! Your Stripe confirmation includes your purchase details.','warranty'));
     }catch{document.querySelector('main').prepend(element('p','Your payment confirmation is still loading. Please check your Stripe receipt before placing another order.','warranty'));}
