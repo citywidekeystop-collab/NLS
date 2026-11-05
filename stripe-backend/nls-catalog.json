@@ -1161,5 +1161,15 @@
     "name": "Level Bolt (Matter) Invisible Retrofit Smart Lock",
     "price": 299,
     "verified": true
+  },
+  "NLS-PHILIPS-WIFI-HANDLE-MB": {
+    "name": "Philips Fingerprint Wi-Fi Smart Lock & Handle Set — Matte Black",
+    "price": 259,
+    "verified": true
+  },
+  "NLS-PHILIPS-WIFI-HANDLE-SN": {
+    "name": "Philips Fingerprint Wi-Fi Smart Lock & Handle Set — Satin Nickel",
+    "price": 259,
+    "verified": true
   }
 }
