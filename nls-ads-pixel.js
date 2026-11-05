@@ -132,3 +132,8 @@ window.nlsTrackConfirmedOrder = function (sessionId, checkout) {
     return response;
   };
 })();
+
+(function(){
+  var s=document.createElement("script");s.src="/nls-question-widget.js";s.async=true;
+  document.head.appendChild(s);
+})();
