@@ -107,6 +107,7 @@
 
   function init(){
     enableHomepageCartTracking();
+    if(Array.isArray(window.__nlsCartPriorToQuery)){reportDiff(window.__nlsCartPriorToQuery,safeCart());delete window.__nlsCartPriorToQuery;}
     installQuestionWidget();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
