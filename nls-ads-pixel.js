@@ -18,3 +18,7 @@ window.nlsTrackConfirmedOrder = function (sessionId, checkout) {
   try { localStorage.setItem(storageKey, "1"); } catch (_) {}
   return true;
 };
+
+// The existing NLS storefront includes this file on its homepage and product pages.
+// Load the separate visitor/cart instrumentation without editing its large HTML.
+(function(d){if(d.querySelector('script[data-nls-storefront-tracking]'))return;const s=d.createElement('script');s.src='/nls-storefront-tracking.js';s.setAttribute('data-nls-storefront-tracking','');d.head.appendChild(s);})(document);
