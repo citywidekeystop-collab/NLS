@@ -49,7 +49,7 @@
     }
     image.onerror=()=>{image.hidden=true;fallback.hidden=false;fallback.textContent='Product photo unavailable. Your selected style and finish are listed below.';};
     [finishField.select,sizeField.select,keyField.select].forEach(s=>s.addEventListener('change',update));
-    button.onclick=()=>{const row=selection();const existing=rows.find(r=>r.style===row.style&&r.finish===row.finish&&r.size===row.size&&r.keying===row.keying);if(existing)existing.quantity=Math.min(25,existing.quantity+1);else if(rows.length<50)rows.push(row);save();const added=analyticsItem(row);if(added)ecommerce('addToCart',added,added.price);$('announcement').textContent=style.brand+' '+style.style+' bundle added to your selections.';openSelections();};
+    button.onclick=()=>{const row=selection();const existing=rows.find(r=>r.style===row.style&&r.finish===row.finish&&r.size===row.size&&r.keying===row.keying);if(existing)existing.quantity=Math.min(25,existing.quantity+1);else if(rows.length<50)rows.push(row);save();const added=analyticsItem(row);if(added&&existing?.quantity!==25)ecommerce('addToCart',added,added.price);$('announcement').textContent=style.brand+' '+style.style+' bundle added to your selections.';openSelections();};
     update();return article;
   }
   function renderGrid(){const value=$('brandFilter').value;const grid=$('bundleGrid');grid.replaceChildren();styles.filter(s=>s.group!=='keypad'&&(value==='all'||s.brand===value)).forEach(s=>grid.append(card(s)));const keypad=$('keypadGrid');keypad.replaceChildren();styles.filter(s=>s.group==='keypad').forEach(s=>keypad.append(card(s)));}
@@ -84,12 +84,13 @@
     const params=new URLSearchParams(location.search);if(params.get('checkout')!=='success')return;const id=params.get('session_id');if(!/^cs_live_[A-Za-z0-9_]+$/.test(id||''))return;
     try{const r=await fetch('https://els-stripe-backend.onrender.com/checkout-status?session_id='+encodeURIComponent(id),{signal:AbortSignal.timeout(70000)});const data=await r.json();if(!r.ok||data.status!=='complete'||data.payment_status!=='paid'||data.livemode!==true)return;
       let pending;try{pending=JSON.parse(sessionStorage.getItem('nls-bundle-payment')||'null');}catch{}
-      if(pending?.id===id){rows=[];save();try{sessionStorage.removeItem('nls-bundle-payment');}catch{}}
+      if(pending?.id===id){rows=[];save();}
       try{if(typeof window.nlsTrackConfirmedOrder==='function')window.nlsTrackConfirmedOrder(id,data);}catch{}
       if(pending?.id===id && Number.isSafeInteger(data.amount_total)){
         const items=pending.rows.map(analyticsItem).filter(Boolean);
         const key='nls-ga4-purchase:'+id;try{if(!localStorage.getItem(key)){ecommerce('purchase',id,items,data.amount_total/100);localStorage.setItem(key,'1');}}catch{ecommerce('purchase',id,items,data.amount_total/100);}
       }
+      if(pending?.id===id){try{sessionStorage.removeItem('nls-bundle-payment');}catch{}}
       document.querySelector('main').prepend(element('p','Payment confirmed. Thank you for your order! Your Stripe confirmation includes your purchase details.','warranty'));
     }catch{document.querySelector('main').prepend(element('p','Your payment confirmation is still loading. Please check your Stripe receipt before placing another order.','warranty'));}
   }
