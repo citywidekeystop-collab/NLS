@@ -1,0 +1,17 @@
+/* Model-family inquiry listings — no product-image or stock claims. */
+.nls-deadbolt-illustration{min-height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:18px 10px;background:linear-gradient(145deg,#edf5fb,#f8fbfe);text-align:center;color:#5b7185}
+.nls-deadbolt-illustration img{width:106px;height:106px;object-fit:contain}
+.nls-deadbolt-illustration small{font-size:10px;color:#5e7184;line-height:1.25}
+.nls-deadbolt-hero-art .nls-deadbolt-illustration{min-height:350px;border:1px solid #dbe5ee;border-radius:14px}
+.nls-deadbolt-hero-art .nls-deadbolt-illustration img{width:196px;height:196px}
+.nls-deadbolt-price{font-size:20px!important;font-weight:800;color:#103756!important}
+.nls-deadbolt-inquiry .nls-exp-info h2{min-height:2.8em}
+.nls-deadbolt-cta{display:block;max-width:440px;margin:20px 0}
+.nls-deadbolt-disclaimer{font-size:13px;color:#516479}
+.nls-deadbolt-warning{font-size:14px;padding:12px 14px;background:#fff4de;border-left:4px solid #bf7a20}
+.nls-deadbolt-request{max-width:740px;margin:24px auto;padding:26px;background:#fff;border-radius:12px;border:1px solid #d6e5ef}
+.nls-deadbolt-request form{display:grid;gap:15px}
+.nls-deadbolt-request label{display:grid;gap:5px;font-size:14px;font-weight:700}
+.nls-deadbolt-request input,.nls-deadbolt-request textarea{width:100%;box-sizing:border-box;border:1px solid #b9cbd8;border-radius:7px;padding:12px;font:inherit}
+.nls-deadbolt-request textarea{min-height:125px;resize:vertical}
+@media(max-width:640px){.nls-deadbolt-hero-art .nls-deadbolt-illustration{min-height:220px}.nls-deadbolt-request{padding:17px}}
