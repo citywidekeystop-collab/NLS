@@ -9,7 +9,7 @@
    if(!family||(currentCategory!=='all'&&currentCategory!=='accessories'))return original();
    let matches=products.filter(p=>p.accessoryFamily===family);
    const colors=[...new Set(matches.map(p=>p.variant.toLowerCase()))].sort((a,b)=>b.length-a.length);
-   const color=colors.find(color=>q.includes(color));if(color)matches=matches.filter(p=>p.variant.toLowerCase()===color);
+   const color=colors.find(color=>(' '+q+' ').includes(' '+color+' '));if(color)matches=matches.filter(p=>p.variant.toLowerCase()===color);
    displayProducts(matches);
   };if(input.value)window.searchProducts();};document.head.append(script);
  }
