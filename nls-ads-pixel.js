@@ -153,3 +153,8 @@ window.nlsTrackConfirmedOrder = function (sessionId, checkout) {
   var s=document.createElement("script");s.src="/nls-question-widget.js";s.async=true;
   document.head.appendChild(s);
 })();
+
+// Shared storefront installation options, separate from analytics events.
+(function(){
+ var script=document.createElement('script');script.src='/nls-installation-options.js';script.async=true;document.head.appendChild(script);
+})();
