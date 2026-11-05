@@ -6,6 +6,19 @@
   var allowed = new Set(["page_view", "view_item", "add_to_cart", "remove_from_cart", "begin_checkout", "purchase"]);
   window.dataLayer = window.dataLayer || [];
   function consented() { try { return localStorage.getItem(CONSENT_KEY) === "yes"; } catch (_) { return false; } }
+  var googleReady = false;
+  function initGoogleAds() {
+    if (!consented() || googleReady) return;
+    googleReady = true;
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("set", "allow_ad_personalization_signals", false);
+    window.gtag("config", "AW-16693027016");
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=AW-16693027016";
+    document.head.appendChild(script);
+  }
   function cleanItem(item) {
     if (!item || typeof item !== "object") return null;
     var x = { item_id: String(item.item_id || "").slice(0, 90), item_name: String(item.item_name || "").slice(0, 180) };
@@ -17,6 +30,15 @@
   function send(name, payload) {
     if (!allowed.has(name) || !consented()) return;
     var e = payload && typeof payload === "object" ? payload : {};
+    initGoogleAds();
+    if (name === "purchase" && Number.isFinite(e.value) && e.value >= 0) {
+      window.gtag("event", "conversion", {
+        send_to: "AW-16693027016/cbn0CKrD57IdEMjB7Zc-",
+        value: e.value,
+        currency: e.currency,
+        transaction_id: e.transaction_id
+      });
+    }
     window.dataLayer.push({ecommerce:null});
     window.dataLayer.push({event:name, ecommerce:e});
     if (typeof window.oaiq !== "function" || name === "purchase" || name === "remove_from_cart") return;
@@ -67,7 +89,7 @@
     var b=document.createElement("section");
     b.setAttribute("aria-label","Shopping analytics choice");
     b.style.cssText="position:fixed;bottom:12px;left:12px;right:12px;z-index:2147483000;max-width:550px;margin:auto;background:#112c40;color:white;border-radius:12px;padding:14px 16px;font:14px/1.5 Arial,sans-serif;box-shadow:0 5px 25px #0005";
-    var p=document.createElement("p");p.textContent="NLS uses optional shopping analytics to understand product views and cart activity. No payment details are included.";p.style.margin="0 0 10px";
+    var p=document.createElement("p");p.textContent="NLS uses optional analytics and advertising measurement to understand product views, cart activity, and purchases, including through Google Ads and OpenAI Ads. No card details are included.";p.style.margin="0 0 10px";
     var buttons=document.createElement("div");buttons.style.cssText="display:flex;gap:10px";
     function button(text,yes){
       var el=document.createElement("button");el.type="button";el.textContent=text;
