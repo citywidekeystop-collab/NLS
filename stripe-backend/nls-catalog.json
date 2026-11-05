@@ -1156,5 +1156,10 @@
     "name": "TP-Link Tapo DL100 Smart Wi-Fi Deadbolt Door Lock — Black",
     "price": 134.99,
     "verified": true
+  },
+  "NLS-LEVEL-BOLT-MATTER": {
+    "name": "Level Bolt (Matter) Invisible Retrofit Smart Lock",
+    "price": 299,
+    "verified": true
   }
 }
