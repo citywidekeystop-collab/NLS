@@ -2,6 +2,7 @@
  'use strict';
  const note='Compatible, pre-drilled doors. Extra cutting or door modifications quoted separately. Service availability and appointment confirmed before work.';
  function rate(product){
+  if(product.installationEligible===false||product.category==='accessories'||String(product.sku||'').startsWith('NLS-ACC-')||/keychain|key lanyard|key carabiner|key ring|key accessory/i.test(product.name||''))return null;
   const text=[product.name,product.category,product.type].filter(Boolean).join(' ');
   const pair=Boolean(product.secondaryImage)||/handleset|handle[ -]?set|combo|bundle|deadbolt.*(?:knob|handle|lever)|(?:knob|handle|lever).*deadbolt/i.test(text);
   return {price:pair?99:65,label:pair?'Top deadbolt + bottom handle or knob (2 installs)':'One lock (1 install)',unit:pair?'per door set':'per lock'};
@@ -22,7 +23,7 @@
   const supply=form.elements.lockSupply;if(supply)supply.value='I bought / will buy from NLS';
  }
  function option(product){
-  const quote=rate(product);const box=document.createElement('div');box.className='nls-install-option';
+  const quote=rate(product);const box=document.createElement('div');box.className='nls-install-option';if(!quote){box.hidden=true;return box;}
   const label=document.createElement('label');const checkbox=document.createElement('input');checkbox.type='checkbox';
   label.append(checkbox,document.createTextNode(' Optional installation: $'+quote.price+' '+quote.unit));
   const scope=document.createElement('small');scope.textContent=quote.label+'. '+note+' Installation is arranged separately; hardware checkout does not include this service.';
@@ -32,6 +33,8 @@
   box.addEventListener('click',event=>event.stopPropagation());box.append(label,scope,action);return box;
  }
  function install(){
+  const nav=document.querySelector('.nav-inner,.nls-main-nav');if(nav&&!nav.querySelector('a[href="/key-accessories.html"]')){const link=document.createElement('a');link.href='/key-accessories.html';link.textContent='KEY ACCESSORIES';link.style.cssText='display:inline-block;padding:12px;color:inherit;font-weight:700;text-decoration:none';nav.append(link);}
+
   const style=document.createElement('style');style.textContent='.nls-install-option{margin:12px 0;padding:12px;border:1px solid #cbd8e2;border-radius:8px;background:#f2f7fb;color:#173249;font:14px/1.5 Arial,sans-serif}.nls-install-option label{display:flex;align-items:center;gap:7px;font-weight:700}.nls-install-option input{width:18px;height:18px;margin:0;flex-shrink:0}.nls-install-option small{display:block;margin:5px 0;color:#465968}.nls-install-option button{margin-top:6px;padding:10px 12px;font-size:12px;background:#123a55;color:#fff;border:0;border-radius:5px;cursor:pointer}.nls-install-option button[hidden]{display:none}';document.head.append(style);
   const offer=document.querySelector('.installation-offer');if(offer)offer.textContent='$65 for one lock • $99 for a top deadbolt + bottom handle or knob (2 installs).';
   const banner=document.querySelector('#installation strong');if(banner)banner.textContent='$65 PER LOCK • $99 PER DEADBOLT + BOTTOM HANDLE OR KNOB SET';
