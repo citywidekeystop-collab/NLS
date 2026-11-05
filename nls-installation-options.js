@@ -37,7 +37,7 @@
   const banner=document.querySelector('#installation strong');if(banner)banner.textContent='$65 PER LOCK • $99 PER DEADBOLT + BOTTOM HANDLE OR KNOB SET';
   function refresh(){
    document.querySelectorAll('[data-product-sku]').forEach(card=>{if(card.querySelector('.nls-install-option'))return;const sku=decodeURIComponent(card.dataset.productSku);let p;try{p=products.find(x=>x.sku===sku);}catch(_){}if(!p)return;const container=card.querySelector('.product-info')||card;container.append(option(p));});
-   document.querySelectorAll('.nls-exp-card,.nls-listing').forEach(card=>{if(card.querySelector('.nls-install-option'))return;const title=card.querySelector('h2');if(title)(card.querySelector('.nls-exp-info')||card).append(option({name:title.textContent,category:card.querySelectorAll('.nls-exp-photo img').length>1?'bundle':''}));});
+   document.querySelectorAll('.nls-exp-card,.grid>article,.cart-line').forEach(card=>{if(card.querySelector('.nls-install-option'))return;const title=card.querySelector('h2,h3');if(title)(card.querySelector('.nls-exp-info')||card).append(option({name:title.textContent,category:card.querySelectorAll('.nls-exp-photo img').length>1?'bundle':''}));});
    document.querySelectorAll('.bundle-card').forEach(card=>{
     const title=card.querySelector('h3');if(!title)return;
     const selection=[...card.querySelectorAll('select')].map(x=>x.selectedOptions[0]?.textContent||'').join(' · ');
