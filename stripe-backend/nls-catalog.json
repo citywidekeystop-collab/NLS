@@ -1151,5 +1151,10 @@
     "name": "Kwikset SmartCode 270 + Balboa Passage Lever — Satin Nickel",
     "price": 280.94,
     "verified": true
+  },
+  "NLS-TAPO-DL100-BLK": {
+    "name": "TP-Link Tapo DL100 Smart Wi-Fi Deadbolt Door Lock — Black",
+    "price": 134.99,
+    "verified": true
   }
 }
