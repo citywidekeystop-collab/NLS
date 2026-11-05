@@ -72,7 +72,7 @@
     function button(text,yes){
       var el=document.createElement("button");el.type="button";el.textContent=text;
       el.style.cssText="border:1px solid #fff9;border-radius:7px;padding:7px 14px;cursor:pointer;background:"+(yes?"#fff":"transparent")+";color:"+(yes?"#112c40":"#fff")+";font-weight:bold";
-      el.onclick=function(){try{localStorage.setItem(CONSENT_KEY,yes?"yes":"no");}catch(_){}b.remove();if(yes)trackPage();};
+      el.onclick=function(){try{localStorage.setItem(CONSENT_KEY,yes?"yes":"no");}catch(_){}b.remove();if(yes){if(typeof window.nlsInitAdsPixel==="function")window.nlsInitAdsPixel();trackPage();}};
       return el;
     }
     buttons.append(button("Allow analytics",true),button("No thanks",false));
