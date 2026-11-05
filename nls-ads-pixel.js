@@ -1,8 +1,8 @@
-!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"7zRTA7E54AgswVzQscPZ6S",debug:true});
+!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"7zRTA7E54AgswVzQscPZ6S",debug:false});
 
 // Called only with the response from the server's Stripe session verification.
 window.nlsTrackConfirmedOrder = function (sessionId, checkout) {
-  if (!/^cs_live_[A-Za-z0-9]+$/.test(sessionId) ||
+  if (!/^cs_live_[A-Za-z0-9_]+$/.test(sessionId) ||
       checkout.status !== "complete" || checkout.payment_status !== "paid" ||
       checkout.livemode !== true || !Number.isSafeInteger(checkout.amount_total) ||
       checkout.amount_total < 0 || !/^[a-z]{3}$/i.test(checkout.currency || "") ||
@@ -18,3 +18,13 @@ window.nlsTrackConfirmedOrder = function (sessionId, checkout) {
   try { localStorage.setItem(storageKey, "1"); } catch (_) {}
   return true;
 };
+
+/* Load NLS's consent-aware analytics module on storefront, catalog and detail pages. */
+(function () {
+  if (document.querySelector('script[data-nls-ecommerce]')) return;
+  var script=document.createElement('script');
+  script.src='/nls-ecommerce-events.js';
+  script.async=true;
+  script.dataset.nlsEcommerce='1';
+  document.head.appendChild(script);
+})();
