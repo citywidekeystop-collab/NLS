@@ -1,4 +1,20 @@
-!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"7zRTA7E54AgswVzQscPZ6S",debug:false});
+/* The advertising pixel starts only after the visitor allows optional analytics. */
+(function(){
+  var key="nls-shopping-analytics-consent-v1";
+  window.nlsAnalyticsConsentGranted=function(){try{return localStorage.getItem(key)==="yes";}catch(_){return false;}};
+  window.nlsInitAdsPixel=function(){
+    if(!window.nlsAnalyticsConsentGranted()||window.nlsPixelInitialized)return;
+    window.nlsPixelInitialized=true;
+    (function(w,d,s,u){
+      if(w.oaiq)return;
+      var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;
+      var j=d.createElement(s);j.async=true;j.src=u;
+      d.head.appendChild(j);
+    })(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+    window.oaiq("init",{pixelId:"7zRTA7E54AgswVzQscPZ6S",debug:false});
+  };
+  window.nlsInitAdsPixel();
+})();
 
 // Called only with the response from the server's Stripe session verification.
 window.nlsTrackConfirmedOrder = function (sessionId, checkout) {
@@ -6,7 +22,7 @@ window.nlsTrackConfirmedOrder = function (sessionId, checkout) {
       checkout.status !== "complete" || checkout.payment_status !== "paid" ||
       checkout.livemode !== true || !Number.isSafeInteger(checkout.amount_total) ||
       checkout.amount_total < 0 || !/^[a-z]{3}$/i.test(checkout.currency || "") ||
-      typeof window.oaiq !== "function") return false;
+      (typeof window.nlsAnalyticsConsentGranted !== "function" || !window.nlsAnalyticsConsentGranted()) || typeof window.oaiq !== "function") return false;
   var eventId = "nls_" + sessionId;
   var storageKey = "nls-order-tracked:" + eventId;
   try { if (localStorage.getItem(storageKey)) return false; } catch (_) {}
