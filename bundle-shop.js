@@ -4,6 +4,8 @@
   const $=id=>document.getElementById(id);
   const money=cents=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(cents/100);
   const storageKey='nls-bundle-selections-v1';
+  const ecommerce=(name,...args)=>{try{window.NLSEcommerce?.[name]?.(...args);}catch(_){}};
+  const analyticsItem=(row)=>{const d=resolve(row);return d?{item_id:d.sku,item_name:d.style.brand+' '+d.style.style, item_variant:d.variant.finish,price:d.cents===null?undefined:d.cents/100,quantity:row.quantity}:null;};
   let rows=[],storageOK=true,busy=false;
   function element(tag,text,cls){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;}
   function resolve(row){
@@ -47,14 +49,14 @@
     }
     image.onerror=()=>{image.hidden=true;fallback.hidden=false;fallback.textContent='Product photo unavailable. Your selected style and finish are listed below.';};
     [finishField.select,sizeField.select,keyField.select].forEach(s=>s.addEventListener('change',update));
-    button.onclick=()=>{const row=selection();const existing=rows.find(r=>r.style===row.style&&r.finish===row.finish&&r.size===row.size&&r.keying===row.keying);if(existing)existing.quantity=Math.min(25,existing.quantity+1);else if(rows.length<50)rows.push(row);save();$('announcement').textContent=style.brand+' '+style.style+' bundle added to your selections.';openSelections();};
+    button.onclick=()=>{const row=selection();const existing=rows.find(r=>r.style===row.style&&r.finish===row.finish&&r.size===row.size&&r.keying===row.keying);if(existing)existing.quantity=Math.min(25,existing.quantity+1);else if(rows.length<50)rows.push(row);save();const added=analyticsItem(row);if(added)ecommerce('addToCart',added,added.price);$('announcement').textContent=style.brand+' '+style.style+' bundle added to your selections.';openSelections();};
     update();return article;
   }
   function renderGrid(){const value=$('brandFilter').value;const grid=$('bundleGrid');grid.replaceChildren();styles.filter(s=>s.group!=='keypad'&&(value==='all'||s.brand===value)).forEach(s=>grid.append(card(s)));const keypad=$('keypadGrid');keypad.replaceChildren();styles.filter(s=>s.group==='keypad').forEach(s=>keypad.append(card(s)));}
   function renderSelections(){
     $('selectionCount').textContent=rows.reduce((n,r)=>n+r.quantity,0);$('storageNotice').hidden=storageOK;const target=$('selectionRows');target.replaceChildren();let subtotal=0,quotes=0;
     rows.forEach((row,index)=>{const {style,variant,size,keying,cents}=resolve(row);const line=element('div',undefined,'selection-row');const text=element('div');text.append(element('h3',style.brand+' '+style.style+' — '+variant.finish),element('p',size.label),element('p',keying.label));
-      const label=element('label','Bundle quantity');const input=element('input');input.type='number';input.min='1';input.max='25';input.step='1';input.value=row.quantity;input.setAttribute('aria-label','Quantity of '+style.brand+' '+style.style+' bundles');input.onchange=()=>{const n=Number(input.value);if(!Number.isInteger(n)||n<1||n>25){input.value=row.quantity;return;}row.quantity=n;save();};label.append(input);const remove=element('button','Remove','remove');remove.type='button';remove.onclick=()=>{rows.splice(index,1);save();};text.append(label,remove);line.append(text,element('strong',cents===null?'Quote required':money(cents*row.quantity)));target.append(line);if(cents===null)quotes+=row.quantity;else subtotal+=cents*row.quantity;
+      const label=element('label','Bundle quantity');const input=element('input');input.type='number';input.min='1';input.max='25';input.step='1';input.value=row.quantity;input.setAttribute('aria-label','Quantity of '+style.brand+' '+style.style+' bundles');input.onchange=()=>{const n=Number(input.value);if(!Number.isInteger(n)||n<1||n>25){input.value=row.quantity;return;}const old=row.quantity;row.quantity=n;save();const changed=analyticsItem({...row,quantity:Math.abs(n-old)});if(changed&&n!==old)ecommerce(n>old?'addToCart':'removeFromCart',changed,changed.price*changed.quantity);};label.append(input);const remove=element('button','Remove','remove');remove.type='button';remove.onclick=()=>{const removed=analyticsItem(row);rows.splice(index,1);save();if(removed)ecommerce('removeFromCart',removed,removed.price*removed.quantity);};text.append(label,remove);line.append(text,element('strong',cents===null?'Quote required':money(cents*row.quantity)));target.append(line);if(cents===null)quotes+=row.quantity;else subtotal+=cents*row.quantity;
     });
     if(!rows.length)target.append(element('p','Choose a bundle to begin your request.'));
     $('selectionTotals').textContent=quotes?('Priced selections: '+money(subtotal)+' + '+quotes+' bundle'+(quotes===1?'':'s')+' awaiting a quote. Final total pending.'):'Merchandise subtotal: '+money(subtotal);
@@ -73,6 +75,7 @@
       const response=await fetch('https://els-stripe-backend.onrender.com/create-checkout-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items,returnPath:'/lock-bundles.html'}),signal:AbortSignal.timeout(70000)});const data=await response.json();
       if(!response.ok||!data.url)throw Error(data.error||'Checkout could not be opened.');const url=new URL(data.url);if(url.protocol!=='https:'||url.hostname!=='checkout.stripe.com')throw Error('Secure checkout URL could not be verified.');
       try{sessionStorage.setItem('nls-bundle-payment',JSON.stringify({id:data.sessionId,rows}));}catch{}
+      const selected=rows.map(analyticsItem).filter(Boolean);ecommerce('beginCheckout',selected,selected.reduce((total,item)=>total+(item.price||0)*item.quantity,0));
       location.assign(url.href);
     }catch(error){$('checkoutError').textContent=error.message;}finally{busy=false;renderSelections();}
   };
@@ -83,6 +86,10 @@
       let pending;try{pending=JSON.parse(sessionStorage.getItem('nls-bundle-payment')||'null');}catch{}
       if(pending?.id===id){rows=[];save();try{sessionStorage.removeItem('nls-bundle-payment');}catch{}}
       try{if(typeof window.nlsTrackConfirmedOrder==='function')window.nlsTrackConfirmedOrder(id,data);}catch{}
+      if(pending?.id===id && Number.isSafeInteger(data.amount_total)){
+        const items=pending.rows.map(analyticsItem).filter(Boolean);
+        const key='nls-ga4-purchase:'+id;try{if(!localStorage.getItem(key)){ecommerce('purchase',id,items,data.amount_total/100);localStorage.setItem(key,'1');}}catch{ecommerce('purchase',id,items,data.amount_total/100);}
+      }
       document.querySelector('main').prepend(element('p','Payment confirmed. Thank you for your order! Your Stripe confirmation includes your purchase details.','warranty'));
     }catch{document.querySelector('main').prepend(element('p','Your payment confirmation is still loading. Please check your Stripe receipt before placing another order.','warranty'));}
   }
