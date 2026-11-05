@@ -23,6 +23,21 @@
       '<label style="font-size:13px">What can we help with?<textarea name="message" required maxlength="1200" rows="4" style="box-sizing:border-box;width:100%;padding:9px;border:1px solid #bac9d1;border-radius:6px;display:block;resize:vertical"></textarea></label>'+
       '<button type="submit" style="background:#123d55;color:#fff;padding:11px;border:0;border-radius:7px;font-weight:bold;cursor:pointer">Send question to NLS</button>'+
       '</form><p style="font-size:12px;margin:12px 0 0">Need immediate help? <a style="color:#0e5479;font-weight:bold" href="tel:+14435781686">Call 443-578-1686</a>.</p>';
+    // Give the owner actionable context without transmitting checkout session IDs.
+    var form=panel.querySelector('form');
+    var reply=document.createElement('input');reply.type='hidden';reply.name='_replyto';
+    var page=document.createElement('input');page.type='hidden';page.name='_url';
+    page.value=location.origin+location.pathname;
+    var cartDetails=document.createElement('input');cartDetails.type='hidden';cartDetails.name='Products in cart (SKU / qty)';
+    form.append(reply,page,cartDetails);
+    form.addEventListener('submit',function(){
+      reply.value=form.querySelector('input[name="email"]').value.trim();
+      try {
+        var rows=JSON.parse(localStorage.getItem('nls-cart-v1')||'[]');
+        cartDetails.value=Array.isArray(rows)?rows.filter(function(x){return x&&typeof x.sku==='string'&&Number.isInteger(x.quantity);})
+          .slice(0,20).map(function(x){return x.sku.slice(0,70)+' × '+Math.min(25,x.quantity);}).join('; '):'';
+      }catch(_){cartDetails.value='';}
+    });
     button.onclick=function(){panel.hidden=!panel.hidden;button.setAttribute("aria-expanded",String(!panel.hidden));if(!panel.hidden)panel.querySelector('[name="name"]').focus();};
     panel.querySelector("#nls-question-close").onclick=function(){panel.hidden=true;button.setAttribute("aria-expanded","false");button.focus();};
     panel.addEventListener("keydown",function(e){if(e.key==="Escape"){panel.hidden=true;button.setAttribute("aria-expanded","false");button.focus();}});
