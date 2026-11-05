@@ -1,7 +1,9 @@
 (function(){
  'use strict';
- const families=window.NLSAccessoryFamilies||[];
+ const selected=(document.querySelector('main')?.dataset.accessoryGroups||'').split(',').filter(Boolean);
+ const families=(window.NLSAccessoryFamilies||[]).filter(f=>!selected.length||selected.includes(f.id));
  const grid=document.getElementById('accessoryGrid');if(!grid)return;
+ grid.replaceChildren();
  const money=value=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(value);
  document.getElementById('accessoryCount').textContent=families.length+' styles · '+families.reduce((sum,f)=>sum+f.products.length,0)+' color and pack options';
  function node(tag,text){const x=document.createElement(tag);if(text)x.textContent=text;return x;}

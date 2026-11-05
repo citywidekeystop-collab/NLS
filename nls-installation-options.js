@@ -33,6 +33,8 @@
   box.addEventListener('click',event=>event.stopPropagation());box.append(label,scope,action);return box;
  }
  function install(){
+  if(document.getElementById('search')){const script=document.createElement('script');script.src='/nls-accessory-search.js';script.async=true;document.head.appendChild(script);}
+
   const nav=document.querySelector('.nav-inner,.nls-main-nav');if(nav&&!nav.querySelector('a[href="/key-accessories.html"]')){const link=document.createElement('a');link.href='/key-accessories.html';link.textContent='KEY ACCESSORIES';link.style.cssText='display:inline-block;padding:12px;color:inherit;font-weight:700;text-decoration:none';nav.append(link);}
 
   const style=document.createElement('style');style.textContent='.nls-install-option{margin:12px 0;padding:12px;border:1px solid #cbd8e2;border-radius:8px;background:#f2f7fb;color:#173249;font:14px/1.5 Arial,sans-serif}.nls-install-option label{display:flex;align-items:center;gap:7px;font-weight:700}.nls-install-option input{width:18px;height:18px;margin:0;flex-shrink:0}.nls-install-option small{display:block;margin:5px 0;color:#465968}.nls-install-option button{margin-top:6px;padding:10px 12px;font-size:12px;background:#123a55;color:#fff;border:0;border-radius:5px;cursor:pointer}.nls-install-option button[hidden]{display:none}';document.head.append(style);
