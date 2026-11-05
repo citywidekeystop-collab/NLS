@@ -41,7 +41,7 @@
     removeFromCart:function(item,value){var i=cleanItem(item);if(i)send("remove_from_cart",{currency:"USD",value:Number(value)||0,items:[i]});},
     beginCheckout:function(items,value){send("begin_checkout",{currency:"USD",value:Number(value)||0,items:(items||[]).map(cleanItem).filter(Boolean)});},
     purchase:function(transactionId,items,value){
-      if(typeof transactionId!=="string" || !/^cs_live_[A-Za-z0-9_]+$/.test(transactionId)) return;
+      if(!consented() || typeof transactionId!=="string" || !/^cs_live_[A-Za-z0-9_]+$/.test(transactionId)) return;
       var key="nls-analytics-purchase-"+transactionId;
       try { if(localStorage.getItem(key))return; }catch(_){}
       send("purchase",{transaction_id:transactionId,currency:"USD",value:Number(value)||0,items:(items||[]).map(cleanItem).filter(Boolean)});
