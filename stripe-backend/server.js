@@ -306,7 +306,7 @@ app.post("/citywide/keypad-checkout",async(req,res)=>{
   try {
     const b=req.body?.booking || {};
     const id=String(req.body?.bookingId||"");
-    if(!/^[A-F0-9]{14}$/.test(id) || !["Bowie","Crofton"].includes(b.city) ||
+    if(!/^[A-F0-9]{14}$/.test(id) || !["Bowie","Crofton","Annapolis"].includes(b.city) ||
        !b.name || !b.phone || !b.address) return res.status(400).json({error:"Invalid booking"});
     const meta=JSON.stringify({
       name:String(b.name).slice(0,90),phone:String(b.phone).slice(0,28),
@@ -321,7 +321,7 @@ app.post("/citywide/keypad-checkout",async(req,res)=>{
       line_items:[{price_data:{currency:"usd",unit_amount:KEYPAD_AMOUNT,
         product_data:{
           name:"Citywide Wi-Fi Keypad Lock + Handle/Knob — Installation Included",
-          description:"$369 complete standard installation package in Bowie or Crofton, MD. Dispatch confirms appointment."
+          description:"$369 complete standard installation package in Bowie, Crofton or Annapolis, MD. Dispatch confirms appointment."
         }},quantity:1}],
       phone_number_collection:{enabled:true},
       ...(b.email?{customer_email:String(b.email).slice(0,120)}:{}),
