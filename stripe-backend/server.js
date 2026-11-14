@@ -294,6 +294,11 @@ function authorizedCitywide(req) {
   if(!secret || !supplied || supplied.length!==secret.length)return false;
   return crypto.timingSafeEqual(Buffer.from(secret),Buffer.from(supplied));
 }
+app.get("/citywide/keypad-integration-ready",(req,res)=>{
+  res.set("Cache-Control","no-store");
+  if(!authorizedCitywide(req))return res.status(401).json({ready:false});
+  return res.json({ready:Boolean(stripe),checkoutConfigured:Boolean(stripe),offer:KEYPAD_OFFER,amountCents:KEYPAD_AMOUNT,currency:"usd"});
+});
 app.post("/citywide/keypad-checkout",async(req,res)=>{
   res.set("Cache-Control","no-store");
   if(!authorizedCitywide(req))return res.status(401).json({error:"Unauthorized"});
