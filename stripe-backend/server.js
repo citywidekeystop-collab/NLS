@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import Stripe from "stripe";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -281,6 +282,63 @@ error: "Session not found"
 });
 }
 });
+
+
+// Citywide locksmith installation checkout. Separate from NLS merchandise,
+// and accessible only from Citywide's server using a shared private token.
+const KEYPAD_OFFER = "bowie-crofton-keypad-369";
+const KEYPAD_AMOUNT = 36900;
+function authorizedCitywide(req) {
+  const secret=process.env.CITYWIDE_CHECKOUT_SHARED_TOKEN || "";
+  const supplied=String(req.get("x-citywide-checkout-token")||"");
+  if(!secret || !supplied || supplied.length!==secret.length)return false;
+  return crypto.timingSafeEqual(Buffer.from(secret),Buffer.from(supplied));
+}
+app.post("/citywide/keypad-checkout",async(req,res)=>{
+  res.set("Cache-Control","no-store");
+  if(!authorizedCitywide(req))return res.status(401).json({error:"Unauthorized"});
+  if(!stripe)return res.status(503).json({error:"Stripe account unavailable"});
+  try {
+    const b=req.body?.booking || {};
+    const id=String(req.body?.bookingId||"");
+    if(!/^[A-F0-9]{14}$/.test(id) || !["Bowie","Crofton"].includes(b.city) ||
+       !b.name || !b.phone || !b.address) return res.status(400).json({error:"Invalid booking"});
+    const meta=JSON.stringify({
+      name:String(b.name).slice(0,90),phone:String(b.phone).slice(0,28),
+      city:b.city,address:String(b.address).slice(0,200),
+      finish:String(b.finish||"").slice(0,30),hardware:String(b.hardware||"").slice(0,40),
+      date:String(b.date||"").slice(0,12),time:String(b.time||"").slice(0,35),
+      paymentPreference:"online"
+    });
+    if(meta.length>490)return res.status(400).json({error:"Booking information too long"});
+    const session=await stripe.checkout.sessions.create({
+      mode:"payment",
+      line_items:[{price_data:{currency:"usd",unit_amount:KEYPAD_AMOUNT,
+        product_data:{
+          name:"Citywide Wi-Fi Keypad Lock + Handle/Knob — Installation Included",
+          description:"$369 complete standard installation package in Bowie or Crofton, MD. Dispatch confirms appointment."
+        }},quantity:1}],
+      phone_number_collection:{enabled:true},
+      ...(b.email?{customer_email:String(b.email).slice(0,120)}:{}),
+      client_reference_id:id,
+      metadata:{offer:KEYPAD_OFFER,booking_id:id,booking:meta},
+      success_url:"https://citywidelockandkey.com/bowie-crofton-keypad.html?payment=success&session_id={CHECKOUT_SESSION_ID}",
+      cancel_url:"https://citywidelockandkey.com/bowie-crofton-keypad.html?payment=cancelled"
+    });
+    return res.json({url:session.url,sessionId:session.id});
+  }catch(e){console.error("Citywide hosted Checkout failed",e.message);return res.status(503).json({error:"Payment checkout unavailable. Dispatch can help by phone."});}
+});
+app.get("/citywide/keypad-payment-status",async(req,res)=>{
+  res.set("Cache-Control","no-store");
+  if(!authorizedCitywide(req))return res.status(401).json({error:"Unauthorized"});
+  const id=String(req.query.session_id||"");
+  if(!/^cs_(live|test)_[A-Za-z0-9_]+$/.test(id) || !stripe)return res.status(400).json({paid:false});
+  try{
+    const s=await stripe.checkout.sessions.retrieve(id);
+    return res.json({paid:s.payment_status==="paid" && s.amount_total===KEYPAD_AMOUNT && s.currency==="usd" && s.metadata?.offer===KEYPAD_OFFER && s.livemode===true});
+  }catch(e){return res.status(404).json({paid:false});}
+});
+console.info("NLS_CITYWIDE_CHECKOUT_CONFIG",JSON.stringify({stripeConfigured:Boolean(stripe),sharedTokenConfigured:Boolean(process.env.CITYWIDE_CHECKOUT_SHARED_TOKEN)}));
 
 app.listen(PORT, "0.0.0.0", () => {
 console.log(
